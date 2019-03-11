@@ -12,7 +12,9 @@ import { CartComponent } from './pages/cart/cart.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { FooterComponent } from './commons/footer/footer.component';
 import { ProfilComponent } from './pages/profil/profil.component';
+
 import { AppRoutingModule } from './app-routing.module';
+import {RouterModule} from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,7 @@ import { AppRoutingModule } from './app-routing.module';
   imports: [
     BrowserModule,
     MDBBootstrapModule,
-    AppRoutingModule
+    RouterModule.forRoot(AppRoutingModule),
   ],
   providers: [],
   bootstrap: [AppComponent]
