@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MDBModalRef, MDBModalService } from 'angular-bootstrap-md';
+import {LoginComponent} from '../../pages/login/login.component';
 
 @Component({
   selector: 'app-navbar',
@@ -6,18 +8,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
+  modalRef: MDBModalRef;
 
-  constructor() { }
+  constructor(private modalService: MDBModalService) { }
 
   ngOnInit() {
   }
 
   openLoginSigninModal() {
-    console.log('open modal');
-    // this.modalRef = this.modalService.show(AddAccesComponent, {class: 'modal-lg'});
-    // this.modalRef.content.onClose = (newAcces) => {
-    //   this.modalRef.hide();
-    //   this.accesses.unshift(newAcces);
+    this.modalRef = this.modalService.show(LoginComponent);
   }
-
 }
