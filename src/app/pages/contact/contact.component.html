@@ -2,28 +2,65 @@
 <div class="d-flex justify-content-center h-100">
     <div class="card">
     <div class="card-body">
-        <form action="" method="post" class="form-signin">
+
+        <!-- FORM START -->
+        <form class="form-signin"
+              [formGroup]="contactForm"
+              (ngSubmit)="onSubmit()"
+        >
             <legend class="text-center">Contact</legend>
-            <div class="input-group form-group">
-                <div class="md-form">
-                    <input mdbInput type="text" id="form1" class="form-control">
-                    <label for="form1" class="">E-mail</label>
-                  </div>
-
-            </div>
-            <div class="input-group form-group">
-                <div class="md-form">
-                    <input mdbInput type="text" id="form1" class="form-control">
-                    <label for="form1" class="">Nom & Prénom</label>
-                  </div>
-            </div>
+                
+            <!-- EMAIL INPUT START -->
             <div class="md-form">
-                <textarea type="text" id="form7" class="md-textarea md-textarea-auto form-control" mdbInput></textarea>
-                <label for="form7">Message</label>
-              </div>
+                <input mdbInput
+                       type="text"
+                       id="form1" 
+                       class="form-control"
+                       formControlName="contactFormEmail">
+                <label for="form1" class="">E-mail</label>
+            </div>
+            <!-- EMAIL INPUT END -->
+        
+            <!-- LASTNAME INPUT START -->
+            <div class="md-form">
+                <input mdbInput
+                       type="text"
+                       id="form1"
+                       class="form-control"
+                       formControlName="contactFormLastname">
+                <label for="form1" class="">Nom</label>
+            </div>
+            <!-- LASTNAME INPUT END -->
 
-            <button type="submit" class="btn btn-warning">Envoyer</button>
+            <!-- FIRSTNAME INPUT START -->
+            <div class="md-form">
+                <input mdbInput
+                       type="text"
+                       id="form1"
+                       class="form-control"
+                       formControlName="contactFormFirstname">
+                <label for="form1" class="">Prénom</label>
+            </div>
+            <!-- LASTNAME INPUT END -->
+            
+            <!-- LASTNAME MESSAGE START -->
+            <div class="md-form">
+                <textarea type="text"
+                          id="form7"
+                          class="md-textarea md-textarea-auto form-control"
+                          mdbInput
+                          formControlName="contactFormMessage">
+                </textarea>
+                <label for="form7">Message</label>
+            </div>
+            <!-- LASTNAME MESSAGE END -->
+
+            <button type="submit"
+                    class="btn btn-warning"
+                    [disabled]="disabledSubmitButton"
+            >Envoyer</button>
         </form>
+        <!-- FORM END -->
     </div>
     </div>
 </div>
