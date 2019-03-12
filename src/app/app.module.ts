@@ -16,6 +16,7 @@ import { ProfilComponent } from './pages/profil/profil.component';
 import { AppRoutingModule } from './app-routing.module';
 import { RouterModule } from '@angular/router';
 import { LayoutComponent } from './pages/home/layout/layout.component';
+import { SearchComponent } from './pages/home/search/search.component';
 import { LoginComponent } from './pages/login/login.component';
 import { SigninComponent } from './pages/signin/signin.component';
 
@@ -33,6 +34,7 @@ import { SigninComponent } from './pages/signin/signin.component';
     LayoutComponent,
     LoginComponent,
     SigninComponent,
+    SearchComponent,
   ],
   imports: [
     BrowserModule,

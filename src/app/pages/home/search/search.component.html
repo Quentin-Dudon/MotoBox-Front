@@ -1,0 +1,43 @@
+<section>
+  <div class="box-search">
+    <div class="box-title">
+      <p>Véhicule</p>
+      <div (click)="show = !show"><i class="fas fa-angle-down"></i></div>
+    </div>
+  </div>
+
+  <div class="box-response" [class.opened]="show">
+      <div class="box-dropdown">
+          <p>Marque</p>
+          <select id="select-order-by" class="btn btn-secondary dropdown-toggle" aria-labelledby="dropdownMenuButton" (onClick)="hideTitleFunc()">
+            <option [hidden]="hideTitle">Rechercher</option>
+            <option class="dropdown-item white" value="Peugeot">Peugeot</option>
+            <option class="dropdown-item white" value="Citroen">Citroen</option>
+            <option class="dropdown-item white" value="Renault">Renault</option>
+          </select>
+        </div>
+        <div class="box-dropdown">
+          <p>Cylindrée</p>
+          <select id="select-order-by" class="btn btn-secondary dropdown-toggle" aria-labelledby="dropdownMenuButton" (onClick)="hideTitleFunc()">
+            <option [hidden]="hideTitle">De 100 à 600 cm3</option>
+            <option class="dropdown-item white" value="Peugeot">100 cm3</option>
+            <option class="dropdown-item white" value="Citroen">200 cm</option>
+            <option class="dropdown-item white" value="Renault">300 cm</option>
+            <option class="dropdown-item white" value="Citroen">400 cm</option>
+            <option class="dropdown-item white" value="Renault">500 cm</option>
+            <option class="dropdown-item white" value="Citroen">600 cm</option>
+          </select>
+        </div>
+        <div class="box-dropdown">
+          <p>Modèle</p>
+          <select id="select-order-by" class="btn btn-secondary dropdown-toggle" aria-labelledby="dropdownMenuButton" (onClick)="hideTitleFunc()">
+            <option [hidden]="hideTitle">Rechercher</option>
+            <option class="dropdown-item white" value="Peugeot">Sportives</option>
+            <option class="dropdown-item white" value="Citroen">Routières</option>
+            <option class="dropdown-item white" value="Renault">Trails</option>
+            <option class="dropdown-item white" value="Renault">Tout-Terrain</option>
+            <option class="dropdown-item white" value="Renault">Scooters</option>
+          </select>
+        </div>
+  </div>
+</section>
