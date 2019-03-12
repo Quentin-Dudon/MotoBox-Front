@@ -14,10 +14,6 @@ export class NavbarComponent implements OnInit {
 
   openLoginSigninModal() {
     console.log('open modal');
-    // this.modalRef = this.modalService.show(AddAccesComponent, {class: 'modal-lg'});
-    // this.modalRef.content.onClose = (newAcces) => {
-    //   this.modalRef.hide();
-    //   this.accesses.unshift(newAcces);
   }
 
 }
