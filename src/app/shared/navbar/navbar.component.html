@@ -1,0 +1,52 @@
+<div>
+  <nav class="mb-1 navbar navbar-expand-lg navbar-dark peach-gradient">
+
+    <img src="https://cae0xfrkvy-flywheel.netdna-ssl.com/wp-content/uploads/2017/02/SAS-LOGO-low-res.png"
+         alt="Salem Auto Sales"
+         class="mr-4"
+         height="40" width="140"
+         routerLink="/" routerLinkActive="active">
+    <form class="form-inline my-1">
+      <div class="md-form form-sm my-0">
+        <input class="form-control form-control-sm mr-sm-2 mb-0"
+               type="text"
+               placeholder="Search"
+               aria-label="Search">
+      </div>
+      <mdb-icon fas icon="search" style="color: white"></mdb-icon>
+    </form>
+
+    <div class="collapse navbar-collapse"
+         id="navbarSupportedContent-333">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">
+            <strong>Faire adopter une piece</strong><i class="fas fa-bug fa-1x red-text pr-3 ml-2"
+                                                       aria-hidden="true"></i>
+          </a>
+        </li>
+      </ul>
+
+      <ul class="navbar-nav ml-auto nav-flex-icons">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/cart" routerLinkActive="active">panier</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" (click)="openLoginSigninModal()">connexion</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link"
+             aria-haspopup="true"
+             aria-expanded="false">
+            <mdb-icon fas icon="user-ninja">
+              <a class="nav-link" href="#">connexion</a>
+            </mdb-icon>
+          </a>
+        </li>
+      </ul>
+
+    </div>
+  </nav>
+</div>
