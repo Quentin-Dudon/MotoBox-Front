@@ -14,7 +14,8 @@ import { FooterComponent } from './commons/footer/footer.component';
 import { ProfilComponent } from './pages/profil/profil.component';
 
 import { AppRoutingModule } from './app-routing.module';
-import {RouterModule} from '@angular/router';
+import { RouterModule } from '@angular/router';
+import { LayoutComponent } from './pages/home/layout/layout.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import {RouterModule} from '@angular/router';
     ContactComponent,
     FooterComponent,
     ProfilComponent,
+    LayoutComponent,
   ],
   imports: [
     BrowserModule,
