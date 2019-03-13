@@ -8,7 +8,7 @@ import { ContactComponent } from './pages/contact/contact.component';
 import { AboutComponent } from './pages/about/about.component';
 import { LoginComponent } from './pages/login/login.component';
 import { SigninComponent } from './pages/signin/signin.component';
-import { PanierComponent } from './pages/cart/panier.component';
+import { CartComponent } from './pages/cart/cart.component';
 
 export const AppRoutingModule: Routes = [
   { path: '', component: HomeComponent },
@@ -16,7 +16,7 @@ export const AppRoutingModule: Routes = [
   { path: 'profil', component: ProfilComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'about', component: AboutComponent },
-  { path: 'panier', component: PanierComponent },
+  { path: 'cart', component: CartComponent },
   { path: 'login', component: LoginComponent, outlet: 'modal' },
   { path: 'signin', component: SigninComponent, outlet: 'modal' }
 ];

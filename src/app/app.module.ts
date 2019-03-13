@@ -16,7 +16,7 @@ import { AdminComponent } from './pages/admin/admin.component';
 import { ProfilComponent } from './pages/profil/profil.component';
 import { AboutComponent } from './pages/about/about.component';
 import { ContactComponent } from './pages/contact/contact.component';
-import { PanierComponent } from './pages/cart/panier.component';
+import { CartComponent } from './pages/cart/cart.component';
 import { HomeComponent } from './pages/home/home.component';
 import { SearchComponent } from './pages/home/search/search.component';
 import { ResultsComponent } from './pages/home/results/results.component';
@@ -39,7 +39,7 @@ import { RouterModule } from '@angular/router';
     SigninComponent,
     SearchComponent,
     ResultsComponent,
-    PanierComponent,
+    CartComponent,
   ],
   imports: [
     BrowserModule,
