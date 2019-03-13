@@ -1,9 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
+html {
+  scroll-behavior: smooth;
+}
+
 .minHeight {
   margin: 0;
   padding: 0;
   min-height: calc(100vh - (217px + 60px));
 }
+
 p {
   padding: 0;
   margin: 0;
