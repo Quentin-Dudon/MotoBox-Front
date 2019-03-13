@@ -1,0 +1,64 @@
+<section>
+  <!-- Layout -->
+  <div class="layout">
+    <div class="logo"></div>
+    <div class="icon"><a href="#box-search"><i class="fas fa-angle-double-down"></i></a></div>
+  </div>
+
+  <!-- Search Title -->
+  <div id="box-search" class="box-search">
+    <div class="box-title">
+      <p>Véhicule</p>
+      <div (click)="show = !show"><i class="fas fa-angle-down"></i></div>
+    </div>
+  </div>
+
+  <!-- Search Box -->
+  <div class="box-response" [class.opened]="show">
+    <div class="box-dropdown">
+      <p>Marque</p>
+      <select id="select-order-by" class="btn btn-lightgray" (onClick)="hideTitleFunc()">
+        <option [hidden]="hideTitle">Rechercher</option>
+        <option class="dropdown-item white" value="Peugeot">Peugeot</option>
+        <option class="dropdown-item white" value="Citroen">Citroen</option>
+        <option class="dropdown-item white" value="Renault">Renault</option>
+      </select>
+    </div>
+    <div class="box-dropdown">
+      <p>Cylindrée</p>
+      <select id="select-order-by" class="btn btn-lightgray" (onClick)="hideTitleFunc()">
+        <option [hidden]="hideTitle">De 100 à 600 cm3</option>
+        <option class="dropdown-item white" value="100">100 cm3</option>
+        <option class="dropdown-item white" value="200">200 cm</option>
+        <option class="dropdown-item white" value="300">300 cm</option>
+        <option class="dropdown-item white" value="400">400 cm</option>
+        <option class="dropdown-item white" value="500">500 cm</option>
+        <option class="dropdown-item white" value="600">600 cm</option>
+      </select>
+    </div>
+    <div class="box-dropdown">
+      <p>Modèle</p>
+      <select id="select-order-by" class="btn btn-lightgray" (onClick)="hideTitleFunc()">
+        <option [hidden]="hideTitle">Rechercher</option>
+        <option class="dropdown-item white" value="Sportives">Sportives</option>
+        <option class="dropdown-item white" value="Routières">Routières</option>
+        <option class="dropdown-item white" value="Trails">Trails</option>
+        <option class="dropdown-item white" value="Tout-Terrain">Tout-Terrain</option>
+        <option class="dropdown-item white" value="Scooters">Scooters</option>
+      </select>
+    </div>
+    <div class="box-dropdown">
+      <ng5-slider class="slider" [(value)]="value" [options]="options"></ng5-slider>
+    </div>
+  </div>
+
+  <!-- Search Bar -->
+  <div class="search-bar">
+    <div class="input-group md-form form-sm form-2 pl-0">
+      <input class="search-input form-control my-0 py-1" type="text" placeholder="Rechercher" aria-label="Search" />
+      <div class="input-group-append">
+        <span class="input-group-text" id="basic-text1"><i class="fas fa-search text-grey" aria-hidden="true"></i></span>
+      </div>
+    </div>
+  </div>
+</section>
