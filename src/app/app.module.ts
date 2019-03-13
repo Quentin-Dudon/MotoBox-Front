@@ -16,11 +16,11 @@ import { AdminComponent } from './pages/admin/admin.component';
 import { ProfilComponent } from './pages/profil/profil.component';
 import { AboutComponent } from './pages/about/about.component';
 import { ContactComponent } from './pages/contact/contact.component';
-import { CartComponent } from './pages/cart/cart.component';
 
 // ROUTING
 import { AppRoutingModule } from './app-routing.module';
 import {RouterModule} from '@angular/router';
+import { PanierComponent } from './pages/cart/panier.component';
 
 @NgModule({
   declarations: [
@@ -29,12 +29,12 @@ import {RouterModule} from '@angular/router';
     AboutComponent,
     AdminComponent,
     HomeComponent,
-    CartComponent,
     ContactComponent,
     FooterComponent,
     ProfilComponent,
     LoginComponent,
     SigninComponent,
+    PanierComponent,
   ],
   imports: [
     BrowserModule,
