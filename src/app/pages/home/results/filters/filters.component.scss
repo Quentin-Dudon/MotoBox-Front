@@ -1,0 +1,117 @@
+.box-search-moteur,
+.box-search-habillage,
+.box-search-electrique,
+.box-search-cycle {
+  width: 80%;
+  margin-bottom: 10px;
+  padding: 20px 50px;
+  background-color: black;
+  overflow-y: hidden;
+  transition: ease-in-out 400ms max-height;
+
+  .box-title {
+    display: flex;
+    justify-content: space-between;
+    line-height: 33px;
+
+    p {
+      color: white;
+      font-weight: bold;
+      font-size: 20px;
+      margin: 0;
+      text-transform: uppercase;
+    }
+
+    i {
+      color: white;
+      font-size: 30px;
+      vertical-align: middle;
+      cursor: pointer;
+    }
+  }
+}
+
+.box-response-moteur,
+.box-response-habillage,
+.box-response-electrique,
+.box-response-cycle {
+  width: 80%;
+  margin: 0 auto;
+  background-color: #F0F0F0;
+  max-height: 0px;
+  overflow-y: hidden;
+  transition: ease-in-out 400ms max-height;
+
+  .box-dropdown {
+    margin: 20px;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    background-color: white;
+
+    .categoryTitle {
+      line-height: 30px;
+
+      i {
+        vertical-align: middle;
+        font-size: 20px;
+        cursor: pointer;
+      }
+    }
+
+    p {
+      margin: 0.375rem;
+      font-size: 20px;
+    }
+  }
+
+  .category {
+    display: flex;
+    flex-wrap: wrap;
+
+    p {
+      border: 1px solid black;
+      margin: 10px;
+      padding: 10px;
+      cursor: pointer;
+    }
+  }
+}
+
+/**************** SHOW ALL ****************/
+
+.boxOpener {
+  cursor: pointer;
+}
+
+.box {
+  max-height: 0px;
+  overflow-y: hidden;
+  transition: ease-in-out 400ms max-height;
+}
+
+.box.opened {
+  max-height: 500px;
+  transition: ease-in-out 600ms max-height;
+}
+
+/************** SHOW ALL CATEGORIES **************/
+
+.box-response-moteur.opened,
+.box-response-habillage.opened,
+.box-response-electrique.opened,
+.box-response-cycle.opened {
+  max-height: 500px;
+  transition: ease-in-out 600ms max-height;
+}
+
+/************** STYLE FOR SUB-CATEGORIES **************/
+
+.none {
+  background-color: #F0F0F0;
+}
+
+.black {
+  background-color: black;
+  color: white;
+}

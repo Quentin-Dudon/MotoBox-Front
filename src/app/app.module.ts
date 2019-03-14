@@ -21,6 +21,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { SearchComponent } from './pages/home/search/search.component';
 import { ResultsComponent } from './pages/home/results/results.component';
 import { FiltersComponent } from './pages/home/results/filters/filters.component';
+import { ResponseComponent } from './pages/home/results/response/response.component';
 
 // ROUTING
 import { AppRoutingModule } from './app-routing.module';
@@ -41,7 +42,8 @@ import { RouterModule } from '@angular/router';
     SearchComponent,
     ResultsComponent,
     CartComponent,
-    FiltersComponent
+    FiltersComponent,
+    ResponseComponent
   ],
   imports: [
     BrowserModule,

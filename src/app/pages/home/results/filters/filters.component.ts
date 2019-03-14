@@ -7,9 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FiltersComponent implements OnInit {
 
-  constructor() { }
+  isShowCategory = false;
+  bgColor: boolean = true;
+
+  constructor() {
+  }
 
   ngOnInit() {
   }
 
+  changeColor() {
+    this.bgColor = !this.bgColor;
+  }
 }
