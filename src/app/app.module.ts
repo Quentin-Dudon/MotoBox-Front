@@ -24,6 +24,7 @@ import { ResultsComponent } from './pages/home/results/results.component';
 // ROUTING
 import { AppRoutingModule } from './app-routing.module';
 import { RouterModule } from '@angular/router';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { RouterModule } from '@angular/router';
     SearchComponent,
     ResultsComponent,
     CartComponent,
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,
