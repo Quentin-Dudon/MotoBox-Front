@@ -1,3 +1,4 @@
+import {AuthService} from './../../services/auth.service';
 import {Component, OnInit} from '@angular/core';
 import {MDBModalRef} from 'angular-bootstrap-md';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
@@ -22,24 +23,26 @@ export class LoginComponent implements OnInit {
   loading = false;
 
   constructor(public modalRef: MDBModalRef,
+              private authService: AuthService,
               private fb: FormBuilder) {
-      this.form = fb.group({
-        // civility: [''],
-        // firstName: [''],
-        // lastName: [''],
-        isJunkyard: false,
-        email: [''],
-        password: [''],
-        confirm_password: [''],
-        phone: [''],
-        // street: [''],
-        // postalCode: [''],
-        // city: [''],
-        // country: [''],
-      });
+    this.form = fb.group({
+      // civility: [''],
+      // firstName: [''],
+      // lastName: [''],
+      isJunkyard: false,
+      email: [''],
+      password: [''],
+      confirm_password: [''],
+      phone: [''],
+      // street: [''],
+      // postalCode: [''],
+      // city: [''],
+      // country: [''],
+    });
   }
 
   ngOnInit() {
+    this.authService.setToken();
   }
 
   public getLoginForm() {
@@ -155,6 +158,7 @@ export class LoginComponent implements OnInit {
   get isJunkyard() {
     return (this.form.get('isJunkyard') as FormControl);
   }
+
   // // Personal
   // get civility() {
   //   return (this.form.get('civility') as FormControl);
@@ -169,16 +173,20 @@ export class LoginComponent implements OnInit {
   get email() {
     return (this.form.get('email') as FormControl);
   }
+
   get phone() {
     return (this.form.get('phone') as FormControl);
   }
+
   // Password
   get password() {
     return (this.form.get('password') as FormControl);
   }
+
   get confirm_password() {
     return (this.form.get('confirm_password') as FormControl);
   }
+
   // // address
   // get street() {
   //   return (this.form.get('street') as FormControl);
