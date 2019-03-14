@@ -20,6 +20,8 @@ import { CartComponent } from './pages/cart/cart.component';
 import { HomeComponent } from './pages/home/home.component';
 import { SearchComponent } from './pages/home/search/search.component';
 import { ResultsComponent } from './pages/home/results/results.component';
+import { FiltersComponent } from './pages/home/results/filters/filters.component';
+import { ResponseComponent } from './pages/home/results/response/response.component';
 
 import { AddressFormComponent } from './pages/login/signin/address-form/address-form.component';
 import { PersonalFormComponent } from './pages/login/signin/personal-form/personal-form.component';
@@ -29,7 +31,7 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
 
 // ROUTING
 import { AppRoutingModule } from './app-routing.module';
-import {RouterModule} from '@angular/router';
+import { RouterModule } from '@angular/router';
 
 // SERVICES
 
@@ -52,6 +54,8 @@ import {RouterModule} from '@angular/router';
     SearchComponent,
     ResultsComponent,
     CartComponent,
+    FiltersComponent,
+    ResponseComponent,
     NotFoundComponent,
   ],
   imports: [
