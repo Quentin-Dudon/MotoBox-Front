@@ -1,8 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {MDBModalRef} from 'angular-bootstrap-md';
-import {FormBuilder, FormControl, Validators} from '@angular/forms';
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 
 import {UsernameValidators} from '../../shared/validators/username.valitors';
+import {PasswordValidators} from '../../shared/validators/password.valitors';
 
 @Component({
   selector: 'app-login',
@@ -11,26 +12,30 @@ import {UsernameValidators} from '../../shared/validators/username.valitors';
 })
 export class LoginComponent implements OnInit {
   form;
+  signinForm;
   isLogin = false;
+
 
   // modal
   onClose: any;
   errorMessage: any;
   loading = false;
 
-  constructor(public modalRef: MDBModalRef, private fb: FormBuilder) {
-      this.form = this.fb.group({
-        civility: [''],
-        firstName: [''],
-        lastName: [''],
+  constructor(public modalRef: MDBModalRef,
+              private fb: FormBuilder) {
+      this.form = fb.group({
+        // civility: [''],
+        // firstName: [''],
+        // lastName: [''],
         isJunkyard: false,
         email: [''],
         password: [''],
+        confirm_password: [''],
         phone: [''],
-        street: [''],
-        postalCode: [''],
-        city: [''],
-        country: [''],
+        // street: [''],
+        // postalCode: [''],
+        // city: [''],
+        // country: [''],
       });
   }
 
@@ -60,41 +65,48 @@ export class LoginComponent implements OnInit {
     console.log('isLogin', this.isLogin);
 
     this.form = this.fb.group({
-      civility: ['', [
-        Validators.required,
-        Validators.pattern('/^(Mr|Mme)$/')
-      ]],
-      firstName: ['', [
-        Validators.required,
-        UsernameValidators.cannotContainSpace
-      ]],
-      lastName: ['', [
-        Validators.required,
-        UsernameValidators.cannotContainSpace
-      ]],
       isJunkyard: false,
+      // ------- PERSONAL ------- //
+      // civility: ['', [
+      //   Validators.required,
+      //   Validators.pattern('Mr|Mme')
+      // ]],
+      // firstName: ['', [
+      //   Validators.required,
+      // ]],
+      // lastName: ['', [
+      //   Validators.required,
+      // ]],
+      // ------- CONTACT ------- //
       email: ['', [
         Validators.required,
         Validators.email,
         UsernameValidators.cannotContainSpace
       ]],
-      password: ['', [
-        Validators.required,
-        Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}/),
-      ]],
       phone: ['', [
         Validators.required,
         Validators.pattern(/^((\+)33|0)[1-9](\d{2}){4}$/)
       ]],
-      street: ['', [
-        Validators.required
-      ]],
-      postalCode: ['', [
+      // ------- PASSWORDS ------- //
+      password: ['', [
         Validators.required,
-        Validators.pattern(/^(([0-8][0-9])|(9[0-5])|(2[ab]))[0-9]{3}$/)
+        Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}/),
       ]],
-      city: ['', Validators.required],
-      country: ['', Validators.required],
+      confirm_password: ['', [
+        Validators.required,
+      ]],
+      // ------- ADDRESS ------- //
+      // street: ['', [
+      //   Validators.required
+      // ]],
+      // postalCode: ['', [
+      //   Validators.required,
+      //   Validators.pattern(/^(([0-8][0-9])|(9[0-5])|(2[ab]))[0-9]{3}$/)
+      // ]],
+      // city: ['', Validators.required],
+      // country: ['', Validators.required],
+    }, {
+      validator: PasswordValidators.passwordsMatch
     });
   }
 
@@ -139,37 +151,55 @@ export class LoginComponent implements OnInit {
 
 
   // GETTERS && SETTERS
-  get civility() {
-    return (this.form.get('civility') as FormControl);
-  }
-  get firstName() {
-    return (this.form.get('firstName') as FormControl);
-  }
-  get lastName() {
-    return (this.form.get('lastName') as FormControl);
-  }
+
   get isJunkyard() {
     return (this.form.get('isJunkyard') as FormControl);
   }
+  // // Personal
+  // get civility() {
+  //   return (this.form.get('civility') as FormControl);
+  // }
+  // get firstName() {
+  //   return (this.form.get('firstName') as FormControl);
+  // }
+  // get lastName() {
+  //   return (this.form.get('lastName') as FormControl);
+  // }
+  // Contact
   get email() {
     return (this.form.get('email') as FormControl);
-  }
-  get password() {
-    return (this.form.get('password') as FormControl);
   }
   get phone() {
     return (this.form.get('phone') as FormControl);
   }
-  get street() {
-    return (this.form.get('street') as FormControl);
+  // Password
+  get password() {
+    return (this.form.get('password') as FormControl);
   }
-  get postalCode() {
-    return (this.form.get('postalCode') as FormControl);
+  get confirm_password() {
+    return (this.form.get('confirm_password') as FormControl);
   }
-  get city() {
-    return (this.form.get('city') as FormControl);
+  // // address
+  // get street() {
+  //   return (this.form.get('street') as FormControl);
+  // }
+  // get postalCode() {
+  //   return (this.form.get('postalCode') as FormControl);
+  // }
+  // get city() {
+  //   return (this.form.get('city') as FormControl);
+  // }
+  // get country() {
+  //   return (this.form.get('country') as FormControl);
+  // }
+
+  handleJunkyard(val) {
+    console.log(val);
+    this.isJunkyard.setValue(val);
   }
-  get country() {
-    return (this.form.get('country') as FormControl);
+
+  addToSigninForm($event: FormGroup) {
+    console.log('EVENT', $event);
+    this.signinForm += $event.value;
   }
 }

@@ -7,7 +7,6 @@ export class PasswordValidators {
     const confirmPsw = control.get('confirm_password').value;
 
     if (psw !== confirmPsw) {
-      console.log('false');
       control.get('confirm_password').setErrors( {passwordsMatch: true} );
       return {passwordsMatch: true};
     }

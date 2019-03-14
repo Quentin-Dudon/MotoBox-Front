@@ -27,7 +27,7 @@ export class ContactComponent {
       'contactFormMessage': ['', Validators.required]
       });
     }
-  
+
     onSubmit() {
       // this.contactService.sendMessage(this.contactForm.value).subscribe(() => {
       //   alert('Your message has been sent.');

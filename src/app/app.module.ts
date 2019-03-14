@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
-import { HttpClientModule } from '@angular/common/http'; 
+import { HttpClientModule } from '@angular/common/http';
 
 // COMPONENTS
 import { NavbarComponent } from './shared/navbar/navbar.component';
@@ -18,9 +18,16 @@ import { AboutComponent } from './pages/about/about.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { CartComponent } from './pages/cart/cart.component';
 
+import { AddressFormComponent } from './pages/login/signin/address-form/address-form.component';
+
 // ROUTING
 import { AppRoutingModule } from './app-routing.module';
 import {RouterModule} from '@angular/router';
+import { PersonalFormComponent } from './pages/login/signin/personal-form/personal-form.component';
+import { ContactFormComponent } from './pages/login/signin/contact-form/contact-form.component';
+import { PasswordFormComponent } from './pages/login/signin/password-form/password-form.component';
+
+// SERVICES
 
 @NgModule({
   declarations: [
@@ -33,8 +40,12 @@ import {RouterModule} from '@angular/router';
     ContactComponent,
     FooterComponent,
     ProfilComponent,
-    LoginComponent,
+    LoginComponent, // Form
     SigninComponent,
+    AddressFormComponent,
+    PersonalFormComponent,
+    ContactFormComponent,
+    PasswordFormComponent,
   ],
   imports: [
     BrowserModule,
