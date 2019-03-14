@@ -1,3 +1,4 @@
+import { AuthService } from './../../services/auth.service';
 import {Component, OnInit} from '@angular/core';
 import {MDBModalRef} from 'angular-bootstrap-md';
 import {FormBuilder, FormControl, Validators} from '@angular/forms';
@@ -14,7 +15,8 @@ export class LoginComponent implements OnInit {
   form;
 
   constructor(public modalRef: MDBModalRef,
-              private fb: FormBuilder) {
+              private fb: FormBuilder,
+              private authService: AuthService) {
     this.form = this.fb.group({
       civility: ['', Validators.required],
       firstName: ['', Validators.required],
@@ -35,6 +37,7 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
+      this.authService.setToken();
   }
 
 }
