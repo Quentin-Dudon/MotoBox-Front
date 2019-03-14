@@ -1,68 +1,370 @@
-<div class="text-center buttons">
-  <button type="button" mdbBtn color="success"
-          rounded="true" data-toggle="modal"
-          data-target="#basicExample"
-          (click)="login.show()" mdbWavesEffect>Login
-  </button>
+<div class="text-center buttons amber accent-2">
+  <div class="modal-header text-center border-0">
+    <h4 class="modal-title w-100 font-weight-bold">Bienvenue a la casse de Gerard !</h4>
+  </div>
 
-  <button type="button" mdbBtn color="danger"
-          rounded="true" data-toggle="modal"
-          (click)="signin.show()" mdbWavesEffect>Register
-  </button>
+  <div class="modal-body mx-3 border-0">
+    <button type="button"
+            mdbBtn
+            class="success-color"
+            rounded="true"
+            (click)="login.show(getLoginForm())"
+            mdbWavesEffect>Connexion
+    </button>
+
+    <button type="button"
+            mdbBtn
+            class="elegant-color-dark btn2"
+            rounded="true"
+            (click)="signin.show(getSigninForm())"
+            mdbWavesEffect>Enregistrement
+    </button>
+  </div>
+  <div class="modal-footer d-flex justify-content-center border-0">
+    <p>Veuillez vous enregistrer ou vous connecter.</p>
+  </div>
 </div>
 
+
+<!--//////////////////////////////////////////////////////////-->
+<!--///////////////////////// LOGIN //////////////////////////-->
+<!--//////////////////////////////////////////////////////////-->
 <div mdbModal #login="mdbModal"
+     class="modal fade left"
+     tabindex="-1"
+     role="dialog"
+     aria-labelledby="myModalLabel"
+     aria-hidden="true">
+
+  <div *ngIf="isLogin" class="modal-dialog" role="document">
+    <div class="modal-content">
+      <!--Header-->
+      <div class="modal-header text-center amber accent-2 py-2">
+        <h4 class="modal-title w-100 font-weight-bold">Connexion</h4>
+        <button type="button" class="close"
+                data-dismiss="modal" aria-label="Close"
+                (click)="login.hide()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <!--Body-->
+      <div class="modal-body mx-3">
+        <form *ngIf="form"
+              [formGroup]="form"
+              (ngSubmit)="submit()"
+              method="POST"
+              novalidate>
+
+          <!--Email-->
+          <div class="md-form">
+            <i class="fas fa-envelope prefix grey-text"></i>
+            <input type="email"
+                   class="form-control validate mb-3"
+                   formControlName="email"
+                   mdbInput>
+            <label data-error="wrong" data-success="right">Email</label>
+            <div *ngIf="email.touched && email.invalid" class="alert alert-danger mb-4">
+              <div *ngIf="email.hasError('required')">Une adresse mail est requise</div>
+              <div *ngIf="email.hasError('email')">Entrez une adresse mail valide</div>
+              <div *ngIf="email.hasError('cannotContainSpace')">L'email ne peux contenir d'espaces</div>
+            </div>
+          </div>
+          <!--Password-->
+          <div class="md-form">
+            <i class="fas fa-lock prefix grey-text"></i>
+            <input type="password"
+                   class="form-control validate mb-3"
+                   formControlName="password"
+                   mdbInput>
+            <label data-error="wrong" data-success="right">Password</label>
+
+            <div *ngIf="password.touched && password.invalid" class="alert alert-danger">
+              <div *ngIf="password.hasError('required')">Le mot de passe est requis : entrez un mot de passe</div>
+              <div *ngIf="password.hasError('pattern')">Le mot de passe doit contenir :
+                <ul>
+                  <li>Au moins 8 caracteres</li>
+                  <li>Au moins un caractère minuscule</li>
+                  <li>Au moins un caractère majuscule</li>
+                  <li>Au moins un chiffre</li>
+                  <li>Au moins un caractère spécial (@!%*?&)</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!--Submit-->
+          <div class="modal-footer d-flex justify-content-center border-0">
+            <button type="submit"
+                    class="waves-light amber accent-2 black-text"
+                    mdbBtn
+                    [disabled]="!form.valid || loading"
+                    mdbWavesEffect>
+              <span *ngIf="loading" class="fa fa-spin fa-spinner"></span>
+              Se connecter
+            </button>
+          </div>
+
+        </form>
+      </div>
+      <hr/>
+      <pre>Form: {{ form?.value | json }}</pre>
+    </div>
+  </div>
+</div>
+
+
+<!--//////////////////////////////////////////////////////////-->
+<!--///////////////////////// SIGNIN /////////////////////////-->
+<!--//////////////////////////////////////////////////////////-->
+<div mdbModal #signin="mdbModal"
      class="modal fade left"
      id="frameModalTop"
      tabindex="-1"
      role="dialog"
      aria-labelledby="myModalLabel"
      aria-hidden="true">
-  <div class="modal-dialog" role="document">
+
+  <div *ngIf="!isLogin" class="modal-dialog" role="document">
     <div class="modal-content">
-      <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">Sign up</h4>
+      <!--Header-->
+      <div class="modal-header text-center amber accent-2">
+        <h4 class="modal-title w-100 font-weight-bold">Enregistrement</h4>
         <button type="button" class="close"
                 data-dismiss="modal" aria-label="Close"
-                (click)="frame.hide()">
+                (click)="signin.hide()">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
+
+      <!--Body-->
       <div class="modal-body mx-3">
-        <div class="md-form mb-5">
-          <i class="fas fa-user prefix grey-text"></i>
-          <input type="text" id="orangeForm-name"
-                 class="form-control validate"
-                 [formControl]="signupFormModalName"
-                 mdbInput>
-          <label data-error="wrong" data-success="right"
-                 for="orangeForm-name">Your name</label>
-        </div>
-        <div class="md-form mb-5">
-          <i class="fas fa-envelope prefix grey-text"></i>
-          <input type="email" id="orangeForm-email"
-                 class="form-control validate"
-                 [formControl]="signupFormModalEmail"
-                 mdbInput>
-          <label data-error="wrong" data-success="right"
-                 for="orangeForm-email">Your email</label>
-        </div>
+        <form [formGroup]="form"
+              action=""
+              (ngSubmit)="submit(user)"
+              method="POST"
+              id="addtodo-form"
+              novalidate>
 
-        <div class="md-form mb-4">
-          <i class="fas fa-lock prefix grey-text"></i>
-          <input type="password" id="orangeForm-pass"
-                 class="form-control validate"
-                 [formControl]="signupFormModalPassword"
-                 mdbInput>
-          <label data-error="wrong" data-success="right"
-                 for="orangeForm-pass">Your password</label>
-        </div>
+          <!--isJunkyard-->
+          <div class="row">
+              <span (click)="handleJunkyard(false)"
+                    class="{{isJunkyard.value ? 'col-sm-6 m-0 p-4 text-center success-color btn1' : 'col-sm-6 m-0 p-4 text-center success-color btn1 isSelected' }}">Acheteur</span>
+            <span (click)="handleJunkyard(true)"
+                  class="{{!isJunkyard.value ? 'col-sm-6 m-0 p-4 text-center elegant-color-dark btn2' : 'col-sm-6 m-0 p-4 text-center elegant-color-dark btn2 isSelected' }}"
+            >Vendeur</span>
+          </div>
 
+
+          <personal-form (add)="addToSigninForm($event)"></personal-form>
+          <!--&lt;!&ndash; ========= PERSONAL ========= &ndash;&gt;-->
+          <!--<div class="row mt-5">-->
+            <!--&lt;!&ndash;civility&ndash;&gt;-->
+            <!--<div class="md-form col-sm-3 m-0">-->
+              <!--<select class="browser-default custom-select"-->
+                      <!--formControlName="civility">-->
+                <!--<option selected></option>-->
+                <!--<option value="Mr">Mr</option>-->
+                <!--<option value="Mme">Mme</option>-->
+              <!--</select>-->
+            <!--</div>-->
+            <!--&lt;!&ndash;Firstname&ndash;&gt;-->
+            <!--<div class="md-form col-sm-4 m-0">-->
+              <!--<i class="fas fa-user prefix grey-text"></i>-->
+              <!--<input type="text"-->
+                     <!--class="form-control validate mb-3"-->
+                     <!--formControlName="firstName"-->
+                     <!--mdbInput>-->
+              <!--<label data-error="wrong" data-success="right" class="pl-3">Prenom</label>-->
+            <!--</div>-->
+            <!--&lt;!&ndash;Lastname&ndash;&gt;-->
+            <!--<div class="md-form col-sm-5 m-0">-->
+              <!--<i class="fab fa-grav prefix grey-text"></i>-->
+              <!--<input type="text"-->
+                     <!--class="form-control validate mb-3"-->
+                     <!--formControlName="lastName"-->
+                     <!--mdbInput>-->
+              <!--<label data-error="wrong" data-success="right" class="pl-3">Nom</label>-->
+            <!--</div>-->
+            <!--&lt;!&ndash;////////////// errors ////////////////&ndash;&gt;-->
+            <!--<div *ngIf="civility.touched && civility.invalid" class="alert alert-danger">-->
+              <!--<div *ngIf="civility.hasError('required')">Le genre est requis : selectionner un genre.</div>-->
+            <!--</div>-->
+            <!--<div *ngIf="firstName.touched && firstName.invalid" class="alert alert-danger">-->
+              <!--<div *ngIf="firstName.hasError('required')">Le prenom est requis : entrez un prenom d'utilisateur.</div>-->
+            <!--</div>-->
+            <!--<div *ngIf="lastName.touched && lastName.invalid" class="alert alert-danger">-->
+              <!--<div *ngIf="lastName.hasError('required')">Le nom est requis : entrez un nom d'utilisateur.</div>-->
+            <!--</div>-->
+            <!--&lt;!&ndash;//////////////////////////////////////&ndash;&gt;-->
+          <!--</div>-->
+
+          <!-- ========= CONTACTS ========= -->
+          <div class="row mt-4">
+            <!--Email-->
+            <div class="md-form col-sm-6 m-0">
+              <i class="fas fa-envelope prefix grey-text"></i>
+              <input type="email"
+                     class="form-control validate mb-3"
+                     formControlName="email"
+                     mdbInput>
+              <label data-error="wrong" data-success="right" class="pl-3">Email</label>
+            </div>
+            <!--Phone-->
+            <div class="md-form col-sm-6 m-0">
+              <i class="fas fa-phone prefix grey-text"></i>
+              <input type="text"
+                     class="form-control validate mb-3"
+                     formControlName="phone"
+                     mdbInput>
+              <label data-error="wrong" data-success="right" class="pl-3">Telephone</label>
+            </div>
+            <!--////////////// errors ////////////////-->
+            <div *ngIf="email.touched && email.invalid" class="alert alert-danger mb-4">
+              <div *ngIf="email.hasError('required')">Une adresse mail est requise.</div>
+              <div *ngIf="email.hasError('email')">Entrez une adresse mail valide.</div>
+              <div *ngIf="email.hasError('cannotContainSpace')">L'email ne peux contenir d'espaces.</div>
+            </div>
+            <div *ngIf="phone.touched && phone.invalid" class="alert alert-danger">
+              <div *ngIf="phone.hasError('required')">Le telephone est requis : entrez un numero de telephone valide.
+              </div>
+              <div *ngIf="phone.hasError('pattern')">Le telephone doit avoir 10 chiffres.</div>
+            </div>
+            <!--//////////////////////////////////////-->
+          </div>
+
+
+          <!-- ========= PASSWORD ========= -->
+          <div class="row mt-4">
+            <!--Password-->
+            <div class="md-form col-sm-6 m-0">
+              <i class="fas fa-lock prefix grey-text"></i>
+              <input type="password"
+                     class="form-control validate mb-3"
+                     formControlName="password"
+                     mdbInput>
+              <label data-error="wrong" data-success="right" class="pl-3">Password</label>
+            </div>
+
+            <!--Confirm Password-->
+            <div class="md-form col-sm-6 m-0">
+              <i class="fas fa-lock prefix grey-text"></i>
+              <input type="password"
+                     class="form-control validate mb-3"
+                     formControlName="confirm_password"
+                     mdbInput>
+              <label data-error="wrong" data-success="right" class="pl-3">Confirmer le Password</label>
+            </div>
+            <!--////////////// errors ////////////////-->
+            <div *ngIf="password.touched && password.invalid" class="alert alert-danger">
+              <div *ngIf="password.hasError('required')">Le mot de passe est requis : entrez un mot de passe.</div>
+              <div *ngIf="password.hasError('pattern')">Le mot de passe doit contenir :
+                <ul>
+                  <li>Au moins 8 caracteres.</li>
+                  <li>Au moins un caractère minuscule.</li>
+                  <li>Au moins un caractère majuscule.</li>
+                  <li>Au moins un chiffre.</li>
+                  <li>Au moins un caractère spécial (@!%*?&).</li>
+                </ul>
+              </div>
+            </div>
+
+            <!--CONFIRM PASSWORD-VALIDATORS-->
+            <div *ngIf="confirm_password.touched && confirm_password.invalid"
+                 class="alert alert-danger">
+              <div *ngIf="confirm_password.hasError('required')">
+                Confirmer le nouveau mot de passe
+              </div>
+              <div *ngIf="confirm_password.hasError('passwordsMatch')">
+                Les mots de passe ne correspondent pas.
+              </div>
+            </div>
+            <!--//////////////////////////////////////-->
+          </div>
+
+          <!-- ========= ADDRESS ========= -->
+          <div *ngIf="isJunkyard.value">
+            <address-form (add)="addToSigninForm($event)"></address-form>
+            <!--<contact-form (add)="addFinalForm($event)"></contact-form>-->
+            <!--<div class="row mt-5">-->
+              <!--&lt;!&ndash;Street&ndash;&gt;-->
+              <!--<div class="md-form col-sm-6 m-0">-->
+                <!--<i class="fas fa-road prefix grey-text"></i>-->
+                <!--<input type="text"-->
+                       <!--class="form-control validate mb-3"-->
+                       <!--formControlName="street"-->
+                       <!--mdbInput>-->
+                <!--<label data-error="wrong" data-success="right" class="pl-3">Rue</label>-->
+              <!--</div>-->
+              <!--&lt;!&ndash;Postal Code&ndash;&gt;-->
+              <!--<div class="md-form col-sm-6 m-0">-->
+                <!--<i class="fas fa-map-marked-alt prefix grey-text"></i>-->
+                <!--<input type="text"-->
+                       <!--class="form-control validate mb-3"-->
+                       <!--formControlName="postalCode"-->
+                       <!--mdbInput>-->
+                <!--<label data-error="wrong" data-success="right" class="pl-3">Code Postal</label>-->
+              <!--</div>-->
+              <!--&lt;!&ndash;////////////// errors ////////////////&ndash;&gt;-->
+              <!--<div *ngIf="street.touched && street.invalid" class="alert alert-danger">-->
+                <!--<div *ngIf="street.hasError('required')">La rue est requise : entrez une adresse valide.</div>-->
+              <!--</div>-->
+              <!--<div *ngIf="postalCode.touched && postalCode.invalid" class="alert alert-danger">-->
+                <!--<div *ngIf="postalCode.hasError('required')">Le code postal est requis : entrez un code postal valide.-->
+                <!--</div>-->
+                <!--<div *ngIf="postalCode.hasError('pattern')">Le code postal doit avoir 5 chiffres.</div>-->
+              <!--</div>-->
+              <!--&lt;!&ndash;//////////////////////////////////////&ndash;&gt;-->
+            <!--</div>-->
+
+            <!--<div class="row mt-5">-->
+              <!--&lt;!&ndash;City&ndash;&gt;-->
+              <!--<div class="md-form col-sm-6 m-0">-->
+                <!--<i class="fas fa-country prefix grey-text"></i>-->
+                <!--<input type="text"-->
+                       <!--class="form-control validate mb-3"-->
+                       <!--formControlName="city"-->
+                       <!--mdbInput>-->
+                <!--<label data-error="wrong" data-success="right" class="pl-3">Ville</label>-->
+              <!--</div>-->
+              <!--&lt;!&ndash;Country&ndash;&gt;-->
+              <!--<div class="md-form col-sm-6 m-0">-->
+                <!--<i class="fas fa-globe-europe prefix grey-text"></i>-->
+                <!--<input type="text"-->
+                       <!--class="form-control validate mb-3"-->
+                       <!--formControlName="country"-->
+                       <!--mdbInput>-->
+                <!--<label data-error="wrong" data-success="right" class="pl-3">Pays</label>-->
+              <!--</div>-->
+              <!--&lt;!&ndash;////////////// errors ////////////////&ndash;&gt;-->
+              <!--<div *ngIf="city.touched && city.invalid" class="alert alert-danger">-->
+                <!--<div *ngIf="city.hasError('required')">La ville est requise : entrez un nom de ville valide.</div>-->
+              <!--</div>-->
+              <!--<div *ngIf="country.touched && country.invalid" class="alert alert-danger">-->
+                <!--<div *ngIf="country.hasError('required')">Le pays est requis : entrez un pays valide.</div>-->
+              <!--</div>-->
+              <!--&lt;!&ndash;//////////////////////////////////////&ndash;&gt;-->
+            <!--</div>-->
+          </div>
+
+          <!--Submit button-->
+          <!--<div class="modal-footer d-flex justify-content-center border-0">-->
+            <!--<button type="submit"-->
+                    <!--class="waves-light amber accent-2 black-text"-->
+                    <!--mdbBtn-->
+                    <!--[disabled]="!form.valid || loading"-->
+                    <!--mdbWavesEffect>-->
+              <!--<span *ngIf="loading" class="fa fa-spin fa-spinner"></span>-->
+              <!--Enregistrer-->
+            <!--</button>-->
+          <!--</div>-->
+        </form>
       </div>
-      <div class="modal-footer d-flex justify-content-center">
-        <button mdbBtn color="deep-orange" class="waves-light"
-                mdbWavesEffect>Sign up</button>
-      </div>
+
+      <hr/>
+      <!--<pre>Form: {{ form?.value | json }}</pre>-->
+      <h4>SIGNIN</h4>
+      <pre>Form: {{ signinForm?.value | json }}</pre>
     </div>
   </div>
 </div>

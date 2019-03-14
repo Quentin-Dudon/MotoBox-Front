@@ -1,62 +1,3 @@
-<!-- <div class="container mt-4">
-    <div class="d-flex justify-content-center h-100">
-        <div class="card">
-            <div class="card-body">
-
-
-                <form class="form-signin"
-                    [formGroup]="contactForm"
-                    (ngSubmit)="onSubmit()"
-                >
-                    <legend class="text-center">Contact</legend>
-                        
-                    <div class="md-form">
-                        <input mdbInput
-                            type="text"
-                            id="form1" 
-                            class="form-control"
-                            formControlName="contactFormEmail">
-                        <label for="form1" class="">E-mail</label>
-                    </div>
-                
-                    <div class="md-form">
-                        <input mdbInput
-                            type="text"
-                            id="form1"
-                            class="form-control"
-                            formControlName="contactFormLastname">
-                        <label for="form1" class="">Nom</label>
-                    </div>
-
-                    <div class="md-form">
-                        <input mdbInput
-                            type="text"
-                            id="form1"
-                            class="form-control"
-                            formControlName="contactFormFirstname">
-                        <label for="form1" class="">Prénom</label>
-                    </div>
-                    
-                    <div class="md-form">
-                        <textarea type="text"
-                                id="form7"
-                                class="md-textarea md-textarea-auto form-control"
-                                mdbInput
-                                formControlName="contactFormMessage">
-                        </textarea>
-                        <label for="form7">Message</label>
-                    </div>
-
-                    <button type="submit"
-                            class="btn btn-warning"
-                            [disabled]="disabledSubmitButton"
-                    >Envoyer</button>
-                </form>
-            </div>
-        </div>
-    </div>
-</div> -->
-
 <div class="view contactPage">
     <div class="container">
         <div class="row">
@@ -86,8 +27,8 @@
                     </div>
                     <div class="form-group">
                         <label>Message</label>
-                        <!--md-textarea md-textarea-auto-->
                         <textarea type="text"
+                                  rows="6"
                                   class="form-control"
                                   formControlName="message"
                                   [ngClass]="{ 'is-invalid': submitted && f.message.errors }">
