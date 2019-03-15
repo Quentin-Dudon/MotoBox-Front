@@ -1,0 +1,19 @@
+.btn1{
+  color: white;
+  cursor: pointer;
+}
+.btn1:hover {
+  color: black;
+}
+.btn2 {
+  color: white;
+  cursor: pointer;
+}
+.btn2:hover {
+  color: #00C851;
+}
+
+.isSelected {
+  border-bottom: 5px solid #ffd740;
+  opacity: 0.8;
+}

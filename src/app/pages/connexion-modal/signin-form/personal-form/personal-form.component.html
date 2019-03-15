@@ -1,0 +1,44 @@
+<form [formGroup]="personalForm" novalidate
+      (change)="sendForm(personalForm.valid)">
+
+  <!--civility-->
+  <div class="md-form col-sm-5 mt-5">
+    <i class="fas fa-venus-mars prefix grey-text"></i>
+    <select class="browser-default custom-select ml-5"
+            formControlName="civility">
+      <option selected></option>
+      <option value="Mr">Mr</option>
+      <option value="Mme">Mme</option>
+    </select>
+  </div>
+
+  <!--Firstname-->
+  <div class="md-form col-sm-12 mt-3">
+    <i class="fas fa-user prefix grey-text"></i>
+    <input type="text"
+           class="form-control validate mb-3"
+           formControlName="firstName"
+           mdbInput>
+    <label data-error="wrong" data-success="right" class="pl-3">Prenom</label>
+  </div>
+
+  <!--Lastname-->
+  <div class="md-form col-sm-12 mt-3">
+    <i class="fab fa-grav prefix grey-text"></i>
+    <input type="text"
+           class="form-control validate mb-3"
+           formControlName="lastName"
+           mdbInput>
+    <label data-error="wrong" data-success="right" class="pl-3">Nom</label>
+  </div>
+  <!--////////////// errors ////////////////-->
+  <div *ngIf="civility.touched && civility.invalid" class="alert alert-danger">
+    <div *ngIf="civility.hasError('required')">Le genre est requis : selectionner un genre.</div>
+  </div>
+  <div *ngIf="firstName.touched && firstName.invalid" class="alert alert-danger">
+    <div *ngIf="firstName.hasError('required')">Le prenom est requis : entrez un prenom d'utilisateur.</div>
+  </div>
+  <div *ngIf="lastName.touched && lastName.invalid" class="alert alert-danger">
+    <div *ngIf="lastName.hasError('required')">Le nom est requis : entrez un nom d'utilisateur.</div>
+  </div>
+</form>
