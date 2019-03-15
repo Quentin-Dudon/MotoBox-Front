@@ -20,6 +20,7 @@ import { SearchComponent } from './pages/home/search/search.component';
 import { ResultsComponent } from './pages/home/results/results.component';
 import { FiltersComponent } from './pages/home/results/filters/filters.component';
 import { ResponseComponent } from './pages/home/results/response/response.component';
+import { AdsDetailsComponent } from './pages/home/results/response/ads-details/ads-details.component';
 
 // modal connexion
 import { ConnexionModalComponent } from './pages/connexion-modal/connexion-modal.component';
@@ -34,9 +35,11 @@ import { PasswordFormComponent } from './pages/connexion-modal/signin-form/passw
 
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 
+
 // ROUTING
 import { AppRoutingModule } from './app-routing.module';
 import { RouterModule } from '@angular/router';
+import { BarResponseComponent } from './pages/home/results/response/bar-response/bar-response.component';
 
 // SERVICES
 
@@ -64,6 +67,8 @@ import { RouterModule } from '@angular/router';
     FiltersComponent,
     ResponseComponent,
     NotFoundComponent,
+    AdsDetailsComponent,
+    BarResponseComponent,
   ],
   imports: [
     BrowserModule,
