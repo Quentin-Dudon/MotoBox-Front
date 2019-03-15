@@ -1,0 +1,38 @@
+[
+    {
+        "id": 1,
+        "title": "mon titre",
+        "description": "ma description",
+        "model": "MODEL",
+        "brand": "BRAND",
+        "year": 2019,
+        "price": 13.65,
+        "location": "TurltutuVille",
+        "image" : "url_image",
+        "category": "Category",
+        "user": 
+        {
+            "email": "test@test.fr",
+            "firstname": "test",
+            "lastname": "test"
+        }
+    },
+    {
+        "id": 2,
+        "title": "mon titre",
+        "description": "ma description",
+        "model": "MODEL",
+        "brand": "BRAND",
+        "year": 2019,
+        "price": 13.65,
+        "location": "TurltutuVille",
+        "image" : "url_image",
+        "category": "Category",
+        "user": 
+        {
+            "email": "test@test.fr",
+            "firstname": "test",
+            "lastname": "test"
+        }
+    }
+]

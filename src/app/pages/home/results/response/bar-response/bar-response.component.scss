@@ -1,0 +1,45 @@
+section {
+    display: flex;
+    padding: 50px;
+    font-weight: bold;
+    justify-content: space-between;
+    border-bottom: 1px solid gray;
+    line-height: 25px;
+  
+    div:nth-of-type(1) {
+      display: flex;
+      cursor: pointer;
+  
+      div {
+        background-image: url(../../../../../../../public/icons/liste.png);
+        background-size: contain;
+        height: 25px;
+        width: 25px;
+      }
+  
+      p {
+        margin-left: 10px;
+      }
+    }
+  
+    div:nth-of-type(2) {
+      display: flex;
+      cursor: pointer;
+  
+      div {
+        background-image: url(../../../../../../../public/icons/grille.png);
+        background-size: contain;
+        height: 25px;
+        width: 25px;
+      }
+  
+      p {
+        margin-left: 10px;
+      }
+    }
+  
+    p {
+      cursor: pointer;
+    }
+  }
+  

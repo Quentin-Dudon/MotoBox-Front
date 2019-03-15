@@ -1,0 +1,44 @@
+ <form [formGroup]="loginForm" novalidate
+        (change)="sendForm(loginForm.valid)">
+
+  <!--Email-->
+  <div class="md-form">
+    <i class="fas fa-envelope prefix grey-text"></i>
+    <input type="email"
+           class="form-control validate mb-3"
+           formControlName="email"
+           mdbInput>
+    <label data-error="wrong" data-success="right">Email</label>
+    <div *ngIf="email.touched && email.invalid" class="alert alert-danger mb-4">
+      <div *ngIf="email.hasError('required')">Une adresse mail est requise</div>
+      <div *ngIf="email.hasError('email')">Entrez une adresse mail valide</div>
+      <div *ngIf="email.hasError('cannotContainSpace')">L'email ne peux contenir d'espaces</div>
+    </div>
+  </div>
+  <!--Password-->
+  <div class="md-form">
+    <i class="fas fa-lock prefix grey-text"></i>
+    <input type="password"
+           class="form-control validate mb-3"
+           formControlName="password"
+           mdbInput>
+    <label data-error="wrong" data-success="right">Password</label>
+
+    <div *ngIf="password.touched && password.invalid" class="alert alert-danger">
+      <div *ngIf="password.hasError('required')">Le mot de passe est requis : entrez un mot de passe</div>
+      <div *ngIf="password.hasError('pattern')">Le mot de passe doit contenir :
+        <ul>
+          <li>Au moins 8 caracteres</li>
+          <li>Au moins un caractère minuscule</li>
+          <li>Au moins un caractère majuscule</li>
+          <li>Au moins un chiffre</li>
+          <li>Au moins un caractère spécial (@!%*?&)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</form>
+
+
+<hr/>
+<pre>Form: {{ loginForm?.value | json }}</pre>

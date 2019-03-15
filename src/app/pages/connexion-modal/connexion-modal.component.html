@@ -1,0 +1,116 @@
+<div class="text-center buttons amber accent-2">
+  <div class="modal-header text-center border-0">
+    <h4 class="modal-title w-100 font-weight-bold">Bienvenue a la casse de Gerard !</h4>
+  </div>
+
+  <div class="modal-body mx-3 border-0">
+    <button type="button"
+            mdbBtn
+            class="success-color"
+            rounded="true"
+            (click)="login.show(isLoginConnexion())"
+            mdbWavesEffect>Connexion
+    </button>
+
+    <button type="button"
+            mdbBtn
+            class="elegant-color-dark btn2"
+            rounded="true"
+            (click)="signin.show(isSigninConnexion())"
+            mdbWavesEffect>Enregistrement
+    </button>
+  </div>
+  <div class="modal-footer d-flex justify-content-center border-0">
+    <p>Veuillez vous enregistrer ou vous connecter.</p>
+  </div>
+</div>
+
+<!--//////////////////////////////////////////////////////////-->
+<!--///////////////////////// LOGIN //////////////////////////-->
+<!--//////////////////////////////////////////////////////////-->
+<div mdbModal #login="mdbModal"
+     class="modal fade left"
+     tabindex="-1"
+     role="dialog"
+     aria-labelledby="myModalLabel"
+     aria-hidden="true">
+
+  <div *ngIf="isLogin"
+       class="modal-dialog"
+       role="document">
+    <div class="modal-content">
+      <!--///////////////////////// HEADER /////////////////////////-->
+      <div class="modal-header text-center amber accent-2 py-2">
+        <h4 class="modal-title w-100 font-weight-bold">Connexion</h4>
+        <button type="button" class="close"
+                data-dismiss="modal" aria-label="Close"
+                (click)="login.hide()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <!--///////////////////////// BODY /////////////////////////-->
+      <div class="modal-body mx-3">
+        <login-form (add)="createLoginForm($event)"
+                    (isValid)="activeButton($event)">
+        </login-form>
+        <!--///////////////////////// FOOTER /////////////////////////-->
+        <div class="modal-footer d-flex justify-content-center border-0">
+          <button class="waves-light amber accent-2 black-text"
+                  mdbBtn
+                  (click)="submit()"
+                  [disabled]="!formIsValid || loading"
+                  mdbWavesEffect>
+            <span *ngIf="loading" class="fa fa-spin fa-spinner"></span>
+            Next
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--//////////////////////////////////////////////////////////-->
+<!--///////////////////////// SIGNIN /////////////////////////-->
+<!--//////////////////////////////////////////////////////////-->
+<div mdbModal #signin="mdbModal"
+     class="modal fade left"
+     id="frameModalTop"
+     tabindex="-1"
+     role="dialog"
+     aria-labelledby="myModalLabel"
+     aria-hidden="true">
+
+  <div *ngIf="!isLogin"
+       class="modal-dialog"
+       role="document">
+    <div class="modal-content">
+      <!--///////////////////////// HEADER /////////////////////////-->
+      <div class="modal-header text-center amber accent-2">
+        <h4 class="modal-title w-100 font-weight-bold">Enregistrement</h4>
+        <button type="button" class="close"
+                data-dismiss="modal" aria-label="Close"
+                (click)="signin.hide()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <!--///////////////////////// BODY /////////////////////////-->
+      <div class="modal-body mx-3">
+        <signin-form (currentFormValue)="createSigninForm($event)"
+                     (currentFormValid)="activeButton($event)">
+        </signin-form>
+      </div>
+      <!--///////////////////////// FOOTER /////////////////////////-->
+      <div class="modal-footer d-flex justify-content-center border-0">
+        <button class="waves-light amber accent-2 black-text"
+                mdbBtn
+                [disabled]="!formIsValid || loading"
+                (click)="submit()"
+                mdbWavesEffect>
+          <span *ngIf="loading" class="fa fa-spin fa-spinner"></span>
+          Next
+        </button>
+      </div>
+
+    </div>
+  </div>
+</div>
