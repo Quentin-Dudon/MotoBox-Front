@@ -11,10 +11,12 @@ import { AboutComponent } from './pages/about/about.component';
 import { CartComponent } from './pages/cart/cart.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import {ConnexionModalComponent} from './pages/connexion-modal/connexion-modal.component';
+import { AdminEditComponent } from './pages/admin/admin-edit/admin-edit.component';
 
 export const AppRoutingModule: Routes = [
   { path: '', component: HomeComponent },
   { path: 'admin', component: AdminComponent, canActivate: [AuthGuard] },
+  { path: 'admin-edit', component: AdminEditComponent, canActivate: [AuthGuard] },
   { path: 'profil', component: ProfilComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'about', component: AboutComponent },

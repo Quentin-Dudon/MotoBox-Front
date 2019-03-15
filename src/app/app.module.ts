@@ -37,6 +37,7 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
 // ROUTING
 import { AppRoutingModule } from './app-routing.module';
 import { RouterModule } from '@angular/router';
+import { AdminEditComponent } from './pages/admin/admin-edit/admin-edit.component';
 
 // SERVICES
 
@@ -64,6 +65,7 @@ import { RouterModule } from '@angular/router';
     FiltersComponent,
     ResponseComponent,
     NotFoundComponent,
+    AdminEditComponent,
   ],
   imports: [
     BrowserModule,
