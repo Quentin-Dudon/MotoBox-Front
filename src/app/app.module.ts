@@ -20,6 +20,9 @@ import { SearchComponent } from './pages/home/search/search.component';
 import { ResultsComponent } from './pages/home/results/results.component';
 import { FiltersComponent } from './pages/home/results/filters/filters.component';
 import { ResponseComponent } from './pages/home/results/response/response.component';
+import { AdsDetailsComponent } from './pages/home/results/response/ads-details/ads-details.component';
+import { BarResponseComponent } from './pages/home/results/response/bar-response/bar-response.component';
+import { ProductComponent } from './pages/product/product.component';
 
 // modal connexion
 import { ConnexionModalComponent } from './pages/connexion-modal/connexion-modal.component';
@@ -33,6 +36,7 @@ import { ContactFormComponent } from './pages/connexion-modal/signin-form/contac
 import { PasswordFormComponent } from './pages/connexion-modal/signin-form/password-form/password-form.component';
 
 import { NotFoundComponent } from './pages/not-found/not-found.component';
+
 
 // ROUTING
 import { AppRoutingModule } from './app-routing.module';
@@ -66,6 +70,10 @@ import { AdminEditComponent } from './pages/admin/admin-edit/admin-edit.componen
     ResponseComponent,
     NotFoundComponent,
     AdminEditComponent,
+    AdsDetailsComponent,
+    BarResponseComponent,
+    ProductComponent
+
   ],
   imports: [
     BrowserModule,
