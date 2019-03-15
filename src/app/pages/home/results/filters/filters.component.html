@@ -1,0 +1,420 @@
+<!------------------------ Search Family Moteur ------------------------>
+
+<section>
+  <div id="box-search" class="box-search-moteur">
+    <div class="box-title">
+      <p>Partie Moteur</p>
+      <div (click)="showFamilyMoteur = !showFamilyMoteur"><i class="fas fa-angle-down"></i></div>
+    </div>
+  </div>
+
+  <!-- Search Category Moteur -->
+  <div class="box-response-moteur" [class.opened]="showFamilyMoteur">
+    <div class="box-dropdown">
+      <p>Moteur</p>
+      <div class="categoryTitle boxOpener" (click)="showCategoryMoteur = !showCategoryMoteur"><i class="fas fa-angle-right"></i></div>
+    </div>
+    <div class="box-response-moteur category box" [class.opened]="showCategoryMoteur">
+      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Moteur Complet</p>
+      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Carter gauche</p>
+      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Carter droit</p>
+      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Pièce moteur au détail</p>
+    </div>
+  </div>
+
+  <!-- Search Category Carburateur -->
+  <div class="box-response-moteur" [class.opened]="showFamilyMoteur">
+    <div class="box-dropdown">
+      <p>Carburateur / Injection</p>
+      <div class="categoryTitle boxOpener" (click)="showCategoryCarburateur = !showCategoryCarburateur"><i class="fas fa-angle-right"></i></div>
+    </div>
+    <div class="box-response-moteur category box" [class.opened]="showCategoryCarburateur">
+      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Carburateur</p>
+      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Pipe admission</p>
+      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Bride</p>
+      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Injection</p>
+    </div>
+  </div>
+
+  <!-- Search Category Boîte à air (BAA) -->
+  <div class="box-response-moteur" [class.opened]="showFamilyMoteur">
+    <div class="box-dropdown">
+      <p>Boîte à air</p>
+      <div class="categoryTitle boxOpener" (click)="showCategoryBAA = !showCategoryBAA"><i class="fas fa-angle-right"></i></div>
+    </div>
+    <div class="box-response-moteur category box" [class.opened]="showCategoryBAA">
+      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Boîte à air</p>
+      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Filtre à air</p>
+    </div>
+  </div>
+
+  <!-- Search Category Démarreur -->
+  <div class="box-response-moteur" [class.opened]="showFamilyMoteur">
+    <div class="box-dropdown">
+      <p>Démarreur</p>
+      <div class="categoryTitle boxOpener" (click)="showCategoryDemarreur = !showCategoryDemarreur"><i class="fas fa-angle-right"></i></div>
+    </div>
+    <div class="box-response-moteur category box" [class.opened]="showCategoryDemarreur">
+      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Démarreur</p>
+      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Roue libre démarreur</p>
+    </div>
+  </div>
+
+  <!-- Search Category Echappement -->
+  <div class="box-response-moteur" [class.opened]="showFamilyMoteur">
+    <div class="box-dropdown">
+      <p>Echappement</p>
+      <div class="categoryTitle boxOpener" (click)="showCategoryEchappement = !showCategoryEchappement"><i class="fas fa-angle-right"></i></div>
+    </div>
+    <div class="box-response-moteur category box" [class.opened]="showCategoryEchappement">
+      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Collecteur d'échappement</p>
+      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Pot d'échappement</p>
+      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Sonde d'échappement</p>
+    </div>
+  </div>
+
+  <!-- Search Category Radiateur -->
+  <div class="box-response-moteur" [class.opened]="showFamilyMoteur">
+    <div class="box-dropdown">
+      <p>Radiateur</p>
+      <div class="categoryTitle boxOpener" (click)="showCategoryRadiateur = !showCategoryRadiateur"><i class="fas fa-angle-right"></i></div>
+    </div>
+    <div class="box-response-moteur category box" [class.opened]="showCategoryRadiateur">
+      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Radiateur complet</p>
+      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Radiateur</p>
+      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Calorstat</p>
+      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Durite de refroidissement</p>
+      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Bouchon de radiateur</p>
+      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Ventilateur</p>
+      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Vase d'expansion</p>
+    </div>
+  </div>
+
+  <!-- Search Category Câbles -->
+  <div class="box-response-moteur" [class.opened]="showFamilyMoteur">
+    <div class="box-dropdown">
+      <p>Câbles</p>
+      <div class="categoryTitle boxOpener" (click)="showCategoryCables = !showCategoryCables"><i class="fas fa-angle-right"></i></div>
+    </div>
+    <div class="box-response-moteur category box" [class.opened]="showCategoryCables">
+      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Câble accélérateur</p>
+      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Câble starter</p>
+      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Câble d'embrayage</p>
+    </div>
+  </div>
+</section>
+
+<!------------------------ Search Family Habillage ------------------------>
+
+<section>
+  <div class="box-search-habillage">
+    <div class="box-title">
+      <p>Partie Habillage</p>
+      <div (click)="showFamilyHabillage = !showFamilyHabillage"><i class="fas fa-angle-down"></i></div>
+    </div>
+  </div>
+
+  <!-- Search Category Réservoir -->
+  <div class="box-response-habillage" [class.opened]="showFamilyHabillage">
+    <div class="box-dropdown">
+      <p>Réservoir</p>
+      <div class="categoryTitle boxOpener" (click)="showCategoryReservoir = !showCategoryReservoir"><i class="fas fa-angle-right"></i></div>
+    </div>
+    <div class="box-response-habillage category box" [class.opened]="showCategoryReservoir">
+      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Réservoir</p>
+      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Robinet d'essence - Pompe à essence</p>
+      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Jauge à essence</p>
+    </div>
+  </div>
+
+  <!-- Search Category Selle -->
+  <div class="box-response-habillage" [class.opened]="showFamilyHabillage">
+    <div class="box-dropdown">
+      <p>Selle</p>
+      <div class="categoryTitle boxOpener" (click)="showCategorySelle = !showCategorySelle"><i class="fas fa-angle-right"></i></div>
+    </div>
+    <div class="box-response-habillage category box" [class.opened]="showCategorySelle">
+      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Selle</p>
+      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Capot de selle</p>
+      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Mécanisme fermeture de selle</p>
+    </div>
+  </div>
+
+  <!-- Search Category Carénage divers -->
+  <div class="box-response-habillage" [class.opened]="showFamilyHabillage">
+    <div class="box-dropdown">
+      <p>Carénage divers</p>
+      <div class="categoryTitle boxOpener" (click)="showCategoryCarenage = !showCategoryCarenage"><i class="fas fa-angle-right"></i></div>
+    </div>
+    <div class="box-response-habillage category box" [class.opened]="showCategoryCarenage">
+      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Carénage avant gauche</p>
+      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Carénage avant droit</p>
+      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Bulle - Saut de vent</p>
+      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Tête de fourche</p>
+      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Entourage compteur</p>
+      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Carénage divers</p>
+    </div>
+  </div>
+
+  <!-- Search Category Garde boue -->
+  <div class="box-response-habillage" [class.opened]="showFamilyHabillage">
+    <div class="box-dropdown">
+      <p>Garde boue</p>
+      <div class="categoryTitle boxOpener" (click)="showCategoryGardeBoue = !showCategoryGardeBoue"><i class="fas fa-angle-right"></i></div>
+    </div>
+    <div class="box-response-habillage category box" [class.opened]="showCategoryGardeBoue">
+      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Garde boue avant</p>
+      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Lèche roue arrière</p>
+    </div>
+  </div>
+
+  <!-- Search Category Coque arrière -->
+  <div class="box-response-habillage" [class.opened]="showFamilyHabillage">
+    <div class="box-dropdown">
+      <p>Coque arrière</p>
+      <div class="categoryTitle boxOpener" (click)="showCategoryCoqueArriere = !showCategoryCoqueArriere"><i class="fas fa-angle-right"></i></div>
+    </div>
+    <div class="box-response-habillage category box" [class.opened]="showCategoryCoqueArriere">
+      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Coque arrière complète</p>
+      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Coque arrière gauche</p>
+      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Coque arrière droite</p>
+      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Divers coque arrière</p>
+    </div>
+  </div>
+</section>
+
+<!------------------------ Search Family Electrique ------------------------>
+
+<section>
+  <div class="box-search-electrique">
+    <div class="box-title">
+      <p>Partie Electrique</p>
+      <div (click)="showFamilyElectrique = !showFamilyElectrique"><i class="fas fa-angle-down"></i></div>
+    </div>
+  </div>
+
+  <!-- Search Category Faiseaux Electriques -->
+  <div class="box-response-electrique" [class.opened]="showFamilyElectrique">
+    <div class="box-dropdown">
+      <p>Faiseaux Electriques</p>
+      <div class="categoryTitle boxOpener" (click)="showCategoryFaiseaux = !showCategoryFaiseaux"><i class="fas fa-angle-right"></i></div>
+    </div>
+    <div class="box-response-electrique category box" [class.opened]="showCategoryFaiseaux">
+      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Faiseaux</p>
+      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Capteurs divers</p>
+      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Klaxon</p>
+      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Boîtier CDI</p>
+    </div>
+  </div>
+
+  <!-- Search Category Eclairage -->
+  <div class="box-response-electrique" [class.opened]="showFamilyElectrique">
+    <div class="box-dropdown">
+      <p>Eclairage</p>
+      <div class="categoryTitle boxOpener" (click)="showCategoryEclairage = !showCategoryEclairage"><i class="fas fa-angle-right"></i></div>
+    </div>
+    <div class="box-response-electrique category box" [class.opened]="showCategoryEclairage">
+      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Phare avant</p>
+      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Phare arrière</p>
+      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Eclairage de plaque</p>
+      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Clignotants</p>
+    </div>
+  </div>
+
+  <!-- Search Category Compteur -->
+  <div class="box-response-electrique" [class.opened]="showFamilyElectrique">
+    <div class="box-dropdown">
+      <p>Compteur</p>
+      <div class="categoryTitle boxOpener" (click)="showCategoryCompteur= !showCategoryCompteur"><i class="fas fa-angle-right"></i></div>
+    </div>
+    <div class="box-response-electrique category box" [class.opened]="showCategoryCompteur">
+      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Compteur complet</p>
+      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Câble compteur</p>
+      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Entrainer compteur</p>
+      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Pièces compteur divers</p>
+    </div>
+  </div>
+
+  <!-- Search Category Serrure / Kit Neiman -->
+  <div class="box-response-electrique" [class.opened]="showFamilyElectrique">
+    <div class="box-dropdown">
+      <p>Serrure / Kit Neiman</p>
+      <div class="categoryTitle boxOpener" (click)="showCategorySerrure = !showCategorySerrure"><i class="fas fa-angle-right"></i></div>
+    </div>
+    <div class="box-response-electrique category box" [class.opened]="showCategorySerrure">
+      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Serrure réservoir</p>
+      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Serrure arrière</p>
+      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Kit Neiman complet</p>
+      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Neiman</p>
+    </div>
+  </div>
+
+  <!-- Search Category Commodo -->
+  <div class="box-response-electrique" [class.opened]="showFamilyElectrique">
+    <div class="box-dropdown">
+      <p>Commodo</p>
+      <div class="categoryTitle boxOpener" (click)="showCategoryCommodo = !showCategoryCommodo"><i class="fas fa-angle-right"></i></div>
+    </div>
+    <div class="box-response-electrique category box" [class.opened]="showCategoryCommodo">
+      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Commodo gauche</p>
+      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Commodo droit</p>
+    </div>
+  </div>
+</section>
+
+<!------------------------ Search Family Cycle ------------------------>
+
+<section>
+  <div class="box-search-cycle">
+    <div class="box-title">
+      <p>Partie Cycle</p>
+      <div (click)="showFamilyCycle = !showFamilyCycle"><i class="fas fa-angle-down"></i></div>
+    </div>
+  </div>
+
+  <!-- Search Category Cadre -->
+  <div class="box-response-cycle" [class.opened]="showFamilyCycle">
+    <div class="box-dropdown">
+      <p>Cadre</p>
+      <div class="categoryTitle boxOpener" (click)="showCategoryCadre = !showCategoryCadre"><i class="fas fa-angle-right"></i></div>
+    </div>
+    <div class="box-response-cycle category box" [class.opened]="showCategoryCadre">
+      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Cadre</p>
+      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Araignée avant</p>
+      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Boucle arrière</p>
+      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Divers cadre</p>
+    </div>
+  </div>
+
+  <!-- Search Category Fourche -->
+  <div class="box-response-cycle" [class.opened]="showFamilyCycle">
+    <div class="box-dropdown">
+      <p>Fourche</p>
+      <div class="categoryTitle boxOpener" (click)="showCategoryFourche = !showCategoryFourche"><i class="fas fa-angle-right"></i></div>
+    </div>
+    <div class="box-response-cycle category box" [class.opened]="showCategoryFourche">
+      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Fourche complète</p>
+      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Tube de fourche gauche</p>
+      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Tube de fourche droit</p>
+      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Té supérieur</p>
+      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Té inférieur</p>
+    </div>
+  </div>
+
+  <!-- Search Category Bras oscillant -->
+  <div class="box-response-cycle" [class.opened]="showFamilyCycle">
+    <div class="box-dropdown">
+      <p>Bras oscillant</p>
+      <div class="categoryTitle boxOpener" (click)="showCategoryBras = !showCategoryBras"><i class="fas fa-angle-right"></i></div>
+    </div>
+    <div class="box-response-cycle category box" [class.opened]="showCategoryBras">
+      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Bras oscillant complet</p>
+      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Axe de bras oscillant</p>
+      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Tendeur de chaîne</p>
+    </div>
+  </div>
+
+  <!-- Search Category Béquille -->
+  <div class="box-response-cycle" [class.opened]="showFamilyCycle">
+    <div class="box-dropdown">
+      <p>Béquille</p>
+      <div class="categoryTitle boxOpener" (click)="showCategoryBequille = !showCategoryBequille"><i class="fas fa-angle-right"></i></div>
+    </div>
+    <div class="box-response-cycle category box" [class.opened]="showCategoryBequille">
+      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Béquille latérale</p>
+      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Béquille centrale</p>
+    </div>
+  </div>
+
+  <!-- Search Category Amortisseur arrièr -->
+  <div class="box-response-cycle" [class.opened]="showFamilyCycle">
+    <div class="box-dropdown">
+      <p>Amortisseur arrière</p>
+      <div class="categoryTitle boxOpener" (click)="showCategoryAmortisseur = !showCategoryAmortisseur"><i class="fas fa-angle-right"></i></div>
+    </div>
+    <div class="box-response-cycle category box" [class.opened]="showCategoryAmortisseur">
+      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Amortisseur complet</p>
+      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Biellette d'amortisseur</p>
+    </div>
+  </div>
+
+  <!-- Search Category Guidon -->
+  <div class="box-response-cycle" [class.opened]="showFamilyCycle">
+    <div class="box-dropdown">
+      <p>Guidon</p>
+      <div class="categoryTitle boxOpener" (click)="showCategoryGuidon = !showCategoryGuidon"><i class="fas fa-angle-right"></i></div>
+    </div>
+    <div class="box-response-cycle category box" [class.opened]="showCategoryGuidon">
+      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Guidon</p>
+      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Rétroviseur gauche</p>
+      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Rétroviseur droit</p>
+      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Poignée de gaz</p>
+      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Cocote d'embrayage</p>
+      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Levier d'embrayage</p>
+      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Levier de frein</p>
+      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Embout de guidon</p>
+    </div>
+  </div>
+
+  <!-- Search Category Plainte repose pied -->
+  <div class="box-response-cycle" [class.opened]="showFamilyCycle">
+    <div class="box-dropdown">
+      <p>Plainte repose pied</p>
+      <div class="categoryTitle boxOpener" (click)="showCategoryPlainte = !showCategoryPlainte"><i class="fas fa-angle-right"></i></div>
+    </div>
+    <div class="box-response-cycle category box" [class.opened]="showCategoryPlainte">
+      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Platine avant gauche</p>
+      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Platine avant droite</p>
+      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Platine arrière droite</p>
+      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Platine arrière gauche</p>
+      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Repose pied avant gauche</p>
+      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Repose pied avant droit</p>
+      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Repose pied arrière gauche</p>
+      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Repose pied arrière droit</p>
+      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Pédale de frein</p>
+      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Sélecteur de vitesse</p>
+    </div>
+  </div>
+
+  <!-- Search Category Frein avant -->
+  <div class="box-response-cycle" [class.opened]="showFamilyCycle">
+    <div class="box-dropdown">
+      <p>Frein avant</p>
+      <div class="categoryTitle boxOpener" (click)="showCategoryFreinAvant = !showCategoryFreinAvant"><i class="fas fa-angle-right"></i></div>
+    </div>
+    <div class="box-response-cycle category box" [class.opened]="showCategoryFreinAvant">
+      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Frein avant complet</p>
+      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Maitre cylindre</p>
+      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Disque de frein</p>
+      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Durite de frein</p>
+    </div>
+  </div>
+
+  <!-- Search Category Frein arrière -->
+  <div class="box-response-cycle" [class.opened]="showFamilyCycle">
+    <div class="box-dropdown">
+      <p>Frein arrière</p>
+      <div class="categoryTitle boxOpener" (click)="showCategoryFreinArriere = !showCategoryFreinArriere"><i class="fas fa-angle-right"></i></div>
+    </div>
+    <div class="box-response-cycle category box" [class.opened]="showCategoryFreinArriere">
+      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Frein arrière complet</p>
+      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Maitre cylindre</p>
+      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Disque de frein</p>
+      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Durite de frein</p>
+    </div>
+  </div>
+
+  <!-- Search Category Jantes -->
+  <div class="box-response-cycle" [class.opened]="showFamilyCycle">
+    <div class="box-dropdown">
+      <p>Jantes</p>
+      <div class="categoryTitle boxOpener" (click)="showCategoryJantes = !showCategoryJantes"><i class="fas fa-angle-right"></i></div>
+    </div>
+    <div class="box-response-cycle category box" [class.opened]="showCategoryJantes">
+      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Jante avant</p>
+      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Jante arrière</p>
+      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Axe de roue avant</p>
+      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Axe de roue arrière</p>
+    </div>
+  </div>
+</section>

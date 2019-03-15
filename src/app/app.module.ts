@@ -18,11 +18,13 @@ import { CartComponent } from './pages/cart/cart.component';
 import { HomeComponent } from './pages/home/home.component';
 import { SearchComponent } from './pages/home/search/search.component';
 import { ResultsComponent } from './pages/home/results/results.component';
+import { FiltersComponent } from './pages/home/results/filters/filters.component';
+import { ResponseComponent } from './pages/home/results/response/response.component';
 
-// connexion modal
+// modal connexion
 import { ConnexionModalComponent } from './pages/connexion-modal/connexion-modal.component';
-
 import { LoginFormComponent } from './pages/connexion-modal/login-form/login-form.component';
+import { SigninFormComponent } from './pages/connexion-modal/signin-form/signin-form.component';
 
 import { RoleFormComponent } from './pages/connexion-modal/signin-form/role-form/role-form.component';
 import { AddressFormComponent } from './pages/connexion-modal/signin-form/address-form/address-form.component';
@@ -34,8 +36,7 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
 
 // ROUTING
 import { AppRoutingModule } from './app-routing.module';
-import {RouterModule} from '@angular/router';
-import { SigninFormComponent } from './pages/connexion-modal/signin-form/signin-form.component';
+import { RouterModule } from '@angular/router';
 
 // SERVICES
 
@@ -51,6 +52,7 @@ import { SigninFormComponent } from './pages/connexion-modal/signin-form/signin-
     ProfilComponent,
     ConnexionModalComponent, // modal
     LoginFormComponent,
+    SigninFormComponent,
     RoleFormComponent,
     AddressFormComponent,
     PersonalFormComponent,
@@ -59,8 +61,9 @@ import { SigninFormComponent } from './pages/connexion-modal/signin-form/signin-
     SearchComponent,
     ResultsComponent,
     CartComponent,
+    FiltersComponent,
+    ResponseComponent,
     NotFoundComponent,
-    SigninFormComponent,
   ],
   imports: [
     BrowserModule,
