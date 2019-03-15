@@ -19,7 +19,7 @@ export const AppRoutingModule: Routes = [
   { path: 'profil', component: ProfilComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'about', component: AboutComponent },
-  { path: 'product', component: ProductComponent },
+  { path: 'product/:id', component: ProductComponent },
   { path: 'cart', component: CartComponent },
   { path: 'login', component: ConnexionModalComponent, outlet: 'modal' },
   { path: '**', component: NotFoundComponent },
