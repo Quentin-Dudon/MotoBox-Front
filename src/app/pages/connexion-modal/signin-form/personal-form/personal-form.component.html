@@ -1,10 +1,6 @@
-<form [formGroup]="personalForm"
-      action=""
-      (ngSubmit)="onSubmit()"
-      method="POST"
-      novalidate>
+<form [formGroup]="personalForm" novalidate
+      (change)="sendForm(personalForm.valid)">
 
-  <!-- ========= PERSONAL ========= -->
   <!--civility-->
   <div class="md-form col-sm-5 mt-5">
     <i class="fas fa-venus-mars prefix grey-text"></i>
@@ -17,7 +13,7 @@
   </div>
 
   <!--Firstname-->
-  <div class="md-form col-sm-12  mt-3">
+  <div class="md-form col-sm-12 mt-3">
     <i class="fas fa-user prefix grey-text"></i>
     <input type="text"
            class="form-control validate mb-3"
@@ -27,7 +23,7 @@
   </div>
 
   <!--Lastname-->
-  <div class="md-form col-sm-12  mt-3">
+  <div class="md-form col-sm-12 mt-3">
     <i class="fab fa-grav prefix grey-text"></i>
     <input type="text"
            class="form-control validate mb-3"
@@ -44,17 +40,5 @@
   </div>
   <div *ngIf="lastName.touched && lastName.invalid" class="alert alert-danger">
     <div *ngIf="lastName.hasError('required')">Le nom est requis : entrez un nom d'utilisateur.</div>
-  </div>
-
-  <!--Submit button-->
-  <div class="modal-footer d-flex justify-content-center border-0">
-    <button type="submit"
-            class="waves-light amber accent-2 black-text"
-            mdbBtn
-            [disabled]="!personalForm.valid || loading"
-            mdbWavesEffect>
-      <span *ngIf="loading" class="fa fa-spin fa-spinner"></span>
-      Next
-    </button>
   </div>
 </form>

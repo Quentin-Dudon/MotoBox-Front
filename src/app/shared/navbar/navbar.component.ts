@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MDBModalRef, MDBModalService } from 'angular-bootstrap-md';
-import {LoginComponent} from '../../pages/login/login.component';
+import {ConnexionModalComponent} from '../../pages/connexion-modal/connexion-modal.component';
 
 @Component({
   selector: 'app-navbar',
@@ -16,6 +16,6 @@ export class NavbarComponent implements OnInit {
   }
 
   openLoginSigninModal() {
-    this.modalRef = this.modalService.show(LoginComponent);
+    this.modalRef = this.modalService.show(ConnexionModalComponent);
   }
 }
