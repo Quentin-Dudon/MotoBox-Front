@@ -22,7 +22,7 @@ import { SearchComponent } from './pages/home/search/search.component';
 import { ResultsComponent } from './pages/home/results/results.component';
 import { FiltersComponent } from './pages/home/results/filters/filters.component';
 import { ResponseComponent } from './pages/home/results/response/response.component';
-
+import { ProductComponent } from './pages/product/product.component';
 import { AddressFormComponent } from './pages/login/signin/address-form/address-form.component';
 import { PersonalFormComponent } from './pages/login/signin/personal-form/personal-form.component';
 import { ContactFormComponent } from './pages/login/signin/contact-form/contact-form.component';
@@ -57,6 +57,7 @@ import { RouterModule } from '@angular/router';
     FiltersComponent,
     ResponseComponent,
     NotFoundComponent,
+    ProductComponent,
   ],
   imports: [
     BrowserModule,

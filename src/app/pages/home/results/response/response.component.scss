@@ -48,6 +48,10 @@ section:nth-of-type(2) {
   margin: 50px 0;
   padding: 20px;
   background-color: white;
+  border-radius: 2.5px;
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.25);
+  -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.25);
 
   div:nth-of-type(1) {
     background-color: aqua;
@@ -93,14 +97,18 @@ section:nth-of-type(2) {
       font-size: 25px;
     }
 
-    p:nth-of-type(2) {
-      margin: 10px auto;
-      padding: 10px 20px;
-      text-align: center;
+    button {
+      background: #FECC3C;
+      padding: 1.2em 1.5em;
+      border: none;
+      text-transform: UPPERCASE;
       font-weight: bold;
-      border-radius: 2.5px;
-      cursor: pointer;
-      background-color: #FECC3C;
+      color: black;
+    }
+
+    button:hover {
+      background: darkgray;
+      color: #fff;
     }
   }
 }
