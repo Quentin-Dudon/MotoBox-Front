@@ -21,6 +21,7 @@ import { ResultsComponent } from './pages/home/results/results.component';
 import { FiltersComponent } from './pages/home/results/filters/filters.component';
 import { ResponseComponent } from './pages/home/results/response/response.component';
 import { AdsDetailsComponent } from './pages/home/results/response/ads-details/ads-details.component';
+import { BarResponseComponent } from './pages/home/results/response/bar-response/bar-response.component';
 
 // modal connexion
 import { ConnexionModalComponent } from './pages/connexion-modal/connexion-modal.component';
@@ -39,7 +40,6 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
 // ROUTING
 import { AppRoutingModule } from './app-routing.module';
 import { RouterModule } from '@angular/router';
-import { BarResponseComponent } from './pages/home/results/response/bar-response/bar-response.component';
 
 // SERVICES
 
