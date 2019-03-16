@@ -98,11 +98,11 @@ import {RouterModule} from '@angular/router';
     RouterModule.forRoot(AppRoutingModule),
     BrowserAnimationsModule,
     NoopAnimationsModule,
+    MatIconModule,
     MatInputModule,
     MatStepperModule,
     MatFormFieldModule,
     MatButtonModule,
-    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]
