@@ -1,12 +1,10 @@
-<form [formGroup]="roleForm" novalidate
-      (change)="sendForm(roleForm.valid)">
-
-  <!--isJunkyard-->
+<form [formGroup]="roleForm" novalidate>
   <div class="row">
-              <span (click)="handleJunkyard(false)"
-                    class="{{isJunkyard.value ? 'col-sm-6 m-0 p-4 text-center success-color btn1' : 'col-sm-6 m-0 p-4 text-center success-color btn1 isSelected' }}">Acheteur</span>
-    <span (click)="handleJunkyard(true)"
-          class="{{!isJunkyard.value ? 'col-sm-6 m-0 p-4 text-center elegant-color-dark btn2' : 'col-sm-6 m-0 p-4 text-center elegant-color-dark btn2 isSelected' }}"
-    >Vendeur</span>
+    <span (click)="handleRole(false)"
+          class="{{isJunkyard.value ? 'col-sm-6 m-0 p-4 text-center success-color btn1' : 'col-sm-6 m-0 p-4 text-center success-color btn1 isSelected' }}">
+      Acheteur</span>
+    <span (click)="handleRole(true)"
+          class="{{!isJunkyard.value ? 'col-sm-6 m-0 p-4 text-center elegant-color-dark btn2' : 'col-sm-6 m-0 p-4 text-center elegant-color-dark btn2 isSelected' }}">
+      Vendeur</span>
   </div>
 </form>

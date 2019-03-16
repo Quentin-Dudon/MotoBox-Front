@@ -9,7 +9,6 @@ import {UsernameValidators} from '../../../shared/validators/username.valitors';
 })
 export class LoginFormComponent implements OnInit {
   @Output() add = new EventEmitter<FormGroup>();
-  @Output() isValid = new EventEmitter<boolean>();
 
   loginForm;
   loading = false;
@@ -41,12 +40,8 @@ export class LoginFormComponent implements OnInit {
     return (this.loginForm.get('password') as FormControl);
   }
 
-  sendForm(valid: boolean) {
-    this.isValid.emit(valid);
-
-    if (!valid) {
-      return;
-    }
+  // -------------- SUBMIT -------------- //
+  submitForm() {
     this.add.emit(this.loginForm.getRawValue());
   }
 }

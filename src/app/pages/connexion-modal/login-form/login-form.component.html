@@ -1,5 +1,4 @@
- <form [formGroup]="loginForm" novalidate
-        (change)="sendForm(loginForm.valid)">
+ <form [formGroup]="loginForm" novalidate>
 
   <!--Email-->
   <div class="md-form">
@@ -37,8 +36,13 @@
       </div>
     </div>
   </div>
+   <div class="button">
+     <button mat-raised-button
+             [disabled]="!loginForm.valid"
+             (click)="submitForm()"
+             color="primary">Envoyer
+     </button>
+   </div>
 </form>
-
-
-<hr/>
-<pre>Form: {{ loginForm?.value | json }}</pre>
+<!--<hr/>-->
+<!--<pre>Form: {{ loginForm?.value | json }}</pre>-->

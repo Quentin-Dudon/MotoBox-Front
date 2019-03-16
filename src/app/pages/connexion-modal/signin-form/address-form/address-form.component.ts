@@ -35,19 +35,17 @@ export class AddressFormComponent implements OnInit {
   get street() {
     return (this.addressForm.get('street') as FormControl);
   }
-
   get postalCode() {
     return (this.addressForm.get('postalCode') as FormControl);
   }
-
   get city() {
     return (this.addressForm.get('city') as FormControl);
   }
-
   get country() {
     return (this.addressForm.get('country') as FormControl);
   }
 
+  // -------------- SUBMIT -------------- //
   sendForm(valid: boolean) {
     this.isValid.emit(valid);
 

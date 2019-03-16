@@ -37,8 +37,15 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
 // ROUTING
 import { AppRoutingModule } from './app-routing.module';
 import { RouterModule } from '@angular/router';
+import {BrowserAnimationsModule, NoopAnimationsModule} from '@angular/platform-browser/animations';
 
 // SERVICES
+
+// MODULES
+import {MatStepperModule} from '@angular/material/stepper';
+import {MatButtonModule, MatFormFieldModule} from '@angular/material';
+import {MatInputModule} from '@angular/material/input';
+import {MatIconModule} from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -73,6 +80,13 @@ import { RouterModule } from '@angular/router';
     Ng5SliderModule,
     MDBBootstrapModule.forRoot(),
     RouterModule.forRoot(AppRoutingModule),
+    BrowserAnimationsModule,
+    NoopAnimationsModule,
+    MatInputModule,
+    MatStepperModule,
+    MatFormFieldModule,
+    MatButtonModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]
