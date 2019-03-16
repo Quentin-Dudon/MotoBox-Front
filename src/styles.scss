@@ -5,10 +5,14 @@ html {
   scroll-behavior: smooth;
 }
 
+body {
+  background-color: #F0F0F0;
+}
+
 .minHeight {
   margin: 0;
   padding: 0;
-  min-height: calc(100vh - (217px + 60px));
+  min-height: calc(100vh - (215px + 60px));
 }
 
 p {

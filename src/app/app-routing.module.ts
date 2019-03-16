@@ -1,4 +1,4 @@
-import {Routes} from '@angular/router';
+import { Routes } from '@angular/router';
 
 import { AuthGuard } from './guards/auth-guard.service';
 
@@ -8,16 +8,20 @@ import { AdminComponent } from './pages/admin/admin.component';
 import { ProfilComponent } from './pages/profil/profil.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { AboutComponent } from './pages/about/about.component';
+import { ProductComponent } from './pages/product/product.component';
 import { CartComponent } from './pages/cart/cart.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
-import {ConnexionModalComponent} from './pages/connexion-modal/connexion-modal.component';
+import { ConnexionModalComponent } from './pages/connexion-modal/connexion-modal.component';
+import { AdminEditComponent } from './pages/admin/admin-edit/admin-edit.component';
 
 export const AppRoutingModule: Routes = [
   { path: '', component: HomeComponent },
   { path: 'admin', component: AdminComponent, canActivate: [AuthGuard] },
+  { path: 'admin-edit', component: AdminEditComponent, canActivate: [AuthGuard] },
   { path: 'profil', component: ProfilComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'about', component: AboutComponent },
+  { path: 'product', component: ProductComponent },
   { path: 'cart', component: CartComponent },
   { path: 'login', component: ConnexionModalComponent, outlet: 'modal' },
   { path: '**', component: NotFoundComponent },
