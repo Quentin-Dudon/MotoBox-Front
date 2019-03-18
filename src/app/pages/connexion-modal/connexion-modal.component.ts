@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {AuthService} from './../../services/auth.service';
 import {MDBModalRef} from 'angular-bootstrap-md';
-import {FormGroup} from '@angular/forms';
 
 @Component({
   selector: 'connexion-modal',
@@ -9,9 +8,6 @@ import {FormGroup} from '@angular/forms';
   styleUrls: ['./connexion-modal.component.scss']
 })
 export class ConnexionModalComponent implements OnInit {
-  formIsValid = false;
-  signinForm;
-  loginForm;
   isLogin = false;
   isJunkyard: false;
 
@@ -35,35 +31,8 @@ export class ConnexionModalComponent implements OnInit {
   public isSigninConnexion() {
     this.isLogin = false;
   }
-  // -------------- ACTIVE BTN -------------- //
-  activeButton($event: any) {
-    this.formIsValid = $event;
-  }
-  // -------------- BUILD FORM -------------- //
-  createSigninForm($event: FormGroup) {
-    this.signinForm = {...$event};
-  }
-  createLoginForm($event: FormGroup) {
-    this.loginForm = $event;
-  }
-
-  createRoleForm($event: FormGroup) {
-    // this.isJunkyard = $event.value;
-    this.createSigninForm($event);
-  }
-
   // -------------- SUBMIT FORM -------------- //
-  public submit() {
-    this.loading = true;
-    if (this.isLogin) {
-      console.log('OBJ_SUBMIT', this.loginForm);
-      // this.login(this.loginForm);
-    } else if (!this.isLogin) {
-      console.log('OBJ_SUBMIT', this.signinForm);
-      // this.signin(this.signinForm);
-    }
-  }
-  private login(user) {
+  private submitLogin(user) {
     console.log('OBJ_PARTAGE', JSON.stringify(user));
     // TODO : DECOMMENTER APRES AVOIR FAIT LE SERVICE
     // this.loginService.login(user).toPromise().then((val) => {
@@ -75,7 +44,7 @@ export class ConnexionModalComponent implements OnInit {
     //   }
     // });
   }
-  private signin(user) {
+  public submitSignin(user) {
     console.log('OBJ_PARTAGE', JSON.stringify(user));
     // this.loginService.login(user).toPromise().then((val) => {
     //   console.log(val.errors);

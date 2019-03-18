@@ -16,11 +16,12 @@ export class RoleFormComponent implements OnInit {
   constructor(fb: FormBuilder) {
     // -------------- FORMBUILDER -------------- //
     this.roleForm = fb.group({
-      isJunkyard: false,
+      isJunkyard: false, // est vendeur
     });
   }
 
   ngOnInit() {
+    this.add.emit(this.roleForm.getRawValue());
   }
 
   // -------------- GETTERS -------------- //
@@ -28,17 +29,8 @@ export class RoleFormComponent implements OnInit {
     return (this.roleForm.get('isJunkyard') as FormControl);
   }
 
-  handleJunkyard(val) {
-    console.log(val);
+  handleRole(val) {
     this.isJunkyard.setValue(val);
-  }
-
-  sendForm(valid: boolean) {
-    this.isValid.emit(valid);
-
-    if (!valid) {
-      return;
-    }
     this.add.emit(this.roleForm.getRawValue());
   }
 }

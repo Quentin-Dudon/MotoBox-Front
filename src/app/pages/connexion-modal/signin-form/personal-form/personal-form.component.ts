@@ -16,10 +16,10 @@ export class PersonalFormComponent implements OnInit {
   constructor(fb: FormBuilder) {
     // -------------- FORMBUILDER -------------- //
     this.personalForm = fb.group({
-      civility: ['', [
-        Validators.required,
-        Validators.pattern('Mr|Mme')
-      ]],
+      // civility: ['', [
+      //   Validators.required,
+      //   Validators.pattern('Mr|Mme')
+      // ]],
       firstName: ['', [
         Validators.required,
       ]],
@@ -33,9 +33,9 @@ export class PersonalFormComponent implements OnInit {
   }
 
   // -------------- GETTERS -------------- //
-  get civility() {
-    return (this.personalForm.get('civility') as FormControl);
-  }
+  // get civility() {
+  //   return (this.personalForm.get('civility') as FormControl);
+  // }
   get firstName() {
     return (this.personalForm.get('firstName') as FormControl);
   }
