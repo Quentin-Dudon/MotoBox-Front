@@ -7,8 +7,8 @@ import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
   styleUrls: ['./personal-form.component.scss']
 })
 export class PersonalFormComponent implements OnInit {
-  @Output()
-  add = new EventEmitter<FormGroup>();
+  @Output() add = new EventEmitter<FormGroup>();
+  @Output() isValid = new EventEmitter<boolean>();
 
   personalForm;
   loading = false;
@@ -43,13 +43,12 @@ export class PersonalFormComponent implements OnInit {
     return (this.personalForm.get('lastName') as FormControl);
   }
 
-  // -------------- SUBMIT -------------- //
-  onSubmit() {
-    this.loading = true;
+  sendForm(valid: boolean) {
+    this.isValid.emit(valid);
 
-    if (this.personalForm.invalid) {
+    if (!valid) {
       return;
     }
-    this.add.emit(this.personalForm.value);
+    this.add.emit(this.personalForm.getRawValue());
   }
 }

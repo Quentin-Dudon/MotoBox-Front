@@ -50,20 +50,8 @@
       </div>
       <!--///////////////////////// BODY /////////////////////////-->
       <div class="modal-body mx-3">
-        <login-form (add)="createLoginForm($event)"
-                    (isValid)="activeButton($event)">
+        <login-form (add)="submitLogin($event)">
         </login-form>
-        <!--///////////////////////// FOOTER /////////////////////////-->
-        <div class="modal-footer d-flex justify-content-center border-0">
-          <button class="waves-light amber accent-2 black-text"
-                  mdbBtn
-                  (click)="submit()"
-                  [disabled]="!formIsValid || loading"
-                  mdbWavesEffect>
-            <span *ngIf="loading" class="fa fa-spin fa-spinner"></span>
-            Next
-          </button>
-        </div>
       </div>
     </div>
   </div>
@@ -95,22 +83,9 @@
       </div>
       <!--///////////////////////// BODY /////////////////////////-->
       <div class="modal-body mx-3">
-        <signin-form (currentFormValue)="createSigninForm($event)"
-                     (currentFormValid)="activeButton($event)">
+        <signin-form (currentFormValue)="submitSignin($event)">
         </signin-form>
       </div>
-      <!--///////////////////////// FOOTER /////////////////////////-->
-      <div class="modal-footer d-flex justify-content-center border-0">
-        <button class="waves-light amber accent-2 black-text"
-                mdbBtn
-                [disabled]="!formIsValid || loading"
-                (click)="submit()"
-                mdbWavesEffect>
-          <span *ngIf="loading" class="fa fa-spin fa-spinner"></span>
-          Next
-        </button>
-      </div>
-
     </div>
   </div>
 </div>

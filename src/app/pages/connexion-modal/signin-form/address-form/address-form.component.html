@@ -1,11 +1,11 @@
- <form [formGroup]="addressForm" novalidate
-        (change)="sendForm(addressForm.valid)">
+ <form [formGroup]="addressForm" novalidate>
 
-  <div class="row mt-5">
+  <div class="row mt-3">
   <!--Street-->
   <div class="md-form col-sm-6 m-0">
     <i class="fas fa-road prefix grey-text"></i>
     <input type="text"
+           (keyup)="sendForm(addressForm.valid)"
            class="form-control validate mb-3"
            formControlName="street"
            mdbInput>
@@ -15,6 +15,7 @@
   <div class="md-form col-sm-6 m-0">
     <i class="fas fa-map-marked-alt prefix grey-text"></i>
     <input type="text"
+           (keyup)="sendForm(addressForm.valid)"
            class="form-control validate mb-3"
            formControlName="postalCode"
            mdbInput>
@@ -32,11 +33,12 @@
   <!--//////////////////////////////////////-->
 </div>
 
-<div class="row mt-5">
+<div class="row mt-3 mb-3">
   <!--City-->
   <div class="md-form col-sm-6 m-0">
-    <i class="fas fa-country prefix grey-text"></i>
+    <i class="fas fa-city prefix grey-text"></i>
     <input type="text"
+           (keyup)="sendForm(addressForm.valid)"
            class="form-control validate mb-3"
            formControlName="city"
            mdbInput>
@@ -44,15 +46,16 @@
   </div>
   <!--Country-->
   <div class="md-form col-sm-6 m-0">
-    <i class="fas fa-globe-europe prefix grey-text"></i>
+    <i class="fa fa-globe-europe prefix grey-text"></i>
     <input type="text"
+           (keyup)="sendForm(addressForm.valid)"
            class="form-control validate mb-3"
            formControlName="country"
            mdbInput>
     <label data-error="wrong" data-success="right" class="pl-3">Pays</label>
   </div>
   <!--////////////// errors ////////////////-->
-  <div *ngIf="city.touched && city.invalid" class="alert alert-danger">
+  <div *ngIf="city.touched && city.invalid" class="alert alert-danger mb-4">
     <div *ngIf="city.hasError('required')">La ville est requise : entrez un nom de ville valide.</div>
   </div>
   <div *ngIf="country.touched && country.invalid" class="alert alert-danger">

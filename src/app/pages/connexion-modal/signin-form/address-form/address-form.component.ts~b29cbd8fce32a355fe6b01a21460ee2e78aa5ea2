@@ -7,8 +7,8 @@ import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
   styleUrls: ['./address-form.component.scss']
 })
 export class AddressFormComponent implements OnInit {
-  @Output()
-  add = new EventEmitter<FormGroup>();
+  @Output() add = new EventEmitter<FormGroup>();
+  @Output() isValid = new EventEmitter<boolean>();
 
   addressForm;
   loading = false;
@@ -35,23 +35,25 @@ export class AddressFormComponent implements OnInit {
   get street() {
     return (this.addressForm.get('street') as FormControl);
   }
+
   get postalCode() {
     return (this.addressForm.get('postalCode') as FormControl);
   }
+
   get city() {
     return (this.addressForm.get('city') as FormControl);
   }
+
   get country() {
     return (this.addressForm.get('country') as FormControl);
   }
 
-  // -------------- SUBMIT -------------- //
-  onSubmit() {
-    this.loading = true;
+  sendForm(valid: boolean) {
+    this.isValid.emit(valid);
 
-    if (this.addressForm.invalid) {
+    if (!valid) {
       return;
     }
-    this.add.emit(this.addressForm.value);
+    this.add.emit(this.addressForm.getRawValue());
   }
 }
