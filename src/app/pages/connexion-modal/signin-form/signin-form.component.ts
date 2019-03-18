@@ -2,7 +2,7 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {FormBuilder, FormGroup} from '@angular/forms';
 
 @Component({
-  selector: 'signin-form',
+  selector: 'app-signin-form',
   templateUrl: './signin-form.component.html',
   styleUrls: ['./signin-form.component.scss']
 })
@@ -12,9 +12,9 @@ export class SigninFormComponent implements OnInit {
   @Output() currentFormValue = new EventEmitter<FormGroup>();
 
   // final form
-  form = {};
+  form: any;
   // enable/disabled buttons
-  valid = {};
+  valid: any;
 
   constructor() {
   }
