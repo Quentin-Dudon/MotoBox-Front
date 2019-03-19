@@ -14,8 +14,8 @@ export class AuthService {
         localStorage.clear();
     }
 
-    setToken() {
-        localStorage.setItem('token', 'hello token');
+    getToken(): void {
+        localStorage.getItem('MotoBoxToken');
     }
 
     isAuthenticated2(): boolean {
@@ -23,7 +23,11 @@ export class AuthService {
     }
 
     isAuthenticated(): boolean {
-        return localStorage.getItem('token') != null && !this.isTokenExpired();
+        if (localStorage.getItem('MotoBoxToken')) {
+            return true;
+        }
+        return false;
+        // return localStorage.getItem('token') != null && !this.isTokenExpired();
     }
 
     isTokenExpired(): boolean {

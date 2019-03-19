@@ -1,21 +1,21 @@
 <section>
-    <div><img src="{{ad.imageUrl}}" alt=""></div>
-    <div>
+  <div><img src="{{ad.imageUrl}}" alt=""></div>
+  <div>
     <article>
-        <p>Type</p>
-        <p>{{ad.category}}</p>
+      <p>Type</p>
+      <p>{{ad.category}}</p>
     </article>
     <article>
-        <p>Moto</p>
-        <p>{{ad.model}}</p>
+      <p>Moto</p>
+      <p>{{ad.model}}</p>
     </article>
     <article>
-        <p>Année</p>
-        <p>{{ad.year}}</p>
+      <p>Année</p>
+      <p>{{ad.year}}</p>
     </article>
-    </div>
-    <div>
+  </div>
+  <div>
     <p>{{ad.price}} &euro;</p>
-    <p>voir</p>
-    </div>
+    <p [routerLink]="['/ad', ad.id]">Voir</p>
+  </div>
 </section>
