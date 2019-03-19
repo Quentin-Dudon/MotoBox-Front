@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import data from '../../../../../assets/mocks/ads.json';
-import {AdsService} from '../../../../services/ads/ads.service';
-import {NotFoundError} from '../../../../shared/error/not-found-error';
-import {AccessDeniedError} from '../../../../shared/error/access-denied-error';
-import {ServerError} from '../../../../shared/error/server-error';
-import {AppError} from '../../../../shared/error/app-error';
+import { AdsService } from '../../../../services/ads/ads.service';
+import { NotFoundError } from '../../../../shared/error/not-found-error';
+import { AccessDeniedError } from '../../../../shared/error/access-denied-error';
+import { ServerError } from '../../../../shared/error/server-error';
+import { AppError } from '../../../../shared/error/app-error';
 
 @Component({
   selector: 'app-response',
@@ -18,7 +18,7 @@ export class ResponseComponent implements OnInit {
   constructor(private adsService: AdsService) { }
 
   ngOnInit() {
-      this.ads = [];
+    this.ads = [];
     this.adsService.getAds()
       .subscribe(
         response => {
