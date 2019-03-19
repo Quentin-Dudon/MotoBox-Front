@@ -1,6 +1,6 @@
-<app-bar-response [mockAds]="mockAds"></app-bar-response>
+<app-bar-response [Ads]="ads"></app-bar-response>
 <ul>
-    <li *ngFor="let mockAd of mockAds">
-        <app-ads-details [mockAd]="mockAd"></app-ads-details>
+    <li *ngFor="let ad of ads">
+        <app-ads-details [Ad]="ad"></app-ads-details>
     </li>
 </ul>

@@ -16,6 +16,7 @@ import { AdminEditComponent } from './pages/admin/admin-edit/admin-edit.componen
 
 export const AppRoutingModule: Routes = [
   { path: '', component: HomeComponent },
+  { path: 'connexion', component: ConnexionModalComponent, outlet: 'modal' },
   { path: 'admin', component: AdminComponent, canActivate: [AuthGuard] },
   { path: 'admin-edit', component: AdminEditComponent, canActivate: [AuthGuard] },
   { path: 'profil', component: ProfilComponent },
@@ -23,6 +24,5 @@ export const AppRoutingModule: Routes = [
   { path: 'about', component: AboutComponent },
   { path: 'product', component: ProductComponent },
   { path: 'cart', component: CartComponent },
-  { path: 'login', component: ConnexionModalComponent, outlet: 'modal' },
   { path: '**', component: NotFoundComponent },
 ];

@@ -55,6 +55,11 @@ import {NotFoundComponent} from './pages/not-found/not-found.component';
 // ROUTING
 import {AppRoutingModule} from './app-routing.module';
 import {RouterModule} from '@angular/router';
+import {NoAccessComponent} from './pages/connexion-modal/no-access/no-access/no-access.component';
+import {AuthService} from './services/auth/auth.service';
+import {ContactService} from './services/contact.service';
+import {SigninService} from './services/signin/signin.service';
+import {UserService} from './services/user/user.service';
 
 // SERVICES
 
@@ -85,7 +90,8 @@ import {RouterModule} from '@angular/router';
     AdminEditComponent,
     AdsDetailsComponent,
     BarResponseComponent,
-    ProductComponent
+    ProductComponent,
+    NoAccessComponent
 
   ],
   imports: [
@@ -104,7 +110,10 @@ import {RouterModule} from '@angular/router';
     MatFormFieldModule,
     MatButtonModule,
   ],
-  providers: [],
+  providers: [
+    ContactService,
+    UserService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
