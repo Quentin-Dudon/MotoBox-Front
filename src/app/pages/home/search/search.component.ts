@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Options } from 'ng5-slider';
 //import { animationFrame } from 'rxjs/internal/scheduler/animationFrame';
 
@@ -8,6 +8,8 @@ import { Options } from 'ng5-slider';
   styleUrls: ['./search.component.scss']
 })
 export class SearchComponent implements OnInit {
+
+  @Input() ads;
 
   hideTitle = true;
   isShow = false;
