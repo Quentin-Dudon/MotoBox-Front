@@ -51,8 +51,8 @@
       <!--///////////////////////// BODY /////////////////////////-->
       <div class="modal-body mx-3">
         <div *ngIf="loginErrorMessage" class="alert alert-danger mb-4">{{loginErrorMessage}}</div>
-        <login-form (add)="userLogin($event)">
-        </login-form>
+        <app-login-form (add)="userLogin($event)">
+        </app-login-form>
       </div>
     </div>
   </div>
