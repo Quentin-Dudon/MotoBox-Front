@@ -20,6 +20,8 @@ import { FooterComponent } from './shared/footer/footer.component';
 // admin page
 import { AdminComponent } from './pages/admin/admin.component';
 import { AdminEditComponent } from './pages/admin/admin-edit/admin-edit.component';
+import { AdminCreateComponent } from './pages/admin/admin-create/admin-create.component';
+
 // profil
 import { ProfilComponent } from './pages/profil/profil.component';
 // about
@@ -65,6 +67,7 @@ import { AdsService } from './services/ads/ads.service';
 //INTERCEPTORS
 import { HttpTokenInterceptor } from './services/interceptors/http.token.Interceptor';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -93,6 +96,8 @@ import { HttpTokenInterceptor } from './services/interceptors/http.token.Interce
     AdsDetailsComponent,
     BarResponseComponent,
     ProductComponent,
+    AdminCreateComponent
+
   ],
   imports: [
     BrowserModule,
