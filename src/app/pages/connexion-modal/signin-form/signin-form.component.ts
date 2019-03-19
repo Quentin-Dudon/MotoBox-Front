@@ -12,9 +12,9 @@ export class SigninFormComponent implements OnInit {
   @Output() currentFormValue = new EventEmitter<FormGroup>();
 
   // final form
-  form: any;
+  form = {};
   // enable/disabled buttons
-  valid: any;
+  valid = {};
 
   constructor() {
   }
