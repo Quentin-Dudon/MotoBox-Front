@@ -13,13 +13,12 @@ import {AppError} from '../../../../shared/error/app-error';
 })
 export class ResponseComponent implements OnInit {
 
-  mockAds = data;
-
-  ads = [];
+  ads: any;
 
   constructor(private adsService: AdsService) { }
 
   ngOnInit() {
+      this.ads = [];
     this.adsService.getAds()
       .subscribe(
         response => {
@@ -27,12 +26,12 @@ export class ResponseComponent implements OnInit {
           console.log('ADS :::', this.ads);
         },
         (error: AppError) => {
-          this.handleError(error, false);
+          this.handleError(error);
         });
   }
 
   // -------------- ERRORS -------------- //
-  private handleError(error, isLogin) {
+  private handleError(error) {
     let message = '';
     console.log('ERROR ::', error);
     console.log('Status ::', error.status);
@@ -45,12 +44,6 @@ export class ResponseComponent implements OnInit {
       message = 'le serveur n\'a pas répondu, veuillez réessayer ulterieurement.';
     } else { // others
       message = 'Une erreur inattendue s\'est produite, veuillez réessayer de vous connecter.';
-    }
-
-    if (isLogin) {
-      this.loginErrorMessage = message;
-    } else {
-      this.signinErrorMessage = message;
     }
   }
 }
