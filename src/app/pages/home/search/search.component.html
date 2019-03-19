@@ -19,32 +19,14 @@
       <p>Marque</p>
       <select id="select-order-by" class="btn btn-lightgray" (onClick)="hideTitleFunc()">
         <option [hidden]="hideTitle">Rechercher</option>
-        <option class="dropdown-item white" value="Peugeot">Peugeot</option>
-        <option class="dropdown-item white" value="Citroen">Citroen</option>
-        <option class="dropdown-item white" value="Renault">Renault</option>
-      </select>
-    </div>
-    <div class="box-dropdown">
-      <p>Cylindrée</p>
-      <select id="select-order-by" class="btn btn-lightgray" (onClick)="hideTitleFunc()">
-        <option [hidden]="hideTitle">De 100 à 600 cm3</option>
-        <option class="dropdown-item white" value="100">100 cm</option>
-        <option class="dropdown-item white" value="200">200 cm</option>
-        <option class="dropdown-item white" value="300">300 cm</option>
-        <option class="dropdown-item white" value="400">400 cm</option>
-        <option class="dropdown-item white" value="500">500 cm</option>
-        <option class="dropdown-item white" value="600">600 cm</option>
+        <option class="dropdown-item white" *ngFor="let ad of ads" value={{ad.brand}}>{{ad.brand}}</option>
       </select>
     </div>
     <div class="box-dropdown">
       <p>Modèle</p>
       <select id="select-order-by" class="btn btn-lightgray" (onClick)="hideTitleFunc()">
         <option [hidden]="hideTitle">Rechercher</option>
-        <option class="dropdown-item white" value="Sportives">Sportives</option>
-        <option class="dropdown-item white" value="Routières">Routières</option>
-        <option class="dropdown-item white" value="Trails">Trails</option>
-        <option class="dropdown-item white" value="Tout-Terrain">Tout-Terrain</option>
-        <option class="dropdown-item white" value="Scooters">Scooters</option>
+        <option class="dropdown-item white" *ngFor="let ad of ads" value={{ad.model}}>{{ad.model}}</option>
       </select>
     </div>
     <div class="box-dropdown">

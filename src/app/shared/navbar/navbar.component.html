@@ -1,13 +1,9 @@
 <div>
   <nav class="navbar navbar-expand-lg navbar-dark amber accent-2">
 
-    <img src="../../assets/logo/motobox-logo.svg"
-         alt="Salem Auto Sales"
-         class="mr-4"
-         height="40" width="140"
-         routerLink="/"
-         routerLinkActive="active">
-    <form class="form-inline my-1 mr-5">
+    <img src="../../assets/logo/motobox-logo.svg" alt="Salem Auto Sales" class="mr-4" height="40" width="140"
+      routerLink="/" routerLinkActive="active" style="cursor:pointer">
+    <!--<form class="form-inline my-1 mr-5">
       <div class="md-form form-sm my-0">
         <input class="form-control form-control-sm mr-sm-2 mb-0"
                type="text"
@@ -15,11 +11,10 @@
                aria-label="Search">
         <mdb-icon fas icon="search black-text"></mdb-icon>
       </div>
-    </form>
+    </form>-->
 
-    <div class="collapse navbar-collapse"
-         id="navbarSupportedContent-333">
-      <ul class="navbar-nav mr-auto">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent-333">
+      <!--<ul class="navbar-nav mr-auto">
         <li class="nav-item active">
           <a class="nav-link black-text" href="#">
             <strong>Faire adopter une piece</strong>
@@ -27,21 +22,19 @@
                aria-hidden="true"></i>
           </a>
         </li>
-      </ul>
+      </ul>-->
 
       <ul class="navbar-nav ml-auto nav-flex-icons">
         <li class="nav-item">
-            <a class="nav-link black-text" href="cart">Panier</a>
+          <a class="nav-link black-text" href="cart">Panier</a>
         </li>
 
         <li class="nav-item" *ngIf="!isLoggedIn">
-          <a class="nav-link black-text"
-             (click)="openLoginSigninModal()">Connexion</a>
+          <a class="nav-link black-text" (click)="openLoginSigninModal()">Connexion</a>
         </li>
 
         <li class="nav-item" *ngIf="isLoggedIn">
-            <a class="nav-link black-text"
-             (click)="logout()">Déconnexion</a>
+          <a class="nav-link black-text" (click)="logout()">Déconnexion</a>
         </li>
 
         <!--<li class="nav-item">

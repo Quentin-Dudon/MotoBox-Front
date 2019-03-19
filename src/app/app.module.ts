@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS  } from '@angular/common/http';
 import { Ng5SliderModule } from 'ng5-slider';
 // bootstrap
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
@@ -20,6 +20,8 @@ import { FooterComponent } from './shared/footer/footer.component';
 // admin page
 import { AdminComponent } from './pages/admin/admin.component';
 import { AdminEditComponent } from './pages/admin/admin-edit/admin-edit.component';
+import { AdminCreateComponent } from './pages/admin/admin-create/admin-create.component';
+
 // profil
 import { ProfilComponent } from './pages/profil/profil.component';
 // about
@@ -62,6 +64,10 @@ import { UserService } from './services/user/user.service';
 import { CartService } from './services/cart/cart.service';
 import { AdsService } from './services/ads/ads.service';
 
+//INTERCEPTORS
+import { HttpTokenInterceptor } from './services/interceptors/http.token.Interceptor';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -90,6 +96,8 @@ import { AdsService } from './services/ads/ads.service';
     AdsDetailsComponent,
     BarResponseComponent,
     ProductComponent,
+    AdminCreateComponent
+
   ],
   imports: [
     BrowserModule,
@@ -111,7 +119,8 @@ import { AdsService } from './services/ads/ads.service';
     ContactService,
     UserService,
     AdsService,
-    CartService
+    CartService,
+    {provide: HTTP_INTERCEPTORS, useClass: HttpTokenInterceptor, multi: true}
   ],
   bootstrap: [AppComponent]
 })

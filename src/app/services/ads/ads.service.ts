@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
-import {environment} from '../../../environments/environment';
-import {catchError, map} from 'rxjs/operators';
-import {throwError} from 'rxjs';
-import {AccessDeniedError} from '../../shared/error/access-denied-error';
-import {NotFoundError} from '../../shared/error/not-found-error';
-import {ServerError} from '../../shared/error/server-error';
-import {AppError} from '../../shared/error/app-error';
+import { HttpClient } from '@angular/common/http';
+import { environment } from '../../../environments/environment';
+import { catchError, map } from 'rxjs/operators';
+import { throwError } from 'rxjs';
+import { AccessDeniedError } from '../../shared/error/access-denied-error';
+import { NotFoundError } from '../../shared/error/not-found-error';
+import { ServerError } from '../../shared/error/server-error';
+import { AppError } from '../../shared/error/app-error';
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +18,7 @@ export class AdsService {
 
   // -------------- GET AD BY ID -------------- //
   getAd(id) {
-    return this.http.get(`${environment.apiUrl}/user/ad/${id}`).pipe(
+    return this.http.get(`${environment.apiUrl}/ads/${id}`).pipe(
       map(res => res),
       catchError((error: Response) => {
         return this.getErrorType(error);
