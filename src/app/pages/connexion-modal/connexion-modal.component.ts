@@ -1,6 +1,12 @@
-import {Component, OnInit} from '@angular/core';
-import {AuthService} from './../../services/auth.service';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {UserService} from '../../services/user/user.service';
 import {MDBModalRef} from 'angular-bootstrap-md';
+import {Router} from '@angular/router';
+
+import {NotFoundError} from '../../shared/error/not-found-error';
+import {AccessDeniedError} from '../../shared/error/access-denied-error';
+import {ServerError} from '../../shared/error/server-error';
+import {AppError} from '../../shared/error/app-error';
 
 @Component({
   selector: 'connexion-modal',
@@ -8,6 +14,9 @@ import {MDBModalRef} from 'angular-bootstrap-md';
   styleUrls: ['./connexion-modal.component.scss']
 })
 export class ConnexionModalComponent implements OnInit {
+  @Output() loginErrorMessage: string;
+  @Output() signinErrorMessage: string;
+
   isLogin = false;
   isJunkyard: false;
 
@@ -17,42 +26,69 @@ export class ConnexionModalComponent implements OnInit {
   loading = false;
 
   constructor(public modalRef: MDBModalRef,
-              private authService: AuthService) {
+              private userService: UserService,
+              private router: Router) {
   }
 
   ngOnInit() {
-    this.authService.setToken();
+    // this.authService.setToken();
   }
 
   // -------------- IS LOGIN OR SIGNIN ? -------------- //
   public isLoginConnexion() {
     this.isLogin = true;
   }
+
   public isSigninConnexion() {
     this.isLogin = false;
   }
+
   // -------------- SUBMIT FORM -------------- //
-  private submitLogin(user) {
-    console.log('OBJ_PARTAGE', JSON.stringify(user));
-    // TODO : DECOMMENTER APRES AVOIR FAIT LE SERVICE
-    // this.loginService.login(user).toPromise().then((val) => {
-    //   console.log(val.errors);
-    //   if (!val.errors) { /* Si la requete est OK */
-    //     localStorage.setItem('currentUser', JSON.stringify(val.data.user))
-    //     // on change la route
-    //     this.router.navigate([getRoute('users').path]);
-    //   }
-    // });
+  private userLogin(credentials) {
+    console.log('OBJ_PARTAGE', JSON.stringify(credentials));
+    this.userService.login(credentials)
+      .subscribe(
+        token => {
+          localStorage.setItem('', res)
+          // mettre token => localstorage
+          this.router.navigate(['/']);
+        },
+        (error: AppError) => {
+          this.handleError(error, true);
+        });
   }
-  public submitSignin(user) {
+
+  public userSignin(user) {
     console.log('OBJ_PARTAGE', JSON.stringify(user));
-    // this.loginService.login(user).toPromise().then((val) => {
-    //   console.log(val.errors);
-    //   if (!val.errors) { /* Si la requete est OK */
-    //     localStorage.setItem('currentUser', JSON.stringify(val.data.user))
-    //     // on change la route (si il faut)
-    //     this.router.navigate([getRoute('users').path]);
-    //   }
-    // });
+    this.userService.create(user).subscribe(
+      response => {
+        this.router.navigate(['/']);
+      },
+      (error: AppError) => {
+        this.handleError(error, false);
+      });
+  }
+
+  // -------------- ERRORS -------------- //
+  private handleError(error, isLogin) {
+    let message = '';
+    console.log('ERROR ::', error);
+    console.log('Status ::', error.status);
+
+    if (error instanceof NotFoundError) { // utilisateur non trouvée ;
+      message = 'L\'utilisateur demandé n\'existe pas.';
+    } else if (error.status instanceof AccessDeniedError) { // acces refusé
+      message = 'Acces refusé.';
+    } else if (error.status instanceof ServerError) { // serveur KO
+      message = 'le serveur n\'a pas répondu, veuillez réessayer ulterieurement.';
+    } else { // others
+      message = 'Une erreur inattendue s\'est produite, veuillez réessayer de vous connecter.';
+    }
+
+    if (isLogin) {
+      this.loginErrorMessage = message;
+    } else {
+      this.signinErrorMessage = message;
+    }
   }
 }

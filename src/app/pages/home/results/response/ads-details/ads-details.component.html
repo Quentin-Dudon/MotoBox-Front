@@ -1,21 +1,21 @@
 <section>
-    <div><img src="{{mockAd.image}}" alt=""></div>
+    <div><img src="{{Ad.imageUrl}}" alt=""></div>
     <div>
     <article>
         <p>Type</p>
-        <p>1997</p>
+        <p>{{Ad.category}}</p>
     </article>
     <article>
         <p>Moto</p>
-        <p>HONDA - CB 500</p>
+        <p>{{Ad.model}}</p>
     </article>
     <article>
         <p>Année</p>
-        <p>{{mockAd.year}}</p>
+        <p>{{Ad.year}}</p>
     </article>
     </div>
     <div>
-    <p>{{mockAd.price}} &euro;</p>
+    <p>{{Ad.price}} &euro;</p>
     <p>voir</p>
     </div>
 </section>

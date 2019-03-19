@@ -1,8 +1,8 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {FormBuilder, FormGroup} from '@angular/forms';
+import {FormGroup} from '@angular/forms';
 
 @Component({
-  selector: 'app-signin-form',
+  selector: 'signin-form',
   templateUrl: './signin-form.component.html',
   styleUrls: ['./signin-form.component.scss']
 })
@@ -25,7 +25,10 @@ export class SigninFormComponent implements OnInit {
 
   initButtonsStates() {
     this.valid = new Object({
-      personal: false, contact: false, address: false, password: false,
+      personal: false,
+      contact: false,
+      address: false,
+      password: false,
       form: false
     });
   }
@@ -44,7 +47,7 @@ export class SigninFormComponent implements OnInit {
     });
   }
 
-  setState($event: boolean, formName: string) {
+  setButtonState($event: boolean, formName: string) {
     // change buttons states
     if (formName === 'personal') {
       this.valid.personal = $event;
@@ -68,17 +71,25 @@ export class SigninFormComponent implements OnInit {
   // -------------- SUBMIT -------------- //
   submitForm() {
     if (!this.form.isJunkyard) {
-      ['street', 'postalCode', 'city', 'country'].forEach(e => {
-        delete this.form[e];
-      });
+      this.removeAddress();
     }
     delete this.form.confirm_password;
     console.log('Envoyé');
     this.currentFormValue.emit(this.form);
   }
+
+  removeAddress() {
+    [
+      'street',
+      'postalCode',
+      'city',
+      'country'
+    ].forEach(e => { delete this.form[e]; });
+  }
 }
 // {
 // isJunkyard: false
+
 // firstName: "Yassin"
 // lastName: "Assim"
 // email: "yass@gmail.com"
@@ -88,6 +99,7 @@ export class SigninFormComponent implements OnInit {
 
 // {
 // isJunkyard: true
+
 // firstName: "Yassin"
 // lastName: "ASsim"
 // email: "yass@ass.com"

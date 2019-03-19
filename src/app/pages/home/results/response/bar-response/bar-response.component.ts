@@ -6,7 +6,7 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./bar-response.component.scss']
 })
 export class BarResponseComponent implements OnInit {
-  @Input() mockAds;
+  @Input() Ads;
   constructor() { }
 
   ngOnInit() {
