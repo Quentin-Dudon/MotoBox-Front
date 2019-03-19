@@ -1,17 +1,17 @@
 <body>
-  <div class="container">
+  <div class="container"  *ngIf="adDetail">
     <div class="box-container">
       <div class="container-fliud">
         <div class="wrapper row">
           <div class="preview col-md-6">
             <div class="preview-pic tab-content">
               <div class="tab-pane active" id="pic-1">
-                <img src="https://moto.honda.fr/content/dam/central/motorcycles/generic/Range/2019/2019-bikes/CBR500R-studio-shot-right-side.jpg/_jcr_content/renditions/c4.jpg" /></div>
+                <img src="{{adDetail.imageUrl}}" /></div>
             </div>
           </div>
           <div class="details col-md-6">
-            <h3 class="product-title">Honda - CB 500</h3>
-            <div class="rating">
+            <h3 class="product-title">{{adDetail.title}}</h3>
+            <!--<div class="rating">
               <div class="stars">
                 <span class="fa fa-star checked"></span>
                 <span class="fa fa-star checked"></span>
@@ -20,10 +20,9 @@
                 <span class="fa fa-star"></span>
               </div>
               <span class="review-no">41 reviews</span>
-            </div>
-            <p class="product-description">Suspendisse quos? Tempus cras iure temporibus? Eu laudantium cubilia sem
-              sem! Repudiandae et! Massa senectus enim minim sociosqu delectus posuere.</p>
-            <h4 class="price">current price: <span>180 &euro;</span></h4>
+            </div>-->
+            <p class="product-description">{{adDetail.description}}</p>
+            <h4 class="price">Prix : <span>{{adDetail.price}} &euro;</span></h4>
             <div class="action">
               <button class="add-to-cart btn" type="button">Ajouter au panier</button>
               <button class="see-cart btn" type="button">Voir mon panier</button>

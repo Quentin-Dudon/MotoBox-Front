@@ -23,7 +23,11 @@ export class AuthService {
     }
 
     isAuthenticated(): boolean {
-        return localStorage.getItem('token') != null && !this.isTokenExpired();
+        if (localStorage.getItem('MotoBoxToken')) {
+            return true;
+        }
+        return false;
+        // return localStorage.getItem('token') != null && !this.isTokenExpired();
     }
 
     isTokenExpired(): boolean {

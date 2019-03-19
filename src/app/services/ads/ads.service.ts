@@ -18,7 +18,7 @@ export class AdsService {
 
   // -------------- GET AD BY ID -------------- //
   getAd(id) {
-    return this.http.get(`${environment.apiUrl}/user/ad/${id}`).pipe(
+    return this.http.get(`${environment.apiUrl}/ads/${id}`).pipe(
       map(res => res),
       catchError((error: Response) => {
         return this.getErrorType(error);
