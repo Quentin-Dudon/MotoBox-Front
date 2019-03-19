@@ -49,7 +49,7 @@ export class ConnexionModalComponent implements OnInit {
     this.userService.login(credentials)
       .subscribe(
         token => {
-        //   localStorage.setItem('', res)
+          localStorage.setItem('MotoBoxToken', token.headers.get('Authorization'))
           // mettre token => localstorage
           this.router.navigate(['/']);
         },

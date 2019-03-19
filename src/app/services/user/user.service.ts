@@ -19,7 +19,7 @@ export class UserService {
   }
 
   login(credentials): Observable<any> {
-    return this.http.post(`${environment.apiUrl}/login`, credentials).pipe(
+    return this.http.post(`${environment.apiUrl}/login`, credentials, {observe: 'response'}).pipe(
       map(res => res),
       catchError((error: Response) => {
         return this.getErrorType(error);
@@ -66,6 +66,8 @@ export class UserService {
     if (error.status === 500 || 503 || 504) {
       return throwError(new ServerError(error));
     }
-    return throwError(new AppError(error));
+    if (error.status !== 200) {
+        return throwError(new AppError(error));
+    }
   }
 }
