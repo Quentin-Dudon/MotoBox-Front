@@ -12,15 +12,17 @@ export class SigninFormComponent implements OnInit {
   @Output() currentFormValue = new EventEmitter<FormGroup>();
 
   // final form
-  form = {};
+  form;
   // enable/disabled buttons
-  valid = {};
+  valid;
 
   constructor() {
   }
 
   ngOnInit() {
     this.initButtonsStates();
+    this.form = {};
+    this.valid = {};
   }
 
   initButtonsStates() {
