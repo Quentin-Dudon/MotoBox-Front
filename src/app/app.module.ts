@@ -18,8 +18,9 @@ import {MatIconModule} from '@angular/material/icon';
 import {NavbarComponent} from './shared/navbar/navbar.component';
 import {FooterComponent} from './shared/footer/footer.component';
 // admin page
-import {AdminComponent} from './pages/admin/admin.component';
-import {AdminEditComponent} from './pages/admin/admin-edit/admin-edit.component';
+import { AdminComponent } from './pages/admin/admin.component';
+import { AdminEditComponent } from './pages/admin/admin-edit/admin-edit.component';
+import { AdminCreateComponent } from './pages/admin/admin-create/admin-create.component';
 // profil
 import {ProfilComponent} from './pages/profil/profil.component';
 // about
@@ -62,6 +63,7 @@ import {UserService} from './services/user/user.service';
 import {CartService} from './services/cart/cart.service';
 import {AdsService} from './services/ads/ads.service';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -90,6 +92,7 @@ import {AdsService} from './services/ads/ads.service';
     AdsDetailsComponent,
     BarResponseComponent,
     ProductComponent,
+    AdminCreateComponent,
 
   ],
   imports: [
