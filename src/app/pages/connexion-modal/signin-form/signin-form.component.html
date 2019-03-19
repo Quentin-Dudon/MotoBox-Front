@@ -7,7 +7,7 @@
       <ng-template matStepLabel matStepperIcon="edit">Nom</ng-template>
       <!-- ========= PERSONAL ========= -->
       <personal-form (add)="setValue($event)"
-                     (isValid)="setState($event, 'personal')">
+                     (isValid)="setButtonState($event, 'personal')">
       </personal-form>
       <div class="button">
         <button mat-raised-button
@@ -23,7 +23,7 @@
       <ng-template matStepLabel>Contact</ng-template>
       <!-- ========= CONTACTS ========= -->
       <contact-form (add)="setValue($event)"
-                    (isValid)="setState($event, 'contact')">
+                    (isValid)="setButtonState($event, 'contact')">
       </contact-form>
       <div class="button">
         <button mat-raised-button
@@ -42,7 +42,7 @@
       <ng-template matStepLabel>Addresse</ng-template>
       <!-- ========= ADDRESS ========= -->
         <address-form (add)="setValue($event)"
-                      (isValid)="setState($event, 'address')">
+                      (isValid)="setButtonState($event, 'address')">
         </address-form>
       <div class="button">
         <button mat-raised-button
@@ -60,7 +60,7 @@
       <ng-template matStepLabel>Password</ng-template>
       <!-- ========= PASSWORD ========= -->
       <password-form (add)="setValue($event)"
-                     (isValid)="setState($event, 'password')">
+                     (isValid)="setButtonState($event, 'password')">
       </password-form>
       <div class="button">
         <button mat-raised-button

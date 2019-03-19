@@ -19,7 +19,8 @@ export class PasswordFormComponent implements OnInit {
     this.passwordForm = fb.group({
       password: ['', [
         Validators.required,
-        Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}/),
+        Validators.pattern(''), // TODO: A COMMENTER
+        // Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}/), // TODO: A DECOMMENTER
       ]],
       confirm_password: ['', [
         Validators.required,

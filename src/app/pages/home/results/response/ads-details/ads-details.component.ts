@@ -7,7 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class AdsDetailsComponent implements OnInit {
 
-  @Input() mockAd;
+  @Input() Ad;
   constructor() { }
 
   ngOnInit() {

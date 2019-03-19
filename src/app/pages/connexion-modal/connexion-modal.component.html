@@ -50,8 +50,9 @@
       </div>
       <!--///////////////////////// BODY /////////////////////////-->
       <div class="modal-body mx-3">
-        <app-login-form (add)="submitLogin($event)">
-        </app-login-form>
+        <div *ngIf="loginErrorMessage" class="alert alert-danger mb-4">{{loginErrorMessage}}</div>
+        <login-form (add)="userLogin($event)">
+        </login-form>
       </div>
     </div>
   </div>
@@ -83,8 +84,9 @@
       </div>
       <!--///////////////////////// BODY /////////////////////////-->
       <div class="modal-body mx-3">
-        <app-signin-form (currentFormValue)="submitSignin($event)">
-        </app-signin-form>
+        <div *ngIf="signinErrorMessage" class="alert alert-danger mb-4">{{signinErrorMessage}}</div>
+        <signin-form (currentFormValue)="userSignin($event)">
+        </signin-form>
       </div>
     </div>
   </div>

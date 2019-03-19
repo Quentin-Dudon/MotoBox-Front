@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {UsernameValidators} from '../../../shared/validators/username.valitors';
 
@@ -23,7 +23,8 @@ export class LoginFormComponent implements OnInit {
       ]],
       password: ['', [
         Validators.required,
-        Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}'),
+        Validators.pattern(''), // TODO: A COMMENTER
+        // Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}'), // TODO: A DECOMMENTER
       ]],
     });
   }

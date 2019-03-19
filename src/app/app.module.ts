@@ -57,6 +57,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { RouterModule } from '@angular/router';
 
 // SERVICES
+import { ContactService } from './services/contact.service';
+import { UserService } from './services/user/user.service';
+import { CartService } from './services/cart/cart.service';
+import { AdsService } from './services/ads/ads.service';
 
 @NgModule({
   declarations: [
@@ -85,7 +89,7 @@ import { RouterModule } from '@angular/router';
     AdminEditComponent,
     AdsDetailsComponent,
     BarResponseComponent,
-    ProductComponent
+    ProductComponent,
   ],
   imports: [
     BrowserModule,
@@ -103,7 +107,12 @@ import { RouterModule } from '@angular/router';
     MatFormFieldModule,
     MatButtonModule,
   ],
-  providers: [],
+  providers: [
+    ContactService,
+    UserService,
+    AdsService,
+    CartService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
