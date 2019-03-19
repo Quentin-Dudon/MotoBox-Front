@@ -55,13 +55,12 @@ import {NotFoundComponent} from './pages/not-found/not-found.component';
 // ROUTING
 import {AppRoutingModule} from './app-routing.module';
 import {RouterModule} from '@angular/router';
-import {NoAccessComponent} from './pages/connexion-modal/no-access/no-access/no-access.component';
-import {AuthService} from './services/auth/auth.service';
-import {ContactService} from './services/contact.service';
-import {SigninService} from './services/signin/signin.service';
-import {UserService} from './services/user/user.service';
 
 // SERVICES
+import {ContactService} from './services/contact.service';
+import {UserService} from './services/user/user.service';
+import {CartService} from './services/cart/cart.service';
+import {AdsService} from './services/ads/ads.service';
 
 @NgModule({
   declarations: [
@@ -91,7 +90,6 @@ import {UserService} from './services/user/user.service';
     AdsDetailsComponent,
     BarResponseComponent,
     ProductComponent,
-    NoAccessComponent
 
   ],
   imports: [
@@ -112,7 +110,9 @@ import {UserService} from './services/user/user.service';
   ],
   providers: [
     ContactService,
-    UserService
+    UserService,
+    AdsService,
+    CartService
   ],
   bootstrap: [AppComponent]
 })

@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NoAccessComponent } from './no-access.component';
+import { RoleFormComponent } from './role-form.component';
 
-describe('NoAccessComponent', () => {
-  let component: NoAccessComponent;
-  let fixture: ComponentFixture<NoAccessComponent>;
+describe('RoleFormComponent', () => {
+  let component: RoleFormComponent;
+  let fixture: ComponentFixture<RoleFormComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ NoAccessComponent ]
+      declarations: [ RoleFormComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(NoAccessComponent);
+    fixture = TestBed.createComponent(RoleFormComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
