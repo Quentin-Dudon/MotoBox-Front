@@ -31,8 +31,8 @@ export class CartService {
   // -------------------------------------------------------- //
 
   // -------------- CREATE CART -------------- //
-  create(userId) {
-    return this.http.post(`${environment.apiUrl}/cart/${userId}`).pipe(
+  create(userId, body) {
+    return this.http.post(`${environment.apiUrl}/cart/${userId}`, body).pipe(
       catchError((error: Response) => {
         return this.getErrorType(error);
       }),
@@ -49,24 +49,24 @@ export class CartService {
   }
 
   // -------------- ADD ITEM TO CART -------------- //
-  addProduct(idProduct) {
-    // Envoyer le token utilisateur a chaque requete
-    return this.http.post(`${environment.apiUrl}/cart/${idProduct}`, userToken).pipe(
-      catchError((error: Response) => {
-        return this.getErrorType(error);
-      }),
-    );
-  }
+//   addProduct(idProduct) {
+//     // Envoyer le token utilisateur a chaque requete
+//     return this.http.post(`${environment.apiUrl}/cart/${idProduct}`, userToken).pipe(
+//       catchError((error: Response) => {
+//         return this.getErrorType(error);
+//       }),
+//     );
+//   }
 
   // -------------- REMOVE ITEM TO CART -------------- //
-  deleteProduct(idProduct) {
-    // Envoyer le token utilisateur a chaque requete
-    return this.http.delete(`${environment.apiUrl}/cart/${idProduct}`, userToken).pipe(
-      catchError((error: Response) => {
-        return this.getErrorType(error);
-      }),
-    );
-  }
+//   deleteProduct(idProduct) {
+//     // Envoyer le token utilisateur a chaque requete
+//     return this.http.delete(`${environment.apiUrl}/cart/${idProduct}`, userToken).pipe(
+//       catchError((error: Response) => {
+//         return this.getErrorType(error);
+//       }),
+//     );
+//   }
 
   // -------------------------------------------------------- //
   // ---------------- USER IS NOT CONNECTED ----------------- //

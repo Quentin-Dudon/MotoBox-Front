@@ -12,15 +12,17 @@ export class SigninFormComponent implements OnInit {
   @Output() currentFormValue = new EventEmitter<FormGroup>();
 
   // final form
-  form = {};
+  form;
   // enable/disabled buttons
-  valid = {};
+  valid;
 
   constructor() {
   }
 
   ngOnInit() {
     this.initButtonsStates();
+    this.form = {};
+    this.valid = {};
   }
 
   initButtonsStates() {
@@ -74,7 +76,6 @@ export class SigninFormComponent implements OnInit {
       this.removeAddress();
     }
     delete this.form.confirm_password;
-    console.log('Envoyé');
     this.currentFormValue.emit(this.form);
   }
 
@@ -89,7 +90,6 @@ export class SigninFormComponent implements OnInit {
 }
 // {
 // isJunkyard: false
-
 // firstName: "Yassin"
 // lastName: "Assim"
 // email: "yass@gmail.com"
@@ -99,7 +99,6 @@ export class SigninFormComponent implements OnInit {
 
 // {
 // isJunkyard: true
-
 // firstName: "Yassin"
 // lastName: "ASsim"
 // email: "yass@ass.com"
