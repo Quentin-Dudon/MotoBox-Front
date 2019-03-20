@@ -62,6 +62,9 @@ import { UserService } from './services/user/user.service';
 import { CartService } from './services/cart/cart.service';
 import { AdsService } from './services/ads/ads.service';
 
+// Pipes
+import { RemoveDuplicateBrandPipe } from './pages/home/search/search.component'
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -90,6 +93,7 @@ import { AdsService } from './services/ads/ads.service';
     AdsDetailsComponent,
     BarResponseComponent,
     ProductComponent,
+    RemoveDuplicateBrandPipe
   ],
   imports: [
     BrowserModule,

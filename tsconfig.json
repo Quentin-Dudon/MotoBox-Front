@@ -1,5 +1,6 @@
 {
   "compileOnSave": false,
+
   "compilerOptions": {
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
@@ -20,7 +21,8 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+
   }
   //  "include" : ["node_modules/angular-bootstrap-md/**/*.ts", "src/**/*.ts"]
 }

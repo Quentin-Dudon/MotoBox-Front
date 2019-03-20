@@ -151,7 +151,6 @@ img {
   margin-left: 20px;
 }
 
-.add-to-cart,
 .like {
   background: #FECC3C;
   padding: 1.2em 1.5em;
@@ -161,17 +160,7 @@ img {
   color: #fff;
 }
 
-.see-cart {
-  background: #28A745;
-  padding: 1.2em 1.5em;
-  border: none;
-  text-transform: UPPERCASE;
-  font-weight: bold;
-  color: #fff;
-}
-
 .add-to-cart:hover,
-.see-cart:hover,
 .like:hover {
   background: darkgray;
   color: #fff;
@@ -186,22 +175,6 @@ img {
   font-family: fontawesome;
   content: "\f00d";
   color: #fff;
-}
-
-.orange {
-  background: #ff9f1a;
-}
-
-.green {
-  background: #85ad00;
-}
-
-.blue {
-  background: #0076ad;
-}
-
-.tooltip-inner {
-  padding: 1.3em;
 }
 
 @-webkit-keyframes opacity {

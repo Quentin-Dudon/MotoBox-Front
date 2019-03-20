@@ -17,20 +17,23 @@
   <div class="box-response" [class.opened]="show">
     <div class="box-dropdown">
       <p>Marque</p>
-      <select id="select-order-by" class="btn btn-lightgray" (onClick)="hideTitleFunc()">
-        <option [hidden]="hideTitle">Rechercher</option>
-        <option class="dropdown-item white" *ngFor="let ad of ads" value={{ad.brand}}>{{ad.brand}}</option>
+      <select [(ngModel)]="selectedBrand" id="select-order-by" class="btn btn-lightgray">
+        <option value="">--Rechercher--</option>
+        <option class="dropdown-item white" *ngFor="let ad of ads | removeDuplicateBrand" value={{ad.brand}}>{{ad.brand}}</option>
       </select>
     </div>
     <div class="box-dropdown">
       <p>Modèle</p>
-      <select id="select-order-by" class="btn btn-lightgray" (onClick)="hideTitleFunc()">
-        <option [hidden]="hideTitle">Rechercher</option>
+      <select [(ngModel)]="selectedModel" id="select-order-by" class="btn btn-lightgray">
+        <option value="">--Rechercher--</option>
         <option class="dropdown-item white" *ngFor="let ad of ads" value={{ad.model}}>{{ad.model}}</option>
       </select>
     </div>
     <div class="box-dropdown">
       <ng5-slider class="slider" [(value)]="value" [options]="options"></ng5-slider>
+    </div>
+    <div class="box-dropdown">
+      <button class="btn btn-success" (click)="onSubmit()">Valider</button>
     </div>
   </div>
 

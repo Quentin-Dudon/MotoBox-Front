@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { AdsService } from '../../services/ads/ads.service';
 import { NotFoundError } from '../../shared/error/not-found-error';
@@ -16,15 +16,19 @@ export class HomeComponent implements OnInit {
   loginFormModalPassword = new FormControl('', Validators.required);
 
   ads: any;
+  adsToShow;
+  filterValues;
 
   constructor(private adsService: AdsService) { }
 
   ngOnInit() {
     this.ads = [];
+    this.adsToShow = [];
     this.adsService.getAds()
       .subscribe(
         response => {
           this.ads = response;
+          this.adsToShow = response;
           console.log('ADS :::', this.ads);
         },
         (error: AppError) => {
@@ -46,6 +50,23 @@ export class HomeComponent implements OnInit {
       message = 'le serveur n\'a pas répondu, veuillez réessayer ulterieurement.';
     } else { // others
       message = 'Une erreur inattendue s\'est produite, veuillez réessayer de vous connecter.';
+    }
+  }
+
+  public onFiltered($event) {
+    this.filterValues = $event;
+    this.adsToShow = this.ads;
+    if (this.filterValues.brandName !== '') {
+      this.adsToShow = this.adsToShow.filter(ad => ad.brand == this.filterValues.brandName)
+    }
+    if (this.filterValues.modelName !== '') {
+      this.adsToShow = this.adsToShow.filter(ad => ad.model == this.filterValues.modelName)
+      // this.adsToShow=[]
+      // for (let ad of this.ads){
+      //   if(ad.model == this.filterValues.modelName) {
+      //     this.adsToShow.push(ad);
+      //   }
+      // }
     }
   }
 }
