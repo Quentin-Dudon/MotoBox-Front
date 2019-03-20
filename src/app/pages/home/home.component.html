@@ -1,4 +1,4 @@
 <main>
-  <app-search [ads]="ads"></app-search>
-  <app-results [ads]="ads"></app-results>
+  <app-search [ads]="ads" (filterValues)="onFiltered($event)"></app-search>
+  <app-results [ads]="adsToShow"></app-results>
 </main>
