@@ -76,7 +76,6 @@ export class SigninFormComponent implements OnInit {
       this.removeAddress();
     }
     delete this.form.confirm_password;
-    console.log('Envoyé');
     this.currentFormValue.emit(this.form);
   }
 
@@ -91,7 +90,6 @@ export class SigninFormComponent implements OnInit {
 }
 // {
 // isJunkyard: false
-
 // firstName: "Yassin"
 // lastName: "Assim"
 // email: "yass@gmail.com"
@@ -101,7 +99,6 @@ export class SigninFormComponent implements OnInit {
 
 // {
 // isJunkyard: true
-
 // firstName: "Yassin"
 // lastName: "ASsim"
 // email: "yass@ass.com"
