@@ -8,6 +8,7 @@ import {AppError} from '../../shared/error/app-error';
 import {NotFoundError} from '../../shared/error/not-found-error';
 import {AccessDeniedError} from '../../shared/error/access-denied-error';
 import {ServerError} from '../../shared/error/server-error';
+import {Succed} from '../../shared/error/succed';
 
 
 @Injectable({
@@ -57,6 +58,9 @@ export class UserService {
   // logout() {}
 
   private getErrorType(error) {
+    if (error.status === 0 || 200) {
+      return throwError(new Succed(error));
+    }
     if (error.status === 403) {
       return throwError(new AccessDeniedError(error));
     }
@@ -66,8 +70,6 @@ export class UserService {
     if (error.status === 500 || 503 || 504) {
       return throwError(new ServerError(error));
     }
-    if (error.status !== 200) {
-        return throwError(new AppError(error));
-    }
+    return throwError(new AppError(error));
   }
 }

@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {UserService} from '../../services/user/user.service';
 import {MDBModalRef} from 'angular-bootstrap-md';
 import {Router} from '@angular/router';
@@ -7,6 +7,7 @@ import {NotFoundError} from '../../shared/error/not-found-error';
 import {AccessDeniedError} from '../../shared/error/access-denied-error';
 import {ServerError} from '../../shared/error/server-error';
 import {AppError} from '../../shared/error/app-error';
+import {Succed} from '../../shared/error/succed';
 
 @Component({
   selector: 'connexion-modal',
@@ -14,16 +15,11 @@ import {AppError} from '../../shared/error/app-error';
   styleUrls: ['./connexion-modal.component.scss']
 })
 export class ConnexionModalComponent implements OnInit {
-  @Output() loginErrorMessage: string;
-  @Output() signinErrorMessage: string;
+  loginErrorMessage: string;
+  signinErrorMessage: string;
 
   isLogin = false;
   isJunkyard: false;
-
-  // modal
-  onClose: any;
-  errorMessage: any;
-  loading = false;
 
   constructor(public modalRef: MDBModalRef,
               private userService: UserService,
@@ -31,7 +27,6 @@ export class ConnexionModalComponent implements OnInit {
   }
 
   ngOnInit() {
-    // this.authService.setToken();
   }
 
   // -------------- IS LOGIN OR SIGNIN ? -------------- //
@@ -44,26 +39,25 @@ export class ConnexionModalComponent implements OnInit {
   }
 
   // -------------- SUBMIT FORM -------------- //
-  private userLogin(credentials) {
-    console.log('OBJ_PARTAGE', JSON.stringify(credentials));
+  private userLogin(credentials): void {
+    // console.log('OBJ_PARTAGE', JSON.stringify(credentials));
     this.userService.login(credentials)
       .subscribe(
         token => {
-          localStorage.setItem('MotoBoxToken', token.headers.get('Authorization'))
-          // mettre token => localstorage
-          this.router.navigate(['/']);
+          const value = token.headers.get('Authorization');
+          localStorage.setItem('MotoBoxToken', value);
+          this.modalRef.hide();
+          this.router.navigate([this.router.url]);
         },
         (error: AppError) => {
           this.handleError(error, true);
         });
   }
 
-  public userSignin(user) {
-    console.log('OBJ_PARTAGE', JSON.stringify(user));
+  public userSignin(user): void {
+    // console.log('OBJ_PARTAGE', JSON.stringify(user));
     this.userService.create(user).subscribe(
-      response => {
-        this.router.navigate(['/']);
-      },
+      response => {},
       (error: AppError) => {
         this.handleError(error, false);
       });
@@ -74,7 +68,9 @@ export class ConnexionModalComponent implements OnInit {
     let message = '';
     console.log('ERROR ::', error);
     console.log('Status ::', error.status);
-
+    if (error instanceof Succed) {
+      return;
+    }
     if (error instanceof NotFoundError) { // utilisateur non trouvée ;
       message = 'L\'utilisateur demandé n\'existe pas.';
     } else if (error.status instanceof AccessDeniedError) { // acces refusé
@@ -82,9 +78,8 @@ export class ConnexionModalComponent implements OnInit {
     } else if (error.status instanceof ServerError) { // serveur KO
       message = 'le serveur n\'a pas répondu, veuillez réessayer ulterieurement.';
     } else { // others
-      message = 'Une erreur inattendue s\'est produite, veuillez réessayer de vous connecter.';
+      message = 'Une erreur inattendue s\'est produite, veuillez réessayer.';
     }
-
     if (isLogin) {
       this.loginErrorMessage = message;
     } else {

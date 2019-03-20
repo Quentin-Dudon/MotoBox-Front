@@ -13,7 +13,9 @@ export class NavbarComponent implements OnInit, DoCheck {
   modalRef: MDBModalRef;
   isLoggedIn: boolean;
 
-  constructor(private modalService: MDBModalService, private authService: AuthService, private route: Router) { }
+  constructor(private modalService: MDBModalService,
+              private authService: AuthService,
+              private route: Router) { }
 
   ngDoCheck() {
     this.isLoggedIn = this.authService.isAuthenticated();

@@ -47,7 +47,10 @@
       </div>
       <!--///////////////////////// BODY /////////////////////////-->
       <div class="modal-body mx-3">
-        <div *ngIf="loginErrorMessage" class="alert alert-danger mb-4">{{loginErrorMessage}}</div>
+        <div *ngIf="loginErrorMessage" class="alert alert-danger mb-4">
+          {{loginErrorMessage}}
+        </div>
+
         <app-login-form (add)="userLogin($event)">
         </app-login-form>
       </div>
@@ -81,8 +84,11 @@
       </div>
       <!--///////////////////////// BODY /////////////////////////-->
       <div class="modal-body mx-3">
-        <div *ngIf="signinErrorMessage" class="alert alert-danger mb-4">{{signinErrorMessage}}</div>
-        <signin-form (currentFormValue)="userSignin($event)">
+        <div *ngIf="signinErrorMessage"
+             class="alert alert-danger mb-4">{{signinErrorMessage}}
+        </div>
+
+        <signin-form (currentFormValue)="userSignin($event); login.show(isLoginConnexion())">
         </signin-form>
       </div>
     </div>
