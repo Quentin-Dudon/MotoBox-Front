@@ -16,7 +16,7 @@ export class ProductComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
-      this.id = +params['id'];
+      this.id = + params['id'];
     });
     this.adsService.getAd(this.id).subscribe(res => {
       this.adDetail = res;
@@ -25,5 +25,4 @@ export class ProductComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     this.sub.unsubscribe();
   }
-
 }

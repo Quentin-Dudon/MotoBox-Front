@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule, HTTP_INTERCEPTORS  } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { Ng5SliderModule } from 'ng5-slider';
 // bootstrap
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
@@ -64,7 +64,10 @@ import { UserService } from './services/user/user.service';
 import { CartService } from './services/cart/cart.service';
 import { AdsService } from './services/ads/ads.service';
 
-//INTERCEPTORS
+// Pipes
+import { RemoveDuplicateBrandPipe } from './pages/home/search/search.component';
+
+// INTERCEPTORS
 import { HttpTokenInterceptor } from './services/interceptors/http.token.Interceptor';
 import { TableBodyComponent } from './pages/cart/table-body/table-body.component';
 
@@ -97,9 +100,9 @@ import { TableBodyComponent } from './pages/cart/table-body/table-body.component
     AdsDetailsComponent,
     BarResponseComponent,
     ProductComponent,
-    AdminCreateComponent,
-    TableBodyComponent
-
+    TableBodyComponent,
+    RemoveDuplicateBrandPipe,
+    AdminCreateComponent
   ],
   imports: [
     BrowserModule,
@@ -122,7 +125,7 @@ import { TableBodyComponent } from './pages/cart/table-body/table-body.component
     UserService,
     AdsService,
     CartService,
-    {provide: HTTP_INTERCEPTORS, useClass: HttpTokenInterceptor, multi: true}
+    { provide: HTTP_INTERCEPTORS, useClass: HttpTokenInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]
 })
