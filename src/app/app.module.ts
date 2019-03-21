@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule, HTTP_INTERCEPTORS  } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { Ng5SliderModule } from 'ng5-slider';
 // bootstrap
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
@@ -17,6 +17,7 @@ import { MatIconModule } from '@angular/material/icon';
 // COMPONENTS
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { FooterComponent } from './shared/footer/footer.component';
+import { OrderBy } from './shared/orderBy/order-by.module';
 // admin page
 import { AdminComponent } from './pages/admin/admin.component';
 import { AdminEditComponent } from './pages/admin/admin-edit/admin-edit.component';
@@ -64,12 +65,14 @@ import { UserService } from './services/user/user.service';
 import { CartService } from './services/cart/cart.service';
 import { AdsService } from './services/ads/ads.service';
 
+// Pipes
+import { RemoveDuplicateBrandPipe } from './pages/home/search/search.component';
+import { RemoveDuplicateModelPipe } from './pages/home/search/search.component';
+
+//INTERCEPTORS
 // INTERCEPTORS
 import { HttpTokenInterceptor } from './services/interceptors/http.token.Interceptor';
 import { TableBodyComponent } from './pages/cart/table-body/table-body.component';
-
-// Pipes
-import { RemoveDuplicateBrandPipe } from './pages/home/search/search.component';
 
 @NgModule({
   declarations: [
@@ -101,6 +104,7 @@ import { RemoveDuplicateBrandPipe } from './pages/home/search/search.component';
     ProductComponent,
     TableBodyComponent,
     RemoveDuplicateBrandPipe,
+    RemoveDuplicateModelPipe,
     AdminCreateComponent
   ],
   imports: [
@@ -118,6 +122,7 @@ import { RemoveDuplicateBrandPipe } from './pages/home/search/search.component';
     MatStepperModule,
     MatFormFieldModule,
     MatButtonModule,
+    OrderBy,
   ],
   providers: [
     ContactService,

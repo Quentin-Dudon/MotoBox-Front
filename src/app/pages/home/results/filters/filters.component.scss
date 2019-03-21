@@ -7,12 +7,14 @@
   padding: 20px 50px;
   background-color: black;
   overflow-y: hidden;
+  cursor: pointer;
   transition: ease-in-out 400ms max-height;
 
   .box-title {
     display: flex;
     justify-content: space-between;
     line-height: 33px;
+    text-align: center;
 
     p {
       color: white;
@@ -48,6 +50,7 @@
     display: flex;
     justify-content: space-between;
     background-color: white;
+    cursor: pointer;
 
     .categoryTitle {
       line-height: 30px;
@@ -91,7 +94,7 @@
 }
 
 .box.opened {
-  max-height: 500px;
+  max-height: 1000px;
   transition: ease-in-out 600ms max-height;
 }
 
@@ -101,7 +104,7 @@
 .box-response-habillage.opened,
 .box-response-electrique.opened,
 .box-response-cycle.opened {
-  max-height: 500px;
+  max-height: 1000px;
   transition: ease-in-out 600ms max-height;
 }
 
