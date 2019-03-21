@@ -57,10 +57,10 @@ export class HomeComponent implements OnInit {
     this.filterValues = $event;
     this.adsToShow = this.ads;
     if (this.filterValues.brandName !== '') {
-      this.adsToShow = this.adsToShow.filter(ad => ad.brand == this.filterValues.brandName)
+      this.adsToShow = this.adsToShow.filter(ad => ad.brand === this.filterValues.brandName);
     }
     if (this.filterValues.modelName !== '') {
-      this.adsToShow = this.adsToShow.filter(ad => ad.model == this.filterValues.modelName)
+      this.adsToShow = this.adsToShow.filter(ad => ad.model === this.filterValues.modelName);
       // this.adsToShow=[]
       // for (let ad of this.ads){
       //   if(ad.model == this.filterValues.modelName) {
