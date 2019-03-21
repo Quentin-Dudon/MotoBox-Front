@@ -7,6 +7,7 @@ import {AccessDeniedError} from '../../shared/error/access-denied-error';
 import {NotFoundError} from '../../shared/error/not-found-error';
 import {ServerError} from '../../shared/error/server-error';
 import {AppError} from '../../shared/error/app-error';
+import {Succed} from '../../shared/error/succed';
 
 @Injectable({
   providedIn: 'root'
@@ -17,8 +18,8 @@ export class CartService {
   }
 
   // -------------- GET CART BY (USER) ID -------------- //
-  get(userId) {
-    return this.http.get(`${environment.apiUrl}/cart/${userId}`).pipe(
+  get() {
+    return this.http.get(`${environment.apiUrl}/cart`).pipe(
       map(res => res),
       catchError((error: Response) => {
         return this.getErrorType(error);
@@ -31,8 +32,8 @@ export class CartService {
   // -------------------------------------------------------- //
 
   // -------------- CREATE CART -------------- //
-  create(userId, body) {
-    return this.http.post(`${environment.apiUrl}/cart/${userId}`, body).pipe(
+  create(body) {
+    return this.http.post(`${environment.apiUrl}/cart`, body).pipe(
       catchError((error: Response) => {
         return this.getErrorType(error);
       }),
@@ -40,8 +41,8 @@ export class CartService {
   }
 
   // -------------- DELETE CART -------------- //
-  delete(userId) {
-    return this.http.delete(`${environment.apiUrl}/cart/${userId}`).pipe(
+  delete() {
+    return this.http.delete(`${environment.apiUrl}/cart`).pipe(
       catchError((error: Response) => {
         return this.getErrorType(error);
       }),
@@ -76,42 +77,48 @@ export class CartService {
   public localGet(): any {
     const cart = JSON.parse(localStorage.getItem('motobox-card'));
 
-    if (cart.length > 0) {
+    if (cart) {
       return cart;
     } else {
-      return null;
+      return [];
     }
-  }
-  // -------------- CREATE CART ON LOCALSTORAGE -------------- //
-  localCreate() {
-    const cart = [];
-    localStorage.setItem('motobox-card', JSON.stringify(cart));
-  }
-
-  // -------------- DELETE CART FROM LOCALSTORAGE -------------- //
-  localDelete() {
-    localStorage.removeItem('motobox-card');
   }
 
   // -------------- ADD ITEM TO CART TO LOCALSTORAGE -------------- //
-  localAddProduct(product) {  // -------------- CREATE CART -------------- //
-      const cart = [];
-      cart.push(JSON.parse(localStorage.getItem('motobox-card')), product);
-      localStorage.setItem('motobox-card', JSON.stringify(cart));
+  public localAddProduct(product): void {
+    if (!localStorage.getItem('motobox-card')) {
+      const value = [];
+      value.push(product);
+      localStorage.setItem('motobox-card', JSON.stringify(value));
+    }
+    const lastCart = JSON.parse(localStorage.getItem('motobox-card'));
+    const found = lastCart.map(cart => cart.id === product.id);
+    if (found.includes(true)) {
+      return;
+    } else {
+      const nextCart = lastCart;
+      nextCart.push(product);
+      localStorage.setItem('motobox-card', JSON.stringify(nextCart));
+    }
+  }
+
+
+  // -------------- DELETE CART FROM LOCALSTORAGE -------------- //
+  public localDelete(): void {
+    localStorage.removeItem('motobox-card');
   }
 
   // -------------- REMOVE ITEM TO CART FROM LOCALSTORAGE -------------- //
-  localDeleteProduct(id) {
-    const previousCart = JSON.parse(localStorage.getItem('motobox-card'));
-    const index = previousCart.findIndex( product => product.id === id);
-    const nextCart = previousCart.splice(index, 1);
+  public localDeleteProduct(id, index): void {
+    const nextCart = JSON.parse(localStorage.getItem('motobox-card'));
+    nextCart.splice(index, 1);
     localStorage.setItem('motobox-card', JSON.stringify(nextCart));
   }
 
-  // -------------- GET ERRORS TYPE -------------- // (DEL)
+  // -------------- GET ERRORS TYPE -------------- //
   private getErrorType(error) {
-    if (error.status === 403) {
-      return throwError(new AccessDeniedError(error));
+    if (error.status === 0 || 200) {
+      return throwError(new Succed(error));
     }
     if (error.status === 404) {
       return throwError(new NotFoundError(error));

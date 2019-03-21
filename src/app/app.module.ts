@@ -66,6 +66,7 @@ import { AdsService } from './services/ads/ads.service';
 
 //INTERCEPTORS
 import { HttpTokenInterceptor } from './services/interceptors/http.token.Interceptor';
+import { TableBodyComponent } from './pages/cart/table-body/table-body.component';
 
 
 @NgModule({
@@ -96,7 +97,8 @@ import { HttpTokenInterceptor } from './services/interceptors/http.token.Interce
     AdsDetailsComponent,
     BarResponseComponent,
     ProductComponent,
-    AdminCreateComponent
+    AdminCreateComponent,
+    TableBodyComponent
 
   ],
   imports: [
