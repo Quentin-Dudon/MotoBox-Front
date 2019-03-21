@@ -70,6 +70,9 @@ import { TableBodyComponent } from './pages/cart/table-body/table-body.component
 
 // Pipes
 import { RemoveDuplicateBrandPipe } from './pages/home/search/search.component';
+import { SidebarComponent } from './pages/admin/sidebar/sidebar.component';
+import { AdminListComponent } from './pages/admin/admin-list/admin-list.component';
+import { AdminTableBodyComponent } from './pages/admin/admin-list/admin-table-body/admin-table-body.component';
 
 @NgModule({
   declarations: [
@@ -101,7 +104,10 @@ import { RemoveDuplicateBrandPipe } from './pages/home/search/search.component';
     ProductComponent,
     TableBodyComponent,
     RemoveDuplicateBrandPipe,
-    AdminCreateComponent
+    AdminCreateComponent,
+    SidebarComponent,
+    AdminListComponent,
+    AdminTableBodyComponent,
   ],
   imports: [
     BrowserModule,

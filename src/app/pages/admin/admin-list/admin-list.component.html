@@ -1,0 +1,41 @@
+<div class="container pt-5 pb-5">
+  <h4>Dashboard</h4>
+
+  <div class="float-right">
+    <button class="btn btn-sm btn-primary"
+            (click)="addAd()">+ Ajouter une annonce</button>
+  </div>
+
+  <div>
+    <h1>Gestion des annonces</h1>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+      Officia magni obcaecati porro inventore reprehenderit.
+      Repellendus perferendis iure temporibus in obcaecati!
+      Labore minima corrupti nisi natus rem assumenda consequatur
+      perspiciatis id.</p>
+  </div>
+
+  <div *ngIf="ads?.length === 0" class="mt-5">
+    <span>Vous n'avez pas encore d'annonces.</span>
+  </div>
+
+  <div *ngIf="ads?.length > 0" class="mt-5 mb-5">
+    <table class="table table-hover">
+      <thead>
+      <tr class="row text-center">
+        <th class="col-sm-3"></th>
+        <th class="col-sm-6" rowspan="2">Description</th>
+        <th class="col-sm-1">Prix</th>
+        <th class="col-sm-2">Retirer du panier</th>
+      </tr>
+      </thead>
+      <tbody>
+      <app-admin-table-body *ngFor="let ad of ads"
+                            (removeAd)="removeAd($event)"
+                            (editAd)="editAd($event)"
+                            [ad]="ad">
+      </app-admin-table-body>
+      </tbody>
+    </table>
+  </div>
+</div>
