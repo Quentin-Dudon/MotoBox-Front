@@ -17,6 +17,7 @@ import { MatIconModule } from '@angular/material/icon';
 // COMPONENTS
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { FooterComponent } from './shared/footer/footer.component';
+import { OrderBy } from './shared/orderBy/order-by.module';
 // admin page
 import { AdminComponent } from './pages/admin/admin.component';
 import { AdminEditComponent } from './pages/admin/admin-edit/admin-edit.component';
@@ -66,6 +67,7 @@ import { AdsService } from './services/ads/ads.service';
 
 // Pipes
 import { RemoveDuplicateBrandPipe } from './pages/home/search/search.component';
+import { RemoveDuplicateModelPipe } from './pages/home/search/search.component';
 
 //INTERCEPTORS
 import { HttpTokenInterceptor } from './services/interceptors/http.token.Interceptor';
@@ -100,6 +102,7 @@ import { HttpTokenInterceptor } from './services/interceptors/http.token.Interce
     BarResponseComponent,
     ProductComponent,
     RemoveDuplicateBrandPipe,
+    RemoveDuplicateModelPipe,
     AdminCreateComponent
   ],
   imports: [
@@ -117,6 +120,7 @@ import { HttpTokenInterceptor } from './services/interceptors/http.token.Interce
     MatStepperModule,
     MatFormFieldModule,
     MatButtonModule,
+    OrderBy,
   ],
   providers: [
     ContactService,

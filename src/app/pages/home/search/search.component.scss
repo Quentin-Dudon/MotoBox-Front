@@ -35,6 +35,7 @@ section {
     padding: 20px 50px;
     background-color: black;
     overflow-y: hidden;
+    cursor: pointer;
     transition: ease-in-out 400ms max-height;
 
     .box-title {
@@ -51,7 +52,6 @@ section {
       i {
         color: white;
         font-size: 45px;
-        cursor: pointer;
       }
     }
   }

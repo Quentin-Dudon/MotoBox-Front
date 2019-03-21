@@ -6,10 +6,10 @@
   </div>
 
   <!-- Search Title -->
-  <div id="box-search" class="box-search">
+  <div id="box-search" class="box-search" (click)="show = !show">
     <div class="box-title">
       <p>Véhicule</p>
-      <div (click)="show = !show"><i class="fas fa-angle-down"></i></div>
+      <div><i class="fas fa-angle-down"></i></div>
     </div>
   </div>
 
@@ -19,18 +19,22 @@
       <p>Marque</p>
       <select [(ngModel)]="selectedBrand" id="select-order-by" class="btn btn-lightgray">
         <option value="">--Rechercher--</option>
-        <option class="dropdown-item white" *ngFor="let ad of ads | removeDuplicateBrand" value={{ad.brand}}>{{ad.brand}}</option>
+        <option class="dropdown-item white" *ngFor="let ad of ads | removeDuplicateBrand | orderBy:'brand'"
+          value={{ad.brand}}>
+          {{ad.brand}}
+        </option>
       </select>
     </div>
     <div class="box-dropdown">
       <p>Modèle</p>
       <select [(ngModel)]="selectedModel" id="select-order-by" class="btn btn-lightgray">
         <option value="">--Rechercher--</option>
-        <option class="dropdown-item white" *ngFor="let ad of ads" value={{ad.model}}>{{ad.model}}</option>
+        <option class="dropdown-item white" *ngFor="let ad of ads | removeDuplicateModel" value={{ad.model}}>
+          {{ad.model}}</option>
       </select>
     </div>
     <div class="box-dropdown">
-      <ng5-slider class="slider" [(value)]="value" [options]="options"></ng5-slider>
+      <ng5-slider class="slider" [(value)]="sliderValue" [options]="sliderOptions"></ng5-slider>
     </div>
     <div class="box-dropdown">
       <button class="btn btn-success" (click)="onSubmit()">Valider</button>
@@ -42,7 +46,8 @@
     <div class="input-group md-form form-sm form-2 pl-0">
       <input class="search-input form-control my-0 py-1" type="text" placeholder="Rechercher" aria-label="Search" />
       <div class="input-group-append">
-        <span class="input-group-text" id="basic-text1"><i class="fas fa-search text-grey" aria-hidden="true"></i></span>
+        <span class="input-group-text" id="basic-text1"><i class="fas fa-search text-grey"
+            aria-hidden="true"></i></span>
       </div>
     </div>
   </div>
