@@ -58,24 +58,17 @@ export class HomeComponent implements OnInit {
     this.filterValues = $event;
     this.adsToShow = this.ads;
     if (this.filterValues.brandName !== '') {
-      // this.adsToShow = this.adsToShow.filter(ad => ad.brand == this.filterValues.brandName)
+      this.adsToShow = this.adsToShow.filter(ad => ad.brand === this.filterValues.brandName);
     }
     if (this.filterValues.modelName !== '') {
-      // this.adsToShow = this.adsToShow.filter(ad => ad.model == this.filterValues.modelName)
+      this.adsToShow = this.adsToShow.filter(ad => ad.model === this.filterValues.modelName);
     }
     if (this.filterValues.yearName !== '') {
-      // this.adsToShow = this.adsToShow.filter(ad => ad.year == this.filterValues.yearName)
+      this.adsToShow = this.adsToShow.filter(ad => ad.year == this.filterValues.yearName)
     }
     if (this.filterValues.adCategory !== '') {
-      this.adsToShow = this.adsToShow.filter(ad => ad.category == this.filterValues.adCategory)
-      console.log(this.ads)
+      // this.adsToShow = this.adsToShow.filter(ad => ad.category == this.filterValues.adCategory)
+      // console.log(this.ads)
     }
-    //   // this.adsToShow=[]
-    //   // for (let ad of this.ads){
-    //   //   if(ad.model == this.filterValues.modelName) {
-    //   //     this.adsToShow.push(ad);
-    //   //   }
-    //   // }
-    // }
   }
 }

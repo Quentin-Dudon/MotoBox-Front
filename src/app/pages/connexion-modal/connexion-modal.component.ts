@@ -66,8 +66,6 @@ export class ConnexionModalComponent implements OnInit {
   // -------------- ERRORS -------------- //
   private handleError(error, isLogin) {
     let message = '';
-    console.log('ERROR ::', error);
-    console.log('Status ::', error.status);
     if (error instanceof Succed) {
       return;
     }

@@ -70,8 +70,9 @@ import { RemoveDuplicateBrandPipe } from './pages/home/search/search.component';
 import { RemoveDuplicateModelPipe } from './pages/home/search/search.component';
 
 //INTERCEPTORS
+// INTERCEPTORS
 import { HttpTokenInterceptor } from './services/interceptors/http.token.Interceptor';
-
+import { TableBodyComponent } from './pages/cart/table-body/table-body.component';
 
 @NgModule({
   declarations: [
@@ -101,6 +102,7 @@ import { HttpTokenInterceptor } from './services/interceptors/http.token.Interce
     AdsDetailsComponent,
     BarResponseComponent,
     ProductComponent,
+    TableBodyComponent,
     RemoveDuplicateBrandPipe,
     RemoveDuplicateModelPipe,
     AdminCreateComponent
