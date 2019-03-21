@@ -64,7 +64,7 @@ import { UserService } from './services/user/user.service';
 import { CartService } from './services/cart/cart.service';
 import { AdsService } from './services/ads/ads.service';
 
-//INTERCEPTORS
+// INTERCEPTORS
 import { HttpTokenInterceptor } from './services/interceptors/http.token.Interceptor';
 import { TableBodyComponent } from './pages/cart/table-body/table-body.component';
 
@@ -99,7 +99,7 @@ import { RemoveDuplicateBrandPipe } from './pages/home/search/search.component';
     AdsDetailsComponent,
     BarResponseComponent,
     ProductComponent,
-    TableBodyComponent
+    TableBodyComponent,
     RemoveDuplicateBrandPipe,
     AdminCreateComponent
   ],
