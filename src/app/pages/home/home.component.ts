@@ -54,6 +54,7 @@ export class HomeComponent implements OnInit {
   }
 
   public onFiltered($event) {
+    console.log($event)
     this.filterValues = $event;
     this.adsToShow = this.ads;
     if (this.filterValues.brandName !== '') {
@@ -61,12 +62,13 @@ export class HomeComponent implements OnInit {
     }
     if (this.filterValues.modelName !== '') {
       this.adsToShow = this.adsToShow.filter(ad => ad.model === this.filterValues.modelName);
-      // this.adsToShow=[]
-      // for (let ad of this.ads){
-      //   if(ad.model == this.filterValues.modelName) {
-      //     this.adsToShow.push(ad);
-      //   }
-      // }
+    }
+    if (this.filterValues.yearName !== '') {
+      this.adsToShow = this.adsToShow.filter(ad => ad.year == this.filterValues.yearName)
+    }
+    if (this.filterValues.adCategory !== '') {
+      // this.adsToShow = this.adsToShow.filter(ad => ad.category == this.filterValues.adCategory)
+      // console.log(this.ads)
     }
   }
 }

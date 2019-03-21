@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormControl} from '@angular/forms';
 
 @Component({
-  selector: 'admin-edit',
+  selector: 'app-admin-edit',
   templateUrl: './admin-edit.component.html',
   styleUrls: ['./admin-edit.component.scss']
 })

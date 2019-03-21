@@ -34,31 +34,31 @@ export class AdminCreateComponent implements OnInit {
 
   // -------------- GETTERS -------------- //
   get title() {
-    return (this.editAdminForm.get('title') as FormControl);
+    return (this.createAdminForm.get('title') as FormControl);
   }
   get description() {
-    return (this.editAdminForm.get('description') as FormControl);
+    return (this.createAdminForm.get('description') as FormControl);
   }
   get imageUrl() {
-    return (this.editAdminForm.get('imageUrl') as FormControl);
+    return (this.createAdminForm.get('imageUrl') as FormControl);
   }
 
   get brand() {
-    return (this.editAdminForm.get('brand') as FormControl);
+    return (this.createAdminForm.get('brand') as FormControl);
   }
   get model() {
-    return (this.editAdminForm.get('model') as FormControl);
+    return (this.createAdminForm.get('model') as FormControl);
   }
   get category() {
-    return (this.editAdminForm.get('category') as FormControl);
+    return (this.createAdminForm.get('category') as FormControl);
   }
   get year() {
-    return (this.editAdminForm.get('year') as FormControl);
+    return (this.createAdminForm.get('year') as FormControl);
   }
   get location() {
-    return (this.editAdminForm.get('location') as FormControl);
+    return (this.createAdminForm.get('location') as FormControl);
   }
   get price() {
-    return (this.editAdminForm.get('price') as FormControl);
+    return (this.createAdminForm.get('price') as FormControl);
   }
 }

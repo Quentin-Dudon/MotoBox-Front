@@ -15,6 +15,19 @@ export class RemoveDuplicateBrandPipe implements PipeTransform {
   }
 }
 
+@Pipe({
+  name: 'removeDuplicateModel'
+})
+export class RemoveDuplicateModelPipe implements PipeTransform {
+
+  transform(value: any): any {
+    if (value !== undefined && value !== null) {
+      return _.uniqBy(value, 'model');
+    }
+    return value;
+  }
+}
+
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
@@ -33,8 +46,8 @@ export class SearchComponent implements OnInit {
   selectedModel = '';
 
   //Slider
-  value: number = 1950;
-  options: Options = {
+  sliderValue: number = 2019;
+  sliderOptions: Options = {
     floor: 1950,
     ceil: 2019
   };
@@ -47,6 +60,7 @@ export class SearchComponent implements OnInit {
   onSubmit() {
     this.formValues['brandName'] = this.selectedBrand;
     this.formValues['modelName'] = this.selectedModel;
+    this.formValues['yearName'] = this.sliderValue;
     this.filterValues.emit(this.formValues);
   }
 }
