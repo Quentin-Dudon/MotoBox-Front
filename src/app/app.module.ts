@@ -68,6 +68,8 @@ import { AdsService } from './services/ads/ads.service';
 import { HttpTokenInterceptor } from './services/interceptors/http.token.Interceptor';
 import { TableBodyComponent } from './pages/cart/table-body/table-body.component';
 
+// Pipes
+import { RemoveDuplicateBrandPipe } from './pages/home/search/search.component';
 
 @NgModule({
   declarations: [
@@ -97,9 +99,9 @@ import { TableBodyComponent } from './pages/cart/table-body/table-body.component
     AdsDetailsComponent,
     BarResponseComponent,
     ProductComponent,
-    AdminCreateComponent,
     TableBodyComponent
-
+    RemoveDuplicateBrandPipe,
+    AdminCreateComponent
   ],
   imports: [
     BrowserModule,
@@ -122,7 +124,7 @@ import { TableBodyComponent } from './pages/cart/table-body/table-body.component
     UserService,
     AdsService,
     CartService,
-    {provide: HTTP_INTERCEPTORS, useClass: HttpTokenInterceptor, multi: true}
+    { provide: HTTP_INTERCEPTORS, useClass: HttpTokenInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]
 })

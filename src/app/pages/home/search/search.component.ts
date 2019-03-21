@@ -1,6 +1,19 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, Pipe, PipeTransform } from '@angular/core';
 import { Options } from 'ng5-slider';
-//import { animationFrame } from 'rxjs/internal/scheduler/animationFrame';
+import _ from 'lodash';
+
+@Pipe({
+  name: 'removeDuplicateBrand'
+})
+export class RemoveDuplicateBrandPipe implements PipeTransform {
+
+  transform(value: any): any {
+    if (value !== undefined && value !== null) {
+      return _.uniqBy(value, 'brand');
+    }
+    return value;
+  }
+}
 
 @Component({
   selector: 'app-search',
@@ -10,9 +23,14 @@ import { Options } from 'ng5-slider';
 export class SearchComponent implements OnInit {
 
   @Input() ads;
+  @Output() filterValues = new EventEmitter<any>();
+
+  formValues = new Object();
 
   hideTitle = true;
   isShow = false;
+  selectedBrand = '';
+  selectedModel = '';
 
   //Slider
   value: number = 1950;
@@ -26,7 +44,9 @@ export class SearchComponent implements OnInit {
   ngOnInit() {
   }
 
-  hideBrandTitleFunc() {
-    this.hideTitle = false;
+  onSubmit() {
+    this.formValues['brandName'] = this.selectedBrand;
+    this.formValues['modelName'] = this.selectedModel;
+    this.filterValues.emit(this.formValues);
   }
 }
