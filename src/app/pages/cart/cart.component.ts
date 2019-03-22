@@ -22,7 +22,7 @@ export class CartComponent implements OnInit {
   }
 
   // -------------- GET ADS -------------- //
-  private async getCart(): void {
+  private async getCart() {
     // From Database
     // TODO : decommenter  apres creation DB cart
     // const dbCart = await this.cartService.get().subscribe(
@@ -39,7 +39,7 @@ export class CartComponent implements OnInit {
     this.ads = await this.cartService.localGet();
   }
 
-  private removeDuplicatesCarts(dbCart, localCart): Object<any> {
+  private removeDuplicatesCarts(dbCart, localCart) {
     const uniqueDbCarts = dbCart.map((cart) => {
       if (!localCart.includes(cart)) {
         return cart;
