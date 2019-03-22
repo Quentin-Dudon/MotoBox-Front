@@ -1,79 +1,80 @@
 // MODULES
-import {NgModule} from '@angular/core';
-import {BrowserModule} from '@angular/platform-browser';
-import {BrowserAnimationsModule, NoopAnimationsModule} from '@angular/platform-browser/animations';
-import {AppComponent} from './app.component';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
-import {Ng5SliderModule} from 'ng5-slider';
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { AppComponent } from './app.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { Ng5SliderModule } from 'ng5-slider';
 // bootstrap
-import {MDBBootstrapModule} from 'angular-bootstrap-md';
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
 // material
-import {MatStepperModule} from '@angular/material/stepper';
-import {MatButtonModule, MatFormFieldModule} from '@angular/material';
-import {MatInputModule} from '@angular/material/input';
-import {MatIconModule} from '@angular/material/icon';
+import { MatStepperModule } from '@angular/material/stepper';
+import { MatButtonModule, MatFormFieldModule } from '@angular/material';
+import { MatInputModule } from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon';
 
 // COMPONENTS
-import {NavbarComponent} from './shared/navbar/navbar.component';
-import {FooterComponent} from './shared/footer/footer.component';
-import {OrderBy} from './shared/orderBy/order-by.module';
+import { NavbarComponent } from './shared/navbar/navbar.component';
+import { FooterComponent } from './shared/footer/footer.component';
+import { OrderBy } from './shared/orderBy/order-by.module';
 // admin page
-import {AdminComponent} from './pages/admin/admin.component';
-import {SidebarComponent} from './pages/admin/sidebar/sidebar.component';
-import {AdminListComponent} from './pages/admin/admin-list/admin-list.component';
-import {AdminTableBodyComponent} from './pages/admin/admin-list/admin-table-body/admin-table-body.component';
-import {AdminCreateComponent} from './pages/admin/admin-create/admin-create.component';
-import {AdminEditComponent} from './pages/admin/admin-edit/admin-edit.component';
+import { AdminComponent } from './pages/admin/admin.component';
+import { SidebarComponent } from './pages/admin/sidebar/sidebar.component';
+import { AdminListComponent } from './pages/admin/admin-list/admin-list.component';
+import { AdminTableBodyComponent } from './pages/admin/admin-list/admin-table-body/admin-table-body.component';
+import { AdminCreateComponent } from './pages/admin/admin-create/admin-create.component';
+import { AdminEditComponent } from './pages/admin/admin-edit/admin-edit.component';
 
 // profil
-import {ProfilComponent} from './pages/profil/profil.component';
+import { ProfilComponent } from './pages/profil/profil.component';
 // about
-import {AboutComponent} from './pages/about/about.component';
+import { AboutComponent } from './pages/about/about.component';
 // contact
-import {ContactComponent} from './pages/contact/contact.component';
+import { ContactComponent } from './pages/contact/contact.component';
 // cart
-import {CartComponent} from './pages/cart/cart.component';
-import {TableBodyComponent} from './pages/cart/table-body/table-body.component';
+import { CartComponent } from './pages/cart/cart.component';
+import { TableBodyComponent } from './pages/cart/table-body/table-body.component';
 // home
-import {HomeComponent} from './pages/home/home.component';
-import {SearchComponent} from './pages/home/search/search.component';
-import {ResultsComponent} from './pages/home/results/results.component';
-import {FiltersComponent} from './pages/home/results/filters/filters.component';
-import {ResponseComponent} from './pages/home/results/response/response.component';
-import {AdsDetailsComponent} from './pages/home/results/response/ads-details/ads-details.component';
-import {BarResponseComponent} from './pages/home/results/response/bar-response/bar-response.component';
+import { HomeComponent } from './pages/home/home.component';
+import { SearchComponent } from './pages/home/search/search.component';
+import { ResultsComponent } from './pages/home/results/results.component';
+import { FiltersComponent } from './pages/home/results/filters/filters.component';
+import { ResponseComponent } from './pages/home/results/response/response.component';
+import { AdsDetailsComponent } from './pages/home/results/response/ads-details/ads-details.component';
+import { BarResponseComponent } from './pages/home/results/response/bar-response/bar-response.component';
 // product
-import {ProductComponent} from './pages/product/product.component';
+import { ProductComponent } from './pages/product/product.component';
 // connexion
-import {ConnexionModalComponent} from './pages/connexion-modal/connexion-modal.component';
+import { ConnexionModalComponent } from './pages/connexion-modal/connexion-modal.component';
 // login modal
-import {LoginFormComponent} from './pages/connexion-modal/login-form/login-form.component';
+import { LoginFormComponent } from './pages/connexion-modal/login-form/login-form.component';
 // signin modal
-import {SigninFormComponent} from './pages/connexion-modal/signin-form/signin-form.component';
-import {RoleFormComponent} from './pages/connexion-modal/signin-form/role-form/role-form.component';
-import {AddressFormComponent} from './pages/connexion-modal/signin-form/address-form/address-form.component';
-import {PersonalFormComponent} from './pages/connexion-modal/signin-form/personal-form/personal-form.component';
-import {ContactFormComponent} from './pages/connexion-modal/signin-form/contact-form/contact-form.component';
-import {PasswordFormComponent} from './pages/connexion-modal/signin-form/password-form/password-form.component';
+import { SigninFormComponent } from './pages/connexion-modal/signin-form/signin-form.component';
+import { RoleFormComponent } from './pages/connexion-modal/signin-form/role-form/role-form.component';
+import { AddressFormComponent } from './pages/connexion-modal/signin-form/address-form/address-form.component';
+import { PersonalFormComponent } from './pages/connexion-modal/signin-form/personal-form/personal-form.component';
+import { ContactFormComponent } from './pages/connexion-modal/signin-form/contact-form/contact-form.component';
+import { PasswordFormComponent } from './pages/connexion-modal/signin-form/password-form/password-form.component';
 // not found
-import {NotFoundComponent} from './pages/not-found/not-found.component';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
 
 // ROUTING
-import {AppRoutingModule} from './app-routing.module';
-import {RouterModule} from '@angular/router';
+import { AppRoutingModule } from './app-routing.module';
+import { RouterModule } from '@angular/router';
 
 // SERVICES
-import {ContactService} from './services/contact.service';
-import {UserService} from './services/user/user.service';
-import {CartService} from './services/cart/cart.service';
-import {AdsService} from './services/ads/ads.service';
+import { ContactService } from './services/contact.service';
+import { UserService } from './services/user/user.service';
+import { CartService } from './services/cart/cart.service';
+import { AdsService } from './services/ads/ads.service';
 
 // Pipes
-import {RemoveDuplicateBrandPipe} from './pages/home/search/search.component';
+import { RemoveDuplicateBrandPipe } from './pages/home/search/search.component';
+import { RemoveDuplicateModelPipe } from './pages/home/search/search.component';
 
 // INTERCEPTORS
-import {HttpTokenInterceptor} from './services/interceptors/http.token.Interceptor';
+import { HttpTokenInterceptor } from './services/interceptors/http.token.Interceptor';
 
 @NgModule({
   declarations: [
@@ -105,6 +106,7 @@ import {HttpTokenInterceptor} from './services/interceptors/http.token.Intercept
     ProductComponent,
     TableBodyComponent,
     RemoveDuplicateBrandPipe,
+    RemoveDuplicateModelPipe,
     AdminCreateComponent,
     SidebarComponent,
     AdminListComponent,
@@ -132,7 +134,7 @@ import {HttpTokenInterceptor} from './services/interceptors/http.token.Intercept
     UserService,
     AdsService,
     CartService,
-    {provide: HTTP_INTERCEPTORS, useClass: HttpTokenInterceptor, multi: true}
+    { provide: HTTP_INTERCEPTORS, useClass: HttpTokenInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]
 })
