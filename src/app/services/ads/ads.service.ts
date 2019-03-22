@@ -27,6 +27,7 @@ export class AdsService {
   }
   // -------------- GET ALL ADS -------------- //
   getAds() {
+    console.log('JE RECUPERE TOUS LES ADS');
     return this.http.get(`${environment.apiUrl}/ads`).pipe(
       map(res => res),
       catchError((error: Response) => {

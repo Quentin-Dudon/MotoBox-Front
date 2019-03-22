@@ -17,7 +17,7 @@
   <div class="box-response" [class.opened]="show">
     <div class="box-dropdown">
       <p>Marque</p>
-      <select [(ngModel)]="selectedBrand" id="select-order-by" class="btn btn-lightgray">
+      <select [(ngModel)]="selectedBrand" id="select-order-by1" class="btn btn-lightgray">
         <option value="">--Rechercher--</option>
         <option class="dropdown-item white" *ngFor="let ad of ads | removeDuplicateBrand | orderBy:'brand'"
           value={{ad.brand}}>
@@ -27,7 +27,7 @@
     </div>
     <div class="box-dropdown">
       <p>Modèle</p>
-      <select [(ngModel)]="selectedModel" id="select-order-by" class="btn btn-lightgray">
+      <select [(ngModel)]="selectedModel" id="select-order-by2" class="btn btn-lightgray">
         <option value="">--Rechercher--</option>
         <option class="dropdown-item white" *ngFor="let ad of ads | removeDuplicateModel | orderBy:'model'"
           value={{ad.model}}>
