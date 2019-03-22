@@ -1,4 +1,5 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, OnChanges } from '@angular/core';
+import { sendRequest } from 'selenium-webdriver/http';
 
 @Component({
   selector: 'app-results',
@@ -8,6 +9,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 export class ResultsComponent implements OnInit {
 
   @Input() ads;
+  @Input() sendReset;
 
   @Output() filterCategory = new EventEmitter<any>();
   constructor() { }

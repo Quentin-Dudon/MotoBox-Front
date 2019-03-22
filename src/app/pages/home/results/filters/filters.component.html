@@ -4,7 +4,7 @@
   <div id="box-search" class="box-search-moteur" (click)="showFamilyMoteur = !showFamilyMoteur">
     <div class="box-title">
       <p>Partie Moteur</p>
-      <div><i class="fas fa-angle-down"></i></div>
+      <div><i [ngClass]="showFamilyMoteur ? 'fas fa-angle-down' : 'fas fa-angle-right'"></i></div>
     </div>
   </div>
 
@@ -12,13 +12,18 @@
   <div class="box-response-moteur" [class.opened]="showFamilyMoteur">
     <div class="box-dropdown" (click)="showCategoryMoteur = !showCategoryMoteur">
       <p>Moteur</p>
-      <div class="categoryTitle boxOpener"><i class="fas fa-angle-right"></i></div>
+      <div class="categoryTitle boxOpener"><i
+          [ngClass]="showCategoryMoteur ? 'fas fa-angle-down' : 'fas fa-angle-right'"></i></div>
     </div>
     <div class="box-response-moteur category box" [class.opened]="showCategoryMoteur">
-      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="getValue()">Moteur Complet</p>
-      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Carter gauche</p>
-      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Carter droit</p>
-      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Pièce moteur au détail</p>
+      <p [ngClass]="{'black' : selectedCategory == 'Moteur complet', 'none' : selectedCategory != 'Moteur complet'}"
+        (click)="toggleFilter('Moteur complet')">Moteur Complet</p>
+      <p [ngClass]="{'black' : selectedCategory == 'Carter gauche', 'none' : selectedCategory != 'Carter gauche'}"
+        (click)="toggleFilter('Carter gauche')">Carter gauche</p>
+      <p [ngClass]="{'black' : selectedCategory == 'Carter droit', 'none' : selectedCategory != 'Carter droit'}"
+        (click)="toggleFilter('Carter droit')">Carter droit</p>
+      <p [ngClass]="{'black' : selectedCategory == 'Pièce moteur au détail', 'none' : selectedCategory != 'Pièce moteur au détail'}"
+        (click)="toggleFilter('Pièce moteur au détail')">Pièce moteur au détail</p>
     </div>
   </div>
 
@@ -26,13 +31,21 @@
   <div class="box-response-moteur" [class.opened]="showFamilyMoteur">
     <div class="box-dropdown" (click)="showCategoryCarburateur = !showCategoryCarburateur">
       <p>Carburateur / Injection</p>
-      <div class="categoryTitle boxOpener"><i class="fas fa-angle-right"></i></div>
+      <div class="categoryTitle boxOpener"><i
+          [ngClass]="showCategoryCarburateur ? 'fas fa-angle-down' : 'fas fa-angle-right'"></i></div>
     </div>
     <div class="box-response-moteur category box" [class.opened]="showCategoryCarburateur">
-      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Carburateur</p>
-      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Pipe admission</p>
-      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Bride</p>
-      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Injection</p>
+      <p [ngClass]="{'black' : selectedCategory == 'Carburateur', 'none' : selectedCategory != 'Carburateur'}"
+        (click)="toggleFilter('Carburateur')">Carburateur</p>
+
+      <p [ngClass]="{'black' : selectedCategory == 'Pipe admission', 'none' : selectedCategory != 'Pipe admission'}"
+        (click)="toggleFilter('Pipe admission')">Pipe admission</p>
+
+      <p [ngClass]="{'black' : selectedCategory == 'Bride', 'none' : selectedCategory != 'Bride'}"
+        (click)="toggleFilter('Bride')">Bride</p>
+
+      <p [ngClass]="{'black' : selectedCategory == 'Injection', 'none' : selectedCategory != 'Injection'}"
+        (click)="toggleFilter('Injection')">Injection</p>
     </div>
   </div>
 
@@ -40,11 +53,14 @@
   <div class="box-response-moteur" [class.opened]="showFamilyMoteur">
     <div class="box-dropdown" (click)="showCategoryBAA = !showCategoryBAA">
       <p>Boîte à air</p>
-      <div class="categoryTitle boxOpener"><i class="fas fa-angle-right"></i></div>
+      <div class="categoryTitle boxOpener"><i
+          [ngClass]="showCategoryBAA ? 'fas fa-angle-down' : 'fas fa-angle-right'"></i></div>
     </div>
     <div class="box-response-moteur category box" [class.opened]="showCategoryBAA">
-      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Boîte à air</p>
-      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Filtre à air</p>
+      <p [ngClass]="{'black' : selectedCategory == 'Boîte à air', 'none' : selectedCategory != 'Boîte à air'}"
+        (click)="toggleFilter('Boîte à air')">Boîte à air</p>
+      <p [ngClass]="{'black' : selectedCategory == 'Filtre à air', 'none' : selectedCategory != 'Filtre à air'}"
+        (click)="toggleFilter('Filtre à air')">Filtre à air</p>
     </div>
   </div>
 
@@ -52,11 +68,14 @@
   <div class="box-response-moteur" [class.opened]="showFamilyMoteur">
     <div class="box-dropdown" (click)="showCategoryDemarreur = !showCategoryDemarreur">
       <p>Démarreur</p>
-      <div class="categoryTitle boxOpener"><i class="fas fa-angle-right"></i></div>
+      <div class="categoryTitle boxOpener"><i
+          [ngClass]="showCategoryDemarreur ? 'fas fa-angle-down' : 'fas fa-angle-right'"></i></div>
     </div>
     <div class="box-response-moteur category box" [class.opened]="showCategoryDemarreur">
-      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Démarreur</p>
-      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Roue libre démarreur</p>
+      <p [ngClass]="{'black' : selectedCategory == 'Démarreur', 'none' : selectedCategory != 'Démarreur'}"
+        (click)="toggleFilter('Démarreur')">Démarreur</p>
+      <p [ngClass]="{'black' : selectedCategory == 'Roue libre démarreur', 'none' : selectedCategory != 'Roue libre démarreur'}"
+        (click)="toggleFilter('Roue libre démarreur')">Roue libre démarreur</p>
     </div>
   </div>
 
@@ -64,12 +83,16 @@
   <div class="box-response-moteur" [class.opened]="showFamilyMoteur">
     <div class="box-dropdown" (click)="showCategoryEchappement = !showCategoryEchappement">
       <p>Echappement</p>
-      <div class="categoryTitle boxOpener"><i class="fas fa-angle-right"></i></div>
+      <div class="categoryTitle boxOpener"><i
+          [ngClass]="showCategoryEchappement ? 'fas fa-angle-down' : 'fas fa-angle-right'"></i></div>
     </div>
     <div class="box-response-moteur category box" [class.opened]="showCategoryEchappement">
-      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Collecteur d'échappement</p>
-      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Pot d'échappement</p>
-      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Sonde d'échappement</p>
+      <p [ngClass]="{'black' : selectedCategory == 'Collecteur d\'échappement', 'none' : selectedCategory != 'Collecteur d\'échappement'}"
+        (click)="toggleFilter('Collecteur d\'échappement')">Collecteur d'échappement</p>
+      <p [ngClass]="{'black' : selectedCategory == 'Pot d\'échappement', 'none' : selectedCategory != 'Pot d\'échappement'}"
+        (click)="toggleFilter('Pot d\'échappement')">Pot d'échappement</p>
+      <p [ngClass]="{'black' : selectedCategory == 'Sonde d\'échappement', 'none' : selectedCategory != 'Sonde d\'échappement'}"
+        (click)="toggleFilter('Sonde d\'échappement')">Sonde d'échappement</p>
     </div>
   </div>
 
@@ -77,16 +100,24 @@
   <div class="box-response-moteur" [class.opened]="showFamilyMoteur">
     <div class="box-dropdown" (click)="showCategoryRadiateur = !showCategoryRadiateur">
       <p>Radiateur</p>
-      <div class="categoryTitle boxOpener"><i class="fas fa-angle-right"></i></div>
+      <div class="categoryTitle boxOpener"><i
+          [ngClass]="showCategoryRadiateur ? 'fas fa-angle-down' : 'fas fa-angle-right'"></i></div>
     </div>
     <div class="box-response-moteur category box" [class.opened]="showCategoryRadiateur">
-      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Radiateur complet</p>
-      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Radiateur</p>
-      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Calorstat</p>
-      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Durite de refroidissement</p>
-      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Bouchon de radiateur</p>
-      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Ventilateur</p>
-      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Vase d'expansion</p>
+      <p [ngClass]="{'black' : selectedCategory == 'Radiateur complet', 'none' : selectedCategory != 'Radiateur complet'}"
+        (click)="toggleFilter('Radiateur complet')">Radiateur complet</p>
+      <p [ngClass]="{'black' : selectedCategory == 'Radiateur', 'none' : selectedCategory != 'Radiateur'}"
+        (click)="toggleFilter('Radiateur')">Radiateur</p>
+      <p [ngClass]="{'black' : selectedCategory == 'Calorstat', 'none' : selectedCategory != 'Calorstat'}"
+        (click)="toggleFilter('Calorstat')">Calorstat</p>
+      <p [ngClass]="{'black' : selectedCategory == 'Durite de refroidissement', 'none' : selectedCategory != 'Durite de refroidissement'}"
+        (click)="toggleFilter('Durite de refroidissement')">Durite de refroidissement</p>
+      <p [ngClass]="{'black' : selectedCategory == 'Bouchon de radiateur', 'none' : selectedCategory != 'Bouchon de radiateur'}"
+        (click)="toggleFilter('Bouchon de radiateur')">Bouchon de radiateur</p>
+      <p [ngClass]="{'black' : selectedCategory == 'Ventilateur', 'none' : selectedCategory != 'Ventilateur'}"
+        (click)="toggleFilter('Ventilateur')">Ventilateur</p>
+      <p [ngClass]="{'black' : selectedCategory == 'Vase d\'expansion', 'none' : selectedCategory != 'Vase d\'expansion'}"
+        (click)="toggleFilter('Vase d\'expansion')">Vase d'expansion</p>
     </div>
   </div>
 
@@ -94,12 +125,16 @@
   <div class="box-response-moteur" [class.opened]="showFamilyMoteur">
     <div class="box-dropdown" (click)="showCategoryCables = !showCategoryCables">
       <p>Câbles</p>
-      <div class="categoryTitle boxOpener"><i class="fas fa-angle-right"></i></div>
+      <div class="categoryTitle boxOpener"><i
+          [ngClass]="showCategoryCables ? 'fas fa-angle-down' : 'fas fa-angle-right'"></i></div>
     </div>
     <div class="box-response-moteur category box" [class.opened]="showCategoryCables">
-      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Câble accélérateur</p>
-      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Câble starter</p>
-      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Câble d'embrayage</p>
+      <p [ngClass]="{'black' : selectedCategory == 'Câble accélérateur', 'none' : selectedCategory != 'Câble accélérateur'}"
+        (click)="toggleFilter('Câble accélérateur')">Câble accélérateur</p>
+      <p [ngClass]="{'black' : selectedCategory == 'Câble starter', 'none' : selectedCategory != 'Câble starter'}"
+        (click)="toggleFilter('Câble starter')">Câble starter</p>
+      <p [ngClass]="{'black' : selectedCategory == 'Câble d\'embrayage', 'none' : selectedCategory != 'Câble d\'embrayage'}"
+        (click)="toggleFilter('Câble d\'embrayage')">Câble d'embrayage</p>
     </div>
   </div>
 </section>
@@ -110,7 +145,7 @@
   <div class="box-search-habillage" (click)="showFamilyHabillage = !showFamilyHabillage">
     <div class="box-title">
       <p>Partie Habillage</p>
-      <div><i class="fas fa-angle-down"></i></div>
+      <div><i [ngClass]="showFamilyHabillage ? 'fas fa-angle-down' : 'fas fa-angle-right'"></i></div>
     </div>
   </div>
 
@@ -121,9 +156,9 @@
       <div class="categoryTitle boxOpener"><i class="fas fa-angle-right"></i></div>
     </div>
     <div class="box-response-habillage category box" [class.opened]="showCategoryReservoir">
-      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Réservoir</p>
-      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Robinet d'essence - Pompe à essence</p>
-      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Jauge à essence</p>
+      <p>Réservoir</p>
+      <p>Robinet d'essence - Pompe à essence</p>
+      <p>Jauge à essence</p>
     </div>
   </div>
 
@@ -134,9 +169,9 @@
       <div class="categoryTitle boxOpener"><i class="fas fa-angle-right"></i></div>
     </div>
     <div class="box-response-habillage category box" [class.opened]="showCategorySelle">
-      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Selle</p>
-      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Capot de selle</p>
-      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Mécanisme fermeture de selle</p>
+      <p>Selle</p>
+      <p>Capot de selle</p>
+      <p>Mécanisme fermeture de selle</p>
     </div>
   </div>
 
@@ -147,12 +182,12 @@
       <div class="categoryTitle boxOpener"><i class="fas fa-angle-right"></i></div>
     </div>
     <div class="box-response-habillage category box" [class.opened]="showCategoryCarenage">
-      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Carénage avant gauche</p>
-      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Carénage avant droit</p>
-      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Bulle - Saut de vent</p>
-      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Tête de fourche</p>
-      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Entourage compteur</p>
-      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Carénage divers</p>
+      <p>Carénage avant gauche</p>
+      <p>Carénage avant droit</p>
+      <p>Bulle - Saut de vent</p>
+      <p>Tête de fourche</p>
+      <p>Entourage compteur</p>
+      <p>Carénage divers</p>
     </div>
   </div>
 
@@ -163,8 +198,8 @@
       <div class="categoryTitle boxOpener"><i class="fas fa-angle-right"></i></div>
     </div>
     <div class="box-response-habillage category box" [class.opened]="showCategoryGardeBoue">
-      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Garde boue avant</p>
-      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Lèche roue arrière</p>
+      <p>Garde boue avant</p>
+      <p>Lèche roue arrière</p>
     </div>
   </div>
 
@@ -175,10 +210,10 @@
       <div class="categoryTitle boxOpener"><i class="fas fa-angle-right"></i></div>
     </div>
     <div class="box-response-habillage category box" [class.opened]="showCategoryCoqueArriere">
-      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Coque arrière complète</p>
-      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Coque arrière gauche</p>
-      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Coque arrière droite</p>
-      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Divers coque arrière</p>
+      <p>Coque arrière complète</p>
+      <p>Coque arrière gauche</p>
+      <p>Coque arrière droite</p>
+      <p>Divers coque arrière</p>
     </div>
   </div>
 </section>
@@ -189,7 +224,7 @@
   <div class="box-search-electrique" (click)="showFamilyElectrique = !showFamilyElectrique">
     <div class="box-title">
       <p>Partie Electrique</p>
-      <div><i class="fas fa-angle-down"></i></div>
+      <div><i [ngClass]="showFamilyElectrique ? 'fas fa-angle-down' : 'fas fa-angle-right'"></i></div>
     </div>
   </div>
 
@@ -199,11 +234,11 @@
       <p>Faiseaux Electriques</p>
       <div class="categoryTitle boxOpener"><i class="fas fa-angle-right"></i></div>
     </div>
-    <div class="box-response-electrique category box" [class.opened]="showCategoryFaiseaux">
-      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Faiseaux</p>
-      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Capteurs divers</p>
-      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Klaxon</p>
-      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Boîtier CDI</p>
+    <div class="box-response-electrique category box" id="color" [class.opened]="showCategoryFaiseaux">
+      <p>Faiseaux</p>
+      <p>Capteurs divers</p>
+      <p>Klaxon</p>
+      <p>Boîtier CDI</p>
     </div>
   </div>
 
@@ -214,10 +249,10 @@
       <div class="categoryTitle boxOpener"><i class="fas fa-angle-right"></i></div>
     </div>
     <div class="box-response-electrique category box" [class.opened]="showCategoryEclairage">
-      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Phare avant</p>
-      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Phare arrière</p>
-      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Eclairage de plaque</p>
-      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Clignotants</p>
+      <p>Phare avant</p>
+      <p>Phare arrière</p>
+      <p>Eclairage de plaque</p>
+      <p>Clignotants</p>
     </div>
   </div>
 
@@ -228,10 +263,10 @@
       <div class="categoryTitle boxOpener"><i class="fas fa-angle-right"></i></div>
     </div>
     <div class="box-response-electrique category box" [class.opened]="showCategoryCompteur">
-      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Compteur complet</p>
-      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Câble compteur</p>
-      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Entrainer compteur</p>
-      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Pièces compteur divers</p>
+      <p>Compteur complet</p>
+      <p>Câble compteur</p>
+      <p>Entrainer compteur</p>
+      <p>Pièces compteur divers</p>
     </div>
   </div>
 
@@ -242,10 +277,10 @@
       <div class="categoryTitle boxOpener"><i class="fas fa-angle-right"></i></div>
     </div>
     <div class="box-response-electrique category box" [class.opened]="showCategorySerrure">
-      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Serrure réservoir</p>
-      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Serrure arrière</p>
-      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Kit Neiman complet</p>
-      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Neiman</p>
+      <p>Serrure réservoir</p>
+      <p>Serrure arrière</p>
+      <p>Kit Neiman complet</p>
+      <p>Neiman</p>
     </div>
   </div>
 
@@ -256,8 +291,8 @@
       <div class="categoryTitle boxOpener"><i class="fas fa-angle-right"></i></div>
     </div>
     <div class="box-response-electrique category box" [class.opened]="showCategoryCommodo">
-      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Commodo gauche</p>
-      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Commodo droit</p>
+      <p>Commodo gauche</p>
+      <p>Commodo droit</p>
     </div>
   </div>
 </section>
@@ -268,7 +303,7 @@
   <div class="box-search-cycle" (click)="showFamilyCycle = !showFamilyCycle">
     <div class="box-title">
       <p>Partie Cycle</p>
-      <div><i class="fas fa-angle-down"></i></div>
+      <div><i [ngClass]="showFamilyCycle ? 'fas fa-angle-down' : 'fas fa-angle-right'"></i></div>
     </div>
   </div>
 
@@ -279,10 +314,10 @@
       <div class="categoryTitle boxOpener"><i class="fas fa-angle-right"></i></div>
     </div>
     <div class="box-response-cycle category box" [class.opened]="showCategoryCadre">
-      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Cadre</p>
-      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Araignée avant</p>
-      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Boucle arrière</p>
-      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Divers cadre</p>
+      <p>Cadre</p>
+      <p>Araignée avant</p>
+      <p>Boucle arrière</p>
+      <p>Divers cadre</p>
     </div>
   </div>
 
@@ -293,11 +328,11 @@
       <div class="categoryTitle boxOpener"><i class="fas fa-angle-right"></i></div>
     </div>
     <div class="box-response-cycle category box" [class.opened]="showCategoryFourche">
-      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Fourche complète</p>
-      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Tube de fourche gauche</p>
-      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Tube de fourche droit</p>
-      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Té supérieur</p>
-      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Té inférieur</p>
+      <p>Fourche complète</p>
+      <p>Tube de fourche gauche</p>
+      <p>Tube de fourche droit</p>
+      <p>Té supérieur</p>
+      <p>Té inférieur</p>
     </div>
   </div>
 
@@ -308,9 +343,9 @@
       <div class="categoryTitle boxOpener"><i class="fas fa-angle-right"></i></div>
     </div>
     <div class="box-response-cycle category box" [class.opened]="showCategoryBras">
-      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Bras oscillant complet</p>
-      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Axe de bras oscillant</p>
-      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Tendeur de chaîne</p>
+      <p>Bras oscillant complet</p>
+      <p>Axe de bras oscillant</p>
+      <p>Tendeur de chaîne</p>
     </div>
   </div>
 
@@ -321,8 +356,8 @@
       <div class="categoryTitle boxOpener"><i class="fas fa-angle-right"></i></div>
     </div>
     <div class="box-response-cycle category box" [class.opened]="showCategoryBequille">
-      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Béquille latérale</p>
-      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Béquille centrale</p>
+      <p>Béquille latérale</p>
+      <p>Béquille centrale</p>
     </div>
   </div>
 
@@ -333,8 +368,8 @@
       <div class="categoryTitle boxOpener"><i class="fas fa-angle-right"></i></div>
     </div>
     <div class="box-response-cycle category box" [class.opened]="showCategoryAmortisseur">
-      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Amortisseur complet</p>
-      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Biellette d'amortisseur</p>
+      <p>Amortisseur complet</p>
+      <p>Biellette d'amortisseur</p>
     </div>
   </div>
 
@@ -345,14 +380,14 @@
       <div class="categoryTitle boxOpener"><i class="fas fa-angle-right"></i></div>
     </div>
     <div class="box-response-cycle category box" [class.opened]="showCategoryGuidon">
-      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Guidon</p>
-      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Rétroviseur gauche</p>
-      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Rétroviseur droit</p>
-      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Poignée de gaz</p>
-      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Cocote d'embrayage</p>
-      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Levier d'embrayage</p>
-      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Levier de frein</p>
-      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Embout de guidon</p>
+      <p>Guidon</p>
+      <p>Rétroviseur gauche</p>
+      <p>Rétroviseur droit</p>
+      <p>Poignée de gaz</p>
+      <p>Cocote d'embrayage</p>
+      <p>Levier d'embrayage</p>
+      <p>Levier de frein</p>
+      <p>Embout de guidon</p>
     </div>
   </div>
 
@@ -363,16 +398,16 @@
       <div class="categoryTitle boxOpener"><i class="fas fa-angle-right"></i></div>
     </div>
     <div class="box-response-cycle category box" [class.opened]="showCategoryPlainte">
-      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Platine avant gauche</p>
-      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Platine avant droite</p>
-      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Platine arrière droite</p>
-      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Platine arrière gauche</p>
-      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Repose pied avant gauche</p>
-      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Repose pied avant droit</p>
-      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Repose pied arrière gauche</p>
-      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Repose pied arrière droit</p>
-      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Pédale de frein</p>
-      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Sélecteur de vitesse</p>
+      <p>Platine avant gauche</p>
+      <p>Platine avant droite</p>
+      <p>Platine arrière droite</p>
+      <p>Platine arrière gauche</p>
+      <p>Repose pied avant gauche</p>
+      <p>Repose pied avant droit</p>
+      <p>Repose pied arrière gauche</p>
+      <p>Repose pied arrière droit</p>
+      <p>Pédale de frein</p>
+      <p>Sélecteur de vitesse</p>
     </div>
   </div>
 
@@ -383,10 +418,10 @@
       <div class="categoryTitle boxOpener"><i class="fas fa-angle-right"></i></div>
     </div>
     <div class="box-response-cycle category box" [class.opened]="showCategoryFreinAvant">
-      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Frein avant complet</p>
-      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Maitre cylindre</p>
-      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Disque de frein</p>
-      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Durite de frein</p>
+      <p>Frein avant complet</p>
+      <p>Maitre cylindre</p>
+      <p>Disque de frein</p>
+      <p>Durite de frein</p>
     </div>
   </div>
 
@@ -397,10 +432,10 @@
       <div class="categoryTitle boxOpener"><i class="fas fa-angle-right"></i></div>
     </div>
     <div class="box-response-cycle category box" [class.opened]="showCategoryFreinArriere">
-      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Frein arrière complet</p>
-      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Maitre cylindre</p>
-      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Disque de frein</p>
-      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Durite de frein</p>
+      <p>Frein arrière complet</p>
+      <p>Maitre cylindre</p>
+      <p>Disque de frein</p>
+      <p>Durite de frein</p>
     </div>
   </div>
 
@@ -411,10 +446,10 @@
       <div class="categoryTitle boxOpener"><i class="fas fa-angle-right"></i></div>
     </div>
     <div class="box-response-cycle category box" [class.opened]="showCategoryJantes">
-      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Jante avant</p>
-      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Jante arrière</p>
-      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Axe de roue avant</p>
-      <p [ngClass]="{'none' : bgColor, 'black': !bgColor}" (click)="changeColor()">Axe de roue arrière</p>
+      <p>Jante avant</p>
+      <p>Jante arrière</p>
+      <p>Axe de roue avant</p>
+      <p>Axe de roue arrière</p>
     </div>
   </div>
 </section>

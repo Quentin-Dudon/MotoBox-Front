@@ -9,7 +9,7 @@
   <div id="box-search" class="box-search" (click)="show = !show">
     <div class="box-title">
       <p>Véhicule</p>
-      <div><i class="fas fa-angle-down"></i></div>
+      <div><i [ngClass]="show ? 'fas fa-angle-down' : 'fas fa-angle-right'"></i></div>
     </div>
   </div>
 
@@ -29,7 +29,8 @@
       <p>Modèle</p>
       <select [(ngModel)]="selectedModel" id="select-order-by" class="btn btn-lightgray">
         <option value="">--Rechercher--</option>
-        <option class="dropdown-item white" *ngFor="let ad of ads | removeDuplicateModel" value={{ad.model}}>
+        <option class="dropdown-item white" *ngFor="let ad of ads | removeDuplicateModel | orderBy:'model'"
+          value={{ad.model}}>
           {{ad.model}}</option>
       </select>
     </div>
@@ -37,6 +38,7 @@
       <ng5-slider class="slider" [(value)]="sliderValue" [options]="sliderOptions"></ng5-slider>
     </div>
     <div class="box-dropdown">
+      <button class="btn btn-warning" (click)="removeFilters()">Retirer les filtres</button>
       <button class="btn btn-success" (click)="onSubmit()">Valider</button>
     </div>
   </div>

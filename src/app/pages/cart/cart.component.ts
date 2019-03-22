@@ -1,8 +1,8 @@
-import {Component, OnInit} from '@angular/core';
-import {CartService} from '../../services/cart/cart.service';
-import {Succed} from '../../shared/error/succed';
-import {NotFoundError} from '../../shared/error/not-found-error';
-import {ServerError} from '../../shared/error/server-error';
+import { Component, OnInit } from '@angular/core';
+import { CartService } from '../../services/cart/cart.service';
+import { Succed } from '../../shared/error/succed';
+import { NotFoundError } from '../../shared/error/not-found-error';
+import { ServerError } from '../../shared/error/server-error';
 
 @Component({
   selector: 'app-cart',
@@ -22,7 +22,7 @@ export class CartComponent implements OnInit {
   }
 
   // -------------- GET ADS -------------- //
-  private async getCart(): void {
+  private async getCart() {
     // From Database
     // TODO : decommenter  apres creation DB cart
     // const dbCart = await this.cartService.get().subscribe(
@@ -39,13 +39,13 @@ export class CartComponent implements OnInit {
     this.ads = await this.cartService.localGet();
   }
 
-  private removeDuplicatesCarts(dbCart, localCart): Object<any> {
+  private removeDuplicatesCarts(dbCart, localCart) {
     const uniqueDbCarts = dbCart.map((cart) => {
       if (!localCart.includes(cart)) {
         return cart;
       }
     });
-    return {...localCart, ...uniqueDbCarts};
+    return { ...localCart, ...uniqueDbCarts };
   }
 
   // -------------- REMOVE AD -------------- //
