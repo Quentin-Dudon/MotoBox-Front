@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormControl} from '@angular/forms';
+import {FormBuilder, FormControl, FormGroup} from '@angular/forms';
+import { AdsService } from '../../../services/ads/ads.service';
+import { Router } from '@angular/router';
+import { HttpHandler } from '@angular/common/http';
 
 @Component({
   selector: 'app-admin-create',
@@ -9,7 +12,12 @@ import {FormBuilder, FormControl} from '@angular/forms';
 export class AdminCreateComponent implements OnInit {
   createAdminForm;
 
-  constructor(fb: FormBuilder) {
+  addForm: FormGroup;
+
+  constructor(
+    fb: FormBuilder, 
+    private router: Router, 
+    private adsService: AdsService) {
     // -------------- FORMBUILDER -------------- //
     this.createAdminForm = fb.group({
       // description
@@ -26,10 +34,15 @@ export class AdminCreateComponent implements OnInit {
       price: ['']
     });
   }
+
   ngOnInit() {
   }
 
-  submitForm() {
+  async submitForm() {
+    await this.adsService.create(this.createAdminForm)
+    .subscribe(error => this.handleError(error));
+    
+    this.router.navigate(['admin'])
   }
 
   // -------------- GETTERS -------------- //
@@ -60,5 +73,10 @@ export class AdminCreateComponent implements OnInit {
   }
   get price() {
     return (this.createAdminForm.get('price') as FormControl);
+  }
+
+
+  handleError(error) {
+    console.log("ERRROR :::", error);
   }
 }

@@ -1,6 +1,6 @@
 <div class="container pt-5">
   <h1>Nouvelle annonce</h1>
-  <form [formGroup]="createAdminForm" novalidate>
+  <form [formGroup]="createAdminForm" (ngSubmit)="submitForm()">
     <div class="row pt-5">
       <!--Title-->
       <div class="md-form col-sm-6 m-0">
@@ -101,8 +101,8 @@
 
     <div class="button">
       <button mat-raised-button
+      type="submit"
               [disabled]="!createAdminForm.valid"
-              (click)="submitForm()"
               color="accent">Modifier
       </button>
     </div>
