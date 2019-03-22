@@ -1,4 +1,5 @@
 <main>
-  <app-search [ads]="ads" (filterValues)="onFiltered($event)"></app-search>
-  <app-results [ads]="adsToShow" (filterCategory)=onFiltered($event)></app-results>
+  <app-search [ads]="ads" (filterValues)="onFiltered($event)" (removeFiltersFunction)="removeFiltered()">
+  </app-search>
+  <app-results [ads]="adsToShow" [sendReset]='sendReset' (filterCategory)=onFiltered($event)></app-results>
 </main>

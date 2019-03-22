@@ -1,11 +1,12 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, OnChanges } from '@angular/core';
+import { sendRequest } from 'selenium-webdriver/http';
 
 @Component({
   selector: 'app-filters',
   templateUrl: './filters.component.html',
   styleUrls: ['./filters.component.scss']
 })
-export class FiltersComponent implements OnInit {
+export class FiltersComponent implements OnInit, OnChanges {
 
   @Input() ads;
 
@@ -14,8 +15,9 @@ export class FiltersComponent implements OnInit {
   formValues = new Object();
 
   isShowCategory = false;
-  bgColor: boolean = true;
-  clickValue: string;
+  selectedCategory: string;
+  showCategoryMoteur: boolean = false;
+  @Input() sendReset;
 
   constructor() {
   }
@@ -23,17 +25,25 @@ export class FiltersComponent implements OnInit {
   ngOnInit() {
   }
 
-  getValue() {
-    this.clickValue = 'Moteur complet';
-    this.formValues['adCategory'] = this.clickValue;
+  ngOnChanges() {
+    if (this.sendReset) this.resetCategory();
+  }
+
+  toggleFilter(category) {
+    if (this.selectedCategory == category) {
+      this.selectedCategory = '';
+    } else {
+      this.selectedCategory = category;
+    }
+    this.formValues['adCategory'] = this.selectedCategory;
     this.filterCategory.emit(this.formValues);
-
-    console.log(this.clickValue);
   }
 
-  changeColor() {
-    this.bgColor = !this.bgColor;
+  resetCategory() {
+    this.selectedCategory = '';
   }
 
-
+  onChangeIcon() {
+    this.showCategoryMoteur = !this.showCategoryMoteur;
+  }
 }

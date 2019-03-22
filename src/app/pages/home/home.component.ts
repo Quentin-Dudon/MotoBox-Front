@@ -18,6 +18,8 @@ export class HomeComponent implements OnInit {
   ads: any;
   adsToShow;
   filterValues;
+  removeFiltersFunction;
+  sendReset;
 
   constructor(private adsService: AdsService) { }
 
@@ -54,21 +56,38 @@ export class HomeComponent implements OnInit {
   }
 
   public onFiltered($event) {
-    console.log($event)
-    this.filterValues = $event;
+    this.sendReset = false;
+    console.log('list all adds', $event)
+
+    if (this.filterValues == null) this.filterValues = $event;
+    this.filterValues = this.extend(this.filterValues, $event)
     this.adsToShow = this.ads;
-    if (this.filterValues.brandName !== '') {
+
+    if (this.filterValues.brandName !== '' && this.filterValues.brandName != null) {
       this.adsToShow = this.adsToShow.filter(ad => ad.brand === this.filterValues.brandName);
     }
-    if (this.filterValues.modelName !== '') {
+    if (this.filterValues.modelName !== '' && this.filterValues.modelName != null) {
       this.adsToShow = this.adsToShow.filter(ad => ad.model === this.filterValues.modelName);
     }
-    if (this.filterValues.yearName !== '') {
+    if (this.filterValues.yearName !== '' && this.filterValues.yearName != null) {
       this.adsToShow = this.adsToShow.filter(ad => ad.year == this.filterValues.yearName)
     }
-    if (this.filterValues.adCategory !== '') {
-      // this.adsToShow = this.adsToShow.filter(ad => ad.category == this.filterValues.adCategory)
-      // console.log(this.ads)
+    if (this.filterValues.adCategory !== '' && this.filterValues.adCategory != null) {
+      this.adsToShow = this.adsToShow.filter(ad => ad.category == this.filterValues.adCategory)
+      console.log('2nd filter', this.ads)
     }
+  }
+
+  public removeFiltered() {
+    console.log('CLEAR FILTERS');
+    this.filterValues = {};
+    this.adsToShow = this.ads;
+    this.sendReset = true;
+    console.log(this.ads)
+  }
+
+  private extend(obj, src) {
+    Object.keys(src).forEach(function (key) { obj[key] = src[key]; });
+    return obj;
   }
 }

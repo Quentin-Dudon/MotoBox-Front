@@ -37,8 +37,10 @@ export class SearchComponent implements OnInit {
 
   @Input() ads;
   @Output() filterValues = new EventEmitter<any>();
+  @Output() removeFiltersFunction = new EventEmitter<any>();
 
   formValues = new Object();
+  removeFiltersValues = new Object();
 
   hideTitle = true;
   isShow = false;
@@ -46,7 +48,7 @@ export class SearchComponent implements OnInit {
   selectedModel = '';
 
   //Slider
-  sliderValue: number = 2019;
+  sliderValue = '';
   sliderOptions: Options = {
     floor: 1950,
     ceil: 2019
@@ -55,6 +57,14 @@ export class SearchComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+  }
+
+  removeFilters() {
+    this.selectedBrand = '';
+    this.selectedModel = '';
+    this.sliderValue = '';
+
+    this.removeFiltersFunction.emit();
   }
 
   onSubmit() {

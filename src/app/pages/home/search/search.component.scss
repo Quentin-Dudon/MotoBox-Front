@@ -74,7 +74,7 @@ section {
       select,
       button {
         width: 100%;
-        margin: 0;
+        margin: 10px 0;
       }
 
       p {
@@ -85,7 +85,7 @@ section {
   }
 
   .box-response.opened {
-    max-height: 500px;
+    max-height: 600px;
     transition: ease-in-out 600ms max-height;
   }
 

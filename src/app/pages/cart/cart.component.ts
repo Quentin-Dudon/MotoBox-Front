@@ -1,8 +1,8 @@
-import {Component, OnInit} from '@angular/core';
-import {CartService} from '../../services/cart/cart.service';
-import {Succed} from '../../shared/error/succed';
-import {NotFoundError} from '../../shared/error/not-found-error';
-import {ServerError} from '../../shared/error/server-error';
+import { Component, OnInit } from '@angular/core';
+import { CartService } from '../../services/cart/cart.service';
+import { Succed } from '../../shared/error/succed';
+import { NotFoundError } from '../../shared/error/not-found-error';
+import { ServerError } from '../../shared/error/server-error';
 
 @Component({
   selector: 'app-cart',
@@ -45,7 +45,7 @@ export class CartComponent implements OnInit {
         return cart;
       }
     });
-    return {...localCart, ...uniqueDbCarts};
+    return { ...localCart, ...uniqueDbCarts };
   }
 
   // -------------- REMOVE AD -------------- //

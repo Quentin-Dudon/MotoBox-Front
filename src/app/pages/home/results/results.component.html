@@ -1,6 +1,6 @@
 <main>
   <section>
-    <app-filters [ads]="ads" (filterCategory)=onFiltered($event)></app-filters>
+    <app-filters [ads]="ads" [sendReset]="sendReset" (filterCategory)=onFiltered($event)></app-filters>
   </section>
   <section>
     <app-response [ads]="ads"></app-response>
